@@ -1,0 +1,37 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Templates literals
+</h2>
+
+<p>
+	If you come from the <em>java</em> world (and in fact, from most of
+	other languages), you are probably used to format <em>Strings</em>
+	with specific methods. In javascript, most of time, this was done by
+	just concatenating needed strings.
+	
+    From <em>ES6</em>, there is a feature called Template literals for that.
+    
+    Template literals are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them. 
+</p>
+
+
+<editor [localExec]="true">
+	<editortab title="samples.js" fileType="js">
+
+let firstName='marvin',
+    lastName='gaye',
+	descriptionOldVersion= () => '[ ' + firstName + ' , ' + lastName + ' ]',
+
+    //Use backticks instead of quotes to allow multi lines strings 
+    //and string interpolation ${} to display firstName & lastName
+	descriptionNewVersion= () => ` 
+		[ ${firstName} , ${lastName} ]
+	`;
+
+
+console.log(descriptionOldVersion());
+console.log(descriptionNewVersion());
+
+	</editortab>
+</editor>
+

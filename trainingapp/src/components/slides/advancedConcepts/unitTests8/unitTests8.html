@@ -1,0 +1,62 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Unit Tests - Testing Components
+</h2>
+
+<p>
+  To test a component, you will need the <em>TestBed</em> utility
+</p>
+
+<ul>
+  <li>
+    First import needed libs:
+    <editortab [alone]="true">
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By }              from '@angular/platform-browser';
+import { DebugElement }    from '@angular/core';
+
+import { PersonComponent } from './custom.component';      
+    </editortab>
+  </li>
+  <li>
+    Then, before each of your tests, create a mocked module
+    <editortab [alone]="true">
+describe('PersonComponent', () => {
+  
+  let cmp: BannerComponent;
+  let fixture: ComponentFixture&lt;PersonComponent&gt;;
+  let de: DebugElement;
+  let el: HTMLElement;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ PersonComponent ] // declare the test component
+    });
+
+    fixture = TestBed.createComponent(CustomComponent);
+    cmp = fixture.componentInstance; // BannerComponent test instance
+
+    // query for the name id by CSS element selector
+    de = fixture.debugElement.query(By.css('#name'));
+    el = de.nativeElement;
+
+  });
+  ...
+    </editortab>
+  </li>
+  <li>
+    Finally, write your tests content
+    <editortab [alone]="true">
+it('Should display the needed name', () => {
+  const name= 'John';
+  cmp.name = name;
+  fixture.detectChanges();
+  expect(el.textContent).toContain(name);
+});
+    </editortab>
+  </li>
+  <li>
+    And you're done. You can use <em>providers</em> as well into your <em>configureTestingModule</em>
+    if your component depends on services, and sure you can then provide a mocked service easily
+  </li>
+</ul>

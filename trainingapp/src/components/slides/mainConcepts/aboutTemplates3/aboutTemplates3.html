@@ -1,0 +1,71 @@
+<h2 class="standard-title">
+  <span class="title-category">Main Concepts</span>
+  About Templates - Event Binding - Use your events
+</h2>
+
+<ul>
+    <li>
+        You can easily create your own events
+    </li>
+    <li>
+        Use <em>next()</em> method on an <em>EventEmitter</em> instance 
+    </li>
+    <li>
+      This allows a <em>down to top</em> communication
+    </li>
+    <li>
+      You need to specify the corresponding attribute (the EventEmitter) either
+      <ul>
+        <li>
+          with <em>outputs</em> attribute in the <em>@Component</em> 
+        </li>
+        <li>
+          with the the <em>@Output</em> annotation
+        </li>
+      </ul> 
+    </li>
+</ul>
+
+
+<editor [ng2]="true" [plunker]="true" description="sample">
+  <editortab [title]="'app/app.component.ts'" [fileType]="'js'">
+import {Component, Output, EventEmitter} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
+@Component({
+  selector:'app',
+  template:`
+&lt;h1&gt;Checking custom events&lt;/h1&gt;
+&lt;sub-cmp (customevent)="displayData($event)"  &gt; &lt;/sub-cmp&gt;
+
+  `
+})
+class AppComponent{
+  displayData(data){
+    console.log(data);
+  }  
+}
+
+@Component({
+  selector:'sub-cmp',
+  template:`
+    &lt;button (click)="propagateEvent()"&gt;Click Me!&lt;/button&gt;
+  `
+})
+class SubCmp{
+  @Output()
+  customevent= new EventEmitter();
+  propagateEvent= () => this.customevent.next('some data') ;
+}
+
+export const ModuleDefs= {
+  imports: [BrowserModule],
+  declarations: [AppComponent, SubCmp],
+  bootstrap:[AppComponent]
+
+}
+  </editortab>
+    <editortab title="app/app.html" fileType="html">
+
+    </editortab>
+</editor>

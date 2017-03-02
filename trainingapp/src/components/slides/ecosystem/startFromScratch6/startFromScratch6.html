@@ -1,0 +1,161 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Start From Scratch - Real Application
+</h2>
+
+<p>
+    each project is different and there are a lot of ways
+    to organize/automatize it with help of tools such as 
+    <em>gulp</em>/<em>grunt</em> and their plugins. 
+    We can't review everything here.
+    But the minimal tools you will need to get something correct
+    are a package manager and <em>tsc</em>.
+</p>
+
+<p>In the sample below, let's :</p>
+<ul>
+    <li> Install some dependencies through <em>npm</em> (polyfills, server, ...) </li>
+    <li> Define a <em>tsconfig.json</em> which fits our needs </li>
+    <li> Add our sources in the src folder</li>
+    <li> Serve our files (src) and our dependencies (node_modules) </li>
+</ul>
+
+<editor>
+    
+    <editortab title="./package.json" fileType="js">
+{
+  "name": "MinApp",
+  "version": "1.0.1-SNAPSHOT",
+  "author":{
+    "name" : "Legrand Régis",
+    "email" : "regis.legrand@worldline.com"
+  },
+  "dependencies": {
+    "systemjs":"0.19.38",
+    "rxjs": "5.0.0-beta.12",
+    "reflect-metadata": "0.1.2",
+    "zone.js": "0.6.23",
+    "@angular/core": "2.0.0",
+    "@angular/common": "2.0.0",
+    "@angular/compiler": "2.0.0",
+    "@angular/http": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
+    "@angular/router": "3.0.0"
+    },
+  "devDependencies": {
+    "express":"4.13.4"
+  }
+}
+    </editortab>
+    
+    <editortab title="server.js">
+
+var http= require('http'),
+    express= require('express'),
+    baseProject= '.';
+
+var server= http.createServer(express()
+    .use(express.static(baseProject + '/src'))
+    .use(express.static(baseProject + '/node_modules')) );
+
+server.listen(3000, function(){console.log('listening 3000')});
+
+    </editortab>
+
+    <editortab title="./src/index.html" fileType="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Min App&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    &lt;!-- SHIMS --&gt;
+    &lt;script type="text/javascript" src="systemjs/dist/system.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="zone.js/dist/zone.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="reflect-metadata/Reflect.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="system.config.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript"&gt;
+        System.import('app').catch(function(err){ console.error(err); });
+    &lt;/script&gt;
+
+    &lt;app&gt;&lt;/app&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+    </editortab>
+
+    <editortab title="./src/app/main.ts" fileType="js">
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+    </editortab>
+
+    <editortab title="./src/app/app.module.ts" fileType="js">
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent }  from './app.component';
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [
+    AppComponent
+  ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }
+    </editortab>
+    <editortab title="./src/app/app.component.ts" fileType="js">
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;h1&gt;Min App&lt;/h1&gt;
+    &lt;p&gt;
+    Hello World
+    &lt;/p&gt;
+    `
+})
+export class AppComponent {}
+    </editortab>
+
+    <editortab title="./root.d.ts" fileType="js">
+/// &lt;reference path="typings/index.d.ts" /&gt;
+    </editortab>
+
+    <editortab title="typings.json" fileType="js">
+{
+  "globalDependencies": {
+    "es6-collections": "registry:dt/es6-collections#0.5.1+20160316155526",
+    "es6-promise": "registry:dt/es6-promise#0.0.0+20160614011821",
+    "systemjs": "registry:dt/systemjs#0.19.29+20160702105636"
+  }
+}
+    </editortab>
+
+    <editortab title="install/run" fileType="text">
+#If typescript is not already installed
+$ npm install -g typescript
+
+#If typings is not installed
+$ npm install -g typings
+
+#Install all dependencies in package.json
+$ npm install 
+
+#Install all TypeScript Definitions
+$ typings install 
+
+#Run the server
+$ node server
+    </editortab>    
+    
+</editor>
+

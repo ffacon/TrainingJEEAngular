@@ -1,0 +1,69 @@
+{
+  "name": "TrainingAngular2",
+  "version": "1.0.1-SNAPSHOT",
+  "author": {
+    "name": "Legrand Régis",
+    "email": "regis.legrand@worldline.com"
+  },
+  "scripts": {
+    "serve": "gulp express --gulpfile more/gulp/gulpfile.js --cwd .",
+    "compile": "gulp compileTs --gulpfile more/gulp/gulpfile.js --cwd .",
+    "dev": "gulp dev --gulpfile more/gulp/gulpfile.js --cwd .",
+    "dist": "gulp dist --gulpfile more/gulp/gulpfile.js --cwd .",
+    "typings": "typings install",
+    "jspmbundle": "gulp jspm --gulpfile more/gulp/gulpfile.js --cwd .",
+    "jspminit": "jspm init",
+    "jspm": "jspm install",
+    "newslide": "node more/tools/newComp"
+  },
+  "dependencies": {
+    "reflect-metadata": "0.1.2",
+    "zone.js": "0.6.10"
+  },
+  "devDependencies": {
+    "jspm": "0.16.45",
+    "typings": "1.4.0",
+    "gulp": "3.9.0",
+    "gulp-util": "3.0.6",
+    "gulp-debug": "2.1.0",
+    "gulp-add-src": "0.2.0",
+    "gulp-cached": "1.1.0",
+    "gulp-typescript": "2.13.4",
+    "gulp-jspm": "0.5.10",
+    "gulp-sourcemaps": "2.0.0-alpha",
+    "gulp-html-replace": "1.5.5",
+    "gulp-rename": "1.2.2",
+    "gulp-filter": "4.0.0",
+    "gulp-save": "1.2.1",
+    "underscore": "1.7.0",
+    "express": "4.13.3",
+    "glob": "5.0.15",
+    "body-parser": "1.15.1",
+    "typescript": "next",
+    "rimraf": "2.5.2"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "trainingapp"
+    },
+    "dependencies": {
+      "@angular/common": "npm:@angular/common@2.0.0-rc.1",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.1",
+      "@angular/http": "npm:@angular/http@2.0.0-rc.1",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
+      "@angular/router": "npm:@angular/router@2.0.0-rc.1",
+      "@angular/router-deprecated": "npm:@angular/router-deprecated@2.0.0-rc.1",
+      "@angular/upgrade": "npm:@angular/upgrade@2.0.0-rc.1",
+      "google-code-prettify": "npm:google-code-prettify@1.0.1",
+      "jquery": "npm:jquery@2.2.0",
+      "rxjs": "npm:rxjs@5.0.0-beta.6"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}

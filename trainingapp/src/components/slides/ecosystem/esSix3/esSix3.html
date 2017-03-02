@@ -1,0 +1,44 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Destructuring Assignment
+</h2>
+
+<p>
+	This is a new syntax which can be surprising when you read it for the
+	first time, so it's interesting to have a look at it. The idea is to
+	assign variables on a shortest way.
+</p>
+
+<editor>
+	<editortab title="Object.js" fileType="js">
+//ES5
+var person= {firstName: 'bob', lastName:'dylan'};
+var vFirstName= person.firstName;
+var vLastName= person.lastName;
+
+//ES6
+let person= { firstName: 'bob', lastName:'Marley' };
+
+//A variable can be extracted from an object and assigned to a variable
+let { firstName, lastName } = person;
+console.log(lastName); // Marley 
+
+//the variable can have a different name than the object property.
+let { firstName: lFirstName, lastName: lLastName } = person;
+console.log(lFirstName); // bob 
+
+
+//And it works at any level
+let person= {id: 1, firstName: 'bob', lastName:'dylan', bestFriend: { id: 2}};
+let {id, firstName, lastName, bestFriend:{id:bestFriendId}}= person;
+console.log(bestFriendId); //2
+	</editortab>
+    <editortab title="Array.js" fileType="js">
+
+//Finally it works as well with arrays
+let friendsIds= [1, 4, 5];
+let [firstFriend, secondFriend]= friendsIds;
+console.log("firstFriend" + firstFriend);   //firstFriend= 1
+console.log("secondFriend" + secondFriend); //secondFriend= 4
+	</editortab>
+</editor>

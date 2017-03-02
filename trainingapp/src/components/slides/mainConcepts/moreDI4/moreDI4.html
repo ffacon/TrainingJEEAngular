@@ -1,0 +1,49 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - More Details - Provide
+</h2>
+
+<p>
+    And we can even do more with <em>provide</em> 
+</p>
+<ul>
+    <li>configure simple values (<em>singletons</em>)</li>
+    <li>configure aliases (<em>singletons</em>)</li>
+    <li>configure factories</li>
+</ul>
+
+
+<editor>
+    <editortab title="config-value.ts" fileType="js">
+import {ReflectiveInjector} from '@angular/core';
+
+//Define our injector and its providers
+let injector = ReflectiveInjector.resolveAndCreate([
+  {provide: 'AppVersion', useValue: '1.0.0-SNAPSHOT'}
+]);
+
+    </editortab>
+    <editortab title="config-alias.ts" fileType="js">
+import {ReflectiveInjector} from '@angular/core';
+
+//Define our injector and its providers
+let injector = ReflectiveInjector.resolveAndCreate([
+  { provide: Person, useClass: PersonImpl}
+]);
+    </editortab>
+    <editortab title="config-factories.ts" fileType="js">
+import {ReflectiveInjector} from '@angular/core';
+
+//Define our injector and its providers
+let injector = ReflectiveInjector.resolveAndCreate([
+  {
+    provide: PersonFactory,
+    useFactory: (loggerService) => {
+        return new RandomPerson(loggerService);
+    },
+    deps: [LoggerService]
+  }
+]);
+
+    </editortab>    
+</editor>
