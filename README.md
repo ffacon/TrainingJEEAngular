@@ -1,10 +1,10 @@
-<h1>Angular2 Training Slides</h1>
+<h1>Angular Training Slides</h1>
 
 <h2> Aim </h2>
 <p>
-	Provide a training support based on Angular2 and for Angular2.
+	Provide a training support based on Angular and for Angular.
 	Slides are accessible 
-	<a href="http://worldline.github.io/TrainingAngular2/gh/" target="_blank">here</a>
+	<a href="https://worldline.github.io/TrainingJEEAngular/gh/" target="_blank">here</a>
 </p>
 
 <h2>Environment</h2>
