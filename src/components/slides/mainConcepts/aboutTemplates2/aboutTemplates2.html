@@ -1,0 +1,52 @@
+<h2 class="standard-title">
+  <span class="title-category">Main Concepts</span>
+  About Templates - Event Binding
+</h2>
+
+<p>
+    Listening events is a common need in <em>javascript</em>
+</p>
+<ul>
+   <li>With <em>ng2</em>, this is a native behavior, and you don't need any new devlopment to manage new events</li>
+   <li>Just use <code>(eventToManage)= "expression" </code> </li>
+   <li>Don't like the parenthesis? Then use the <code>on-eventname = "expression" </code> syntax instead</li>
+</ul>
+
+<editor [ng2]="true" [plunker]="true" description="sample">
+  <editortab [title]="'app/app.component.ts'" [fileType]="'js'">
+
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
+@Component({
+  selector:'app',
+  templateUrl:'app/app.html'
+})
+class AppComponent{
+  logEvent(msg, event){
+    console.log(msg);
+    console.log(event);
+  }  
+}
+
+export const ModuleDefs= {
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  bootstrap:[AppComponent]
+
+}
+  </editortab>
+    <editortab title="app/app.html" fileType="html">
+&lt;h1&gt;Checking event handling&lt;/h1&gt;
+
+&lt;p (click)="logEvent('click', $event)"  &gt;
+  
+  Click Me And check the logs
+  
+&lt;/p&gt;
+    </editortab>
+</editor>
+
+<p class="exercise">
+  If you know <em>ng1</em>, compare behaviors, which is better and why?
+</p>

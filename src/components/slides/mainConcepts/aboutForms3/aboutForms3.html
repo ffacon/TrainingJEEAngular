@@ -1,0 +1,129 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Forms - <em>FormControl</em> and FormGroup
+</h2>
+
+<ul>
+	<li>
+		In this sample, we are using a <em>formControl</em> directive in our input field
+	</li>
+	<li>
+		This control is bound to the detailsControl property in our component (typed <em>FormControl</em>)
+	</li>
+	<li>
+		Controls are typically used to check that a field is valid and do something when it is not
+	</li>
+	<li>
+		Controls also add these properties to fields:
+		<ul>
+			<li>
+				The element itself and so its <em>value</em>
+			</li>
+			<li>
+				The <em>valid</em> (!<em>invalid</em>) attribute which is
+				false if a validator has failed
+			</li>
+			<li>
+				The <em>pristine</em> (!<em>dirty</em>) attribute which is true if 
+				the field has not been modified
+			</li>
+			<li>
+				<em>touched</em> (!<em>untopuched</em>) : 
+				if the input field has been focused
+			</li>
+		</ul>
+	</li>
+	<li>
+		When a property is true, a corresponding css class is added:
+		<em>ng-touched</em>, <em>ng-utouched</em>
+		<em>ng-dirty</em>, <em>ng-pristine</em>
+		<em>ng-valid</em>, <em>ng-invalid</em>
+	</li>
+</ul>
+
+<editor [ng2]="true" [plunker]="true" description="Using forms">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MyFormCmp} from 'app/my-form.component';
+
+@Component({
+    selector: 'app',
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;'
+})
+export class App {}
+
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+	declarations: [App, MyFormCmp]
+}
+    </editortab>
+    <editortab title="app/my-form.component.ts" fileType="js">
+import {Component} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+
+enum TodoCategory{PRIVATE, PERSO};
+
+class TodoModel{
+	constructor(public category: TodoCategory, public details: string){}
+}
+
+@Component({
+	selector:'my-form-cmp',
+	templateUrl:'app/my-form.html'
+})
+export class MyFormCmp{
+	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
+	model: TodoModel= new TodoModel();
+	
+	detailsControl= new FormControl('', Validators.required);
+
+	isSubmit: false;
+
+	onSubmit(){
+		this.isSubmit= true;
+	}
+}
+	</editortab>    
+    <editortab title="app/my-form.html" fileType="html" ngNonBindable>
+&lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
+
+&lt;form (submit)="onSubmit()"&gt;
+	&lt;p&gt;
+	    &lt;label for="category"&gt;
+			Category
+		&lt;/label&gt;
+		&lt;select name="category" [(ngModel)]="model.category" id="category" required&gt;
+			&lt;option *ngFor="let category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
+	    &lt;input 
+	      name="details" 
+	      [(ngModel)]="model.details"
+	      [formControl]="detailsControl" 
+	      #currentElt
+	    &gt;
+	    &lt;span *ngIf="!detailsControl.valid"&gt;Miss data here&lt;/span&gt;
+	&lt;/p&gt;
+	&lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;p&gt;
+  {{currentElt.classList}}
+&lt;/p&gt;
+
+&lt;p *ngIf="isSubmit"&gt;
+	Form submited
+&lt;/p&gt;
+
+&lt;h2&gt;Result&lt;/h2&gt;
+
+&lt;p *ngIf="!isSubmit"&gt;
+	{{model.category}} : {{model.details}}
+&lt;/p&gt;
+    </editortab>    
+</editor>

@@ -1,0 +1,40 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Pipes - Exisiting Ones - DatePipe
+</h2>
+
+<p>
+	There is a number of existing pipes
+	provided by <em>Angular2</em> 
+</p>
+
+<ul>
+	<li>To format a date</li>
+	<li>Type name: <em>DatePipe</em></li>
+	<li>Expression name: <em>date</em></li>
+	<li>Parameters: format</li>
+</ul>
+
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
+@Component({
+    selector: 'app',
+    template: `&lt;p&gt; Now: {{ now() | date:'dd/MM/yyyy' }} &lt;/p&gt;`
+})
+export class App {
+
+	now(): Date {
+		return new Date();
+	}
+}
+
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule],
+	declarations: [App]
+}
+    </editortab>
+</editor>

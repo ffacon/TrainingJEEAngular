@@ -1,0 +1,33 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Declare your components
+</h2>
+
+<ul>
+    <li>
+        You can use core <em>Components</em>/<em>Directives</em>
+        into your templates without extra work
+    </li>
+    <li>
+        But you need to declare them if you want to
+        use custom <em>Web Components</em>
+    </li>
+    <li>
+        To do that, there is a field named <code>declarations</code> that
+        you have to use on your <em>@NgModule</em> annotation
+    </li>
+    <li>
+        In the example below we are using <em>ngFor</em> (not declared) and <em>SubCmp</em> (declared)
+        <editortab [alone]="true">
+import {CustomComponent} from './custom-cmp';
+
+@NgModule({
+    bootstrap:[...],
+    imports:[...],
+    declarations:[CustomComponent, ...]
+})
+        </editortab>
+    </li>
+</ul>
+
+

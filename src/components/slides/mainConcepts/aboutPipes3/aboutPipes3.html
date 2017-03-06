@@ -1,0 +1,40 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Pipes - Exisiting Ones - DecimalPipe
+</h2>
+
+<ul>
+	<li>To format decimal numbers</li>
+	<li>Type name: <em>DecimalPipe</em></li>
+	<li>Expression name: <em>number</em></li>
+	<li>digitInfo: (minIntegerDigits.minFractionDigits-maxFractionDigits)</li>
+</ul>
+
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
+@Component({
+    selector: 'app',
+    template: `
+    &lt;p&gt; Formated decimal 1: {{ decimal1 | number:format }} &lt;/p&gt;
+    &lt;p&gt; Formated decimal 2: {{ decimal2 | number:format }} &lt;/p&gt;
+    `
+})
+export class App {
+
+	public decimal1: number= 0.1234567;
+	public decimal2: number= 12.5;
+
+	public format: string= '3.2-3';
+}
+
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule],
+	declarations: [App]
+}
+
+    </editortab>
+</editor>

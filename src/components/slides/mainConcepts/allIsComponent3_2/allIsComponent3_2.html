@@ -1,0 +1,48 @@
+<h2 class="standard-title">
+    <span class="title-category">Main Concepts</span>
+    Classes Are Everywhere - Directives
+</h2>
+
+<ul>
+    <li>
+        So a <em>directives</em> is an <em>ES6</em> classes
+        which contains the <em>@Directive</em> annotation
+    </li>
+    <li>
+        This example counts the number of clicks on an element
+        <editortab [alone]="true" title="directive.ts" fileType="js" ngNonBindable>
+
+import {Directive} from '@angular/core';
+
+/**
+ * A directive to listen the number of clicks on an element
+ * 
+ * ### Example
+ *  &lt;h1&gt;Test Directive&lt;/h1&gt;
+ *  &lt;button [nthclicks]="2" #nthClicked="nthClicked" &gt; Click Me twice &lt;/button&gt;
+ *  &lt;p *ngIf="nthClicked.done"&gt;Twice clicked ok&lt;/p&gt;
+ */
+@Directive({
+    selector: '[nthclicks]',
+    inputs: ['nthclicks'],
+    host: {
+    '(click)': 'clickedOnce()'
+    },
+    exportAs:'nthClicked'  
+})
+export class NbClicksDirective {
+  
+  nthclicks= 1;
+  
+  private nbclicks= 0;
+  done= false;
+  
+  clickedOnce= () => {
+    this.nbclicks++;
+    this.done=  (this.nbclicks >= this.nthclicks);
+  }
+  
+}
+            
+        </editortab>        
+    </li>

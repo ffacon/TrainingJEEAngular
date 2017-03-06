@@ -1,0 +1,51 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Pipes - Exisiting Ones - In your code
+</h2>
+
+<ul>
+	<li>
+		As services, <em>Pipes</em> are injectable in your
+		components and services. 		
+	</li>
+	<li>
+		For now, you still need to add providers to use
+		them
+	</li>
+	<li>
+		Then,call the <em>transform</em> method
+	</li>
+</ul>
+
+
+
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {LowerCasePipe} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+
+@Component({
+    selector: 'app',
+    template: `
+    	&lt;p&gt; {{getLowerCase('aBcDeF')}}&lt;/p&gt;
+    `,
+    providers: [LowerCasePipe]
+})
+export class App {
+
+	constructor(private lowercase: LowerCasePipe){}
+	
+	getLowerCase(word: string): string {
+		return this.lowercase.transform(word);
+	}
+
+}
+
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule],
+	declarations: [App]
+}
+    </editortab>
+</editor>

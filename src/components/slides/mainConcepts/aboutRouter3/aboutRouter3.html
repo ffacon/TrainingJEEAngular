@@ -1,0 +1,41 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - Configuration And Usage
+</h2>
+
+<p>
+	Things to see in the previous example
+</p>
+
+<ul>
+	<li>
+		The import of <em>RouterModule</em> from <em>@angular/router</em>
+	</li>
+	<li>
+		The <em>routeDefs</em> array which defines our routes, where each
+		route is defined by a path, and associated either to a component, either
+		to a redirection to an other route
+	</li>
+	<li>
+		The <em>forRoot</em> method which allows to configure our app
+	</li>
+	<li>
+		Finally we use our directives:
+		<ul>
+			<li>
+				the <em>routerLink</em> to go to a view
+				by giving it the path to use
+			</li>
+			<li>
+				the <em>router-outlet</em> to specify where our view
+				will be loaded
+			</li>
+		</ul>
+	</li>
+	<li>
+		You can see that our routing definitions are in a specific file, named
+		<em>app.routing.ts</em>, this is not mandatory, but is a convention suggested
+		by <em>ng2</em>
+	</li>
+
+</ul>

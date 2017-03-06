@@ -1,0 +1,31 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Classes Are Everywhere - Pipes
+</h2>
+
+<p>
+    <em>Pipes</em> are the equivalent to <em>filters</em>
+    in <em>Angular1</em>, they allow to apply a treatment
+    to an entry value, eventually with parameters, and return
+    a value.
+</p>
+
+<editor>
+    <editortab title="truncate.js" fileType="js" ngNonBindable>
+/**
+ * Example: 
+ * {{ 'a string' | truncate:3 }}
+ */
+@Pipe({
+    name: 'truncate'
+})
+class TruncatePipe implements PipeTransform{
+    private defaultIndex = 4;
+
+    transform(val: string, index?: number) {
+        var idxToUse = (index === undefined ? this.defaultIndex : index);
+        return val.substr(0, idxToUse);
+    }
+}
+    </editortab>
+</editor>
