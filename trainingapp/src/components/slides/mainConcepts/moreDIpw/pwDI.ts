@@ -8,12 +8,12 @@ import {HOST_SLIDE_CONTAINER_CLASS} from '../../../../services/constants';
 
 
 @Component({
-	selector:'Pw2',
-	templateUrl:'src/components/slides/mainConcepts/pw2/pw2.html',
-	styleUrls: ['src/components/slides/mainConcepts/pw2/pw2.css'],
+	selector:'PwDI',
+	templateUrl:'src/components/slides/mainConcepts/moreDIpw/pwDI.html',
+	styleUrls: ['src/components/slides/mainConcepts/moreDIpw/pwDI.css'],
     directives: [Editor, EditorTab]
 })
-export class Pw2 extends SlideCommon{
+export class PwDI extends SlideCommon{
 	constructor(elt: ElementRef, @Inject(HOST_SLIDE_CONTAINER_CLASS) hostClass: string) {
 		super(elt, hostClass);
 	}
