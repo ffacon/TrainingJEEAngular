@@ -119,15 +119,14 @@ export class MyFormCmp{
 
 &lt;p *ngIf="isSubmit"&gt;
 	Form submited &lt;br/&gt;
-	Model {{model.category}} : {{model.details}}
-	Submited Model {{m.category}} : {{m.details}}
+	Model {{model.category}} : {{model.details}} &lt;br/&gt;
+	Model from ngSubmit {{m.category}} : {{m.details}}
 &lt;/p&gt;
 
 
 
 &lt;p *ngIf="!isSubmit"&gt;
-	&lt;h2&gt;Result&lt;/h2&gt;
-	{{model.category}} : {{model.details}}
+	Model {{model.category}} : {{model.details}}
 &lt;/p&gt;
     </editortab>    
 </editor>
