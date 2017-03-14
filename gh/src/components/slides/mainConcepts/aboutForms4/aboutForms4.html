@@ -86,7 +86,7 @@ export class MyFormCmp{
     <editortab title="app/my-form.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
-&lt;form (onSubmit)="onSubmit() [formGroup]="myFormGroup""&gt;
+&lt;form (ngSubmit)="onSubmit()" [formGroup]="myFormGroup" &gt;
 	&lt;p&gt;
 	    &lt;label for="category"&gt;
 			Category
