@@ -6,25 +6,25 @@
 <ul>
     <li>
     	Once you have Node.js setup, the next step is to install TypeScript. To install it, run the following npm command:
-		<pre> $ npm install -g typescript</pre>
+		<pre> $ npm install -g typescript</pre><br/>
     </li>
     <li>
     	Angular provides a utility to allow users to create and manage projects from the command line. It
 		automates tasks like creating projects, adding new controllers, etc. It’s generally a good idea to use <a href="https://github.com/angular/angular-cli">angular-cli</a> as it will help create and maintain common patterns across our application.
 		To install angular-cli, just run the following command:
-		<pre> $ npm install -g angular-cli</pre>
+		<pre> $ npm install -g angular-cli</pre><br/>
     </li>
     <li>
     	Now that you have your environment ready, let’s start writing our first Angular application!
 Let’s open up the terminal and run the ng new command to create a new project from scratch:
-		<pre> $ npm new ng2-eCom </pre>
+		<pre> $ npm new ng2-eCom </pre><br/>
     </li>
     <li>
     	angular-cli has a built in HTTP server that we can use to start our app. Back in the terminal, at
 		the root of our application 
 		<pre> 
-			$cd ng2-eCom <br/>
-			$ng serve <br/>
+			$cd ng2-eCom 
+			$ng serve 
 		</pre> <br/>
 
 		Our application is now running on localhost port 4200. Let’s open the browser and visit:
@@ -33,36 +33,45 @@ Let’s open up the terminal and run the ng new command to create a new project 
     <li>
     	Generating Components, Directives, Pipes and Services
 		You can use the ng generate (or just ng g) command to generate Angular components:
+</editor>
+ <editortab title="install/run" fileType="text">
+	$ ng g component bookDetails 
+	# will generate book-details.component
 
-<pre> 
-	$ ng g component books<br/>
-	$ ng g component home<br/>
-	$ ng g component contact<br/>
-	$ ng g component bookDetails -> book-details.component<br/>
-	$ ng g component basket<br/>
-	$ ng g component profile<br/>
-	$ ng g component login<br/><br/>
+	$ ng g component books
+	$ ng g component home
+	$ ng g component contact
+	$ ng g component basket
+	$ ng g component profile
+	$ ng g component login
 
-	$ ng g interface ./beans/user<br/>
-	$ ng g interface ./beans/comment<br/>
-	$ ng g interface ./beans/book<br/>
-	$ ng g interface ./beans/item<br/><br/>
+	$ ng g interface ./beans/user
+	$ ng g interface ./beans/comment
+	$ ng g interface ./beans/book
+	$ ng g interface ./beans/item
 
-	$ ng g class basket + mv ./src/app/basket.ts ./src/app/beans/basket<br/><br/>
+	$ ng g class basket 
+	$ mv ./src/app/basket.ts ./src/app/beans/basket
 
-	$ mkdir ./src/app/services<br/>
-	$ ng g service ./services/books -> books.service<br/>
-	$ ng g service ./services/contact -> contact.service<br/>
-	$ ng g service ./services/dataContainer -> data-container.service<br/>
-	$ ng g service ./services/localStorage -> local-storage.service<br/>
-	$ ng g service ./services/news -> news.service<br/>
-	$ ng g service ./services/user -> user.service<br/><br/>
+	$ mkdir ./src/app/services
+	$ ng g service ./services/dataContainer 
+	# will generate data-container.service
+	
+	$ ng g service ./services/books 
+	$ ng g service ./services/contact 
+	$ ng g service ./services/localStorage 
+	$ ng g service ./services/news 
+	$ ng g service ./services/user 
 
-	$ mkdir ./src/app/pipes<br/>
-	$ ng g pipe ./pipes/filterField -> filter-field.pipe<br/>
-	$ ng g pipe ./pipes/orderBy -> order-by.pipe<br/>
-	$ ng g pipe ./pipes/updateData -> update-data.pipe<br/>
-</pre>
+	$ mkdir ./src/app/pipes
+	$ ng g pipe ./pipes/filterField 
+	# will generate data-container.service filter-field.pipe
+
+	$ ng g pipe ./pipes/orderBy -> order-by.pipe
+	$ ng g pipe ./pipes/updateData -> update-data.pipe
+ </editortab>    
+</editor>
+
 
  	</li>
 
