@@ -38135,6 +38135,63 @@ System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/cor
         }
     };
 });
+System.register("src/components/slides/ecosystem/pw1_router/pw1_router.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+    "use strict";
+
+    var __extends = this && this.__extends || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() {
+            this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+    var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+        var c = arguments.length,
+            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+            d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = this && this.__metadata || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var __param = this && this.__param || function (paramIndex, decorator) {
+        return function (target, key) {
+            decorator(target, key, paramIndex);
+        };
+    };
+    var __moduleName = context_1 && context_1.id;
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Pw1_router;
+    return {
+        setters: [function (core_1_1) {
+            core_1 = core_1_1;
+        }, function (slideCommon_1_1) {
+            slideCommon_1 = slideCommon_1_1;
+        }, function (editor_1_1) {
+            editor_1 = editor_1_1;
+        }, function (editorTab_1_1) {
+            editorTab_1 = editorTab_1_1;
+        }, function (constants_1_1) {
+            constants_1 = constants_1_1;
+        }],
+        execute: function () {
+            Pw1_router = function (_super) {
+                __extends(Pw1_router, _super);
+                function Pw1_router(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Pw1_router;
+            }(slideCommon_1.SlideCommon);
+            Pw1_router = __decorate([core_1.Component({
+                selector: 'Pw1_router',
+                templateUrl: 'src/components/slides/ecosystem/pw1_router/pw1_router.html',
+                styleUrls: ['src/components/slides/ecosystem/pw1_router/pw1_router.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1_router);
+            exports_1("Pw1_router", Pw1_router);
+        }
+    };
+});
 System.register("src/components/slides/ecosystem/startFromScratch/startFromScratch.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
