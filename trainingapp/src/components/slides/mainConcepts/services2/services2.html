@@ -65,7 +65,7 @@ export class MyCmp{
         let postOptions= new RequestOptions({ headers: headers});
 
         //Note that json is stringified
-        return this.http.post('/my/api', JSON.stringify(news), postOptions)
+        return this.http.post('/my/api', JSON.stringify(user), postOptions)
         .toPromise()
         // server returns added used...
         .then( (response: Response) => {
