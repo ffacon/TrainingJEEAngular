@@ -1,0 +1,110 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	Practical Work - Create your own app with <em>JHipster</em> <img src="imgs/logo-jhipster.png" />
+
+</h2>
+
+<ul>
+	<li>
+		JHipster is a development platform to generate, 
+		develop and deploy Spring Boot + Angular/React Web applications 
+		and Spring microservices.
+	<br/>
+		see <a href="https://www.jhipster.tech/">https://www.jhipster.tech/</a> for more details
+	</li>
+	<br/>
+    <li>
+		Quick setup
+		<ul>
+			<li>Install Java 8 from the Oracle website.	</li>	
+			<li>Install Node.js from the Node.js website (please use an LTS 64-bit version, non-LTS versions are not supported)</li>
+			<li>NPM is installed with Node.js but you need to upgrade it: 
+				<pre>$ npm install -g npm</pre></li>
+			<li>If you want to use the JHipster Marketplace, install Yeoman: 
+				<pre>$ npm install -g yo</pre></li>
+			<li>Install JHipster: 
+				<pre>$ npm install -g generator-jhipster </pre></li>
+		    see <a href="https://www.jhipster.tech/installation/">https://www.jhipster.tech/installation/</a> for more options
+		</ul>	
+	</li>
+	<br/>
+    <li>
+		Creating an application
+    	<ul>		
+				<li>First of all, create an empty directory in which you will create your application:
+					<pre>$ mkdir bookstore</pre></li>
+				<li>Go to that directory:
+					<pre>$ cd bookstore/</pre></li>
+				<li>To generate your application, type: 
+					<pre>$ jhipster </pre></li>
+				see <a href="https://www.jhipster.tech/creating-an-app/">https://www.jhipster.tech/creating-an-app/</a> for more options
+			</ul>	
+	</li>
+	<br/>
+	<li>
+			Answer the questions asked by the generator to create an application 
+			tailored to your needs. 
+			Those options are described in the next section.
+<editor>
+ <editortab title="install/run" fileType="text">
+Welcome to JHipster
+? Which *type* of application would you like to create? 
+	Monolithic application
+? What is the base name of your application? 
+	bookstore
+? What is your default Java package name? 
+	com.worldline.bookstore
+? Do you want to use the JHipster Registry to configure, monitor and scale your
+	no
+? Which *type* of authentication would you like to use? 
+	JWT authentication 
+? Which *type* of database would you like to use? 
+	SQL 
+? Which *production* database would you like to use? 
+	MySQL
+? Which *development* database would you like to use? 
+	H2 with disk-based 
+? Do you want to use the Spring cache abstraction? 
+	Yes, with the Ehcache 
+? Do you want to use Hibernate 2nd level cache? 
+	Yes
+? Would you like to use Maven or Gradle for building the backend? 
+	Maven
+? Which *Framework* would you like to use for the client? 
+	Angular 6
+? Would you like to enable *SASS* support using the LibSass
+	NO
+? Would you like to enable internationalization support? 
+	Yes
+? Please choose the native language of the application English
+? Would you like to install other generators from the JHipster Marketplace? 
+	No
+
+ </editortab>    
+</editor>
+ 	</li>
+	 <li>
+			Once the application is generated, you can launch it using Maven:<br/> 
+			on Linux/MacOS/Windows PowerShell <pre>$ ./mvnw </pre> 
+			on Windows Cmd <pre>$ mvnw </pre> or <pre>$ mvn </pre><br/>
+
+			You can also launch it using Gradle:<br/> 
+			on Linux/MacOS/Windows PowerShell <pre>$ ./gradlew </pre>  
+			on Windows Cmd <pre>$ gradlew </pre><br/>			
+	</li>
+
+	<li>
+			Important if you want to have “live reload” of your JavaScript/TypeScript code, 
+			you will need to run :
+			<pre>$ run npm start </pre> or 
+			<pre>$ yarn start </pre> 
+			You can go to the Using JHipster in <a href="https://www.jhipster.tech/development/"> development page </a> for more information.<br/>
+			<br/>
+	</li>
+	<li>
+			Your application is now running on localhost port 9000. Let’s open the browser and visit:
+			<a href="http://localhost:9000">http://localhost:9000</a><br/>
+	</li>
+		
+
+</ul>

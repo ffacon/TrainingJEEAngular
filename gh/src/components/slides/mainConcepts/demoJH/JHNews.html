@@ -1,0 +1,71 @@
+<h2 class="standard-title">
+    <span class="title-category">Main Concepts</span>
+    Demo JHipster news
+</h2>
+
+
+<p>
+    Let's create some entities with JHipster Domain Language (JDL).
+</p><br/>
+
+<p>
+    The JDL is a JHipster specific domain language where we have added the possibility 
+    to describe all your entities and their relationships in a single file 
+    (or more than one) with a simple and user-friendly syntax. 
+</p><br/>
+
+<p>
+    You can use our online <a href="https://start.jhipster.tech/jdl-studio/">JDL-Studio IDE</a> to create JDL and its UML visualization. 
+    You can create and export or share the URL of your JDL model as well.
+</p><br/>
+
+<p>
+    In our PW the entity "news" could be modeled like this with JDL-Studio IDE <br/>
+		<img src="imgs/jdl_news.png" > <br/>
+    In order to use this model you just need to download the related <a href="/data/ngecom-jdl.jh">json</a> file in the root folder of your projet.
+</p><br/>
+ 
+<ul>
+    <li>
+        Let's generate ours entities, :
+        <ul>
+        <li>
+                in your JHipster application’s root folder run
+                <pre>$ jhipster import-jdl ngecom-jdl.jh</pre>
+        </li>
+        <li>
+               Once the entities are generated, you can launch it using Maven:<br/> 
+               on Windows Cmd <pre>$ mvnw </pre> or <pre>$ mvn </pre><br/>
+       </li>
+   
+       <li>
+               Important if you want to have “live reload” of your JavaScript/TypeScript code, 
+               you will need to run :
+               <pre>$ run npm start </pre> or 
+               <pre>$ yarn start </pre> 
+       </li>
+       <li>
+               Your application is now running on localhost port 9000. Let’s open the browser and visit:
+               <a href="http://localhost:9000">http://localhost:9000</a><br/>
+       </li>        
+       <li>
+               Use Admin account to log in and see use the menu to create some fresh news
+        </li>        
+       </ul>
+    </li>
+</ul>
+
+<br/>
+    <p>
+        Do the following changes to display the news in the main page. 
+    </p>
+<ul>
+    <li>
+        Change the Security Configuration to let everyone to acces news API. 
+        <a href="https://github.com/ffacon/bookstore/commit/9d16ff217d2fa0f14737a895ace6068220403c84">more details here</a>
+    </li>
+    <li>
+         Change the home component in order to display the list of news   
+         <a href="https://github.com/ffacon/bookstore/commit/e2617e48a137a9ba3d22fb8e5eefe176d0a66e2b">more details here</a>
+    </li>
+</ul>
