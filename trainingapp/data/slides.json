@@ -69,6 +69,7 @@
 		{"path": "mainConcepts/aboutRouter2/aboutRouter2"},
 		{"path": "mainConcepts/aboutRouter3/aboutRouter3"},
 		{"path": "ecosystem/pw1_router/pw1_router"},
+		{"path": "ecosystem/pw1_jhipster/pw1_jhipster"},
 		{"path": "mainConcepts/aboutTemplates7Bis/aboutTemplates7Bis"},
 		{"path": "mainConcepts/aboutTemplates11/aboutTemplates11"},
 		{"path": "mainConcepts/allIsComponent3/allIsComponent3"},
@@ -89,6 +90,7 @@
 		{"path": "mainConcepts/services2/services2"},
 		{"path": "mainConcepts/services3/services3"},
 		{"path": "mainConcepts/pw1/pw1"},	
+		{"path": "mainConcepts/demoJH/JHNews"},
 		{"path": "mainConcepts/aboutTemplates2/aboutTemplates2"},  
 		{"path": "mainConcepts/aboutTemplates3/aboutTemplates3"},
 		{"path": "mainConcepts/pwNewComponent/pwNewComponent"},   
@@ -161,8 +163,6 @@
 		{"path": "advancedConcepts/e2e/e2e"},
 		{"path": "advancedConcepts/e2e2/e2e2"},
 		{"path": "advancedConcepts/e2e3/e2e3"},
-		{"path": "advancedConcepts/pWE2E/pWE2E"},
-		{"path": "advancedConcepts/pwObservables/pwObservables"},
-		{"path": "advancedConcepts/pwObservables/pwObservables"}
+		{"path": "advancedConcepts/pWE2E/pWE2E"}
 	]
 }
