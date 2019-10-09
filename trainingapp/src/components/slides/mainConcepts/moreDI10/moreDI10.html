@@ -17,14 +17,9 @@
         But services which depend on other services doesn't use any annotation
         by default
     </li>
+    
     <li>
-        Add <em>@Inject</em> on the constructor parameters:
-        <editortab [alone]="true" fileType="js">
-            constructor(@Inject(MyService) myService: MyService){}
-        </editortab>
-    </li>
-    <li>
-        Or <em>@Injectable</em> on the service class:
+        By default angular CLI add <em>@Injectable</em> on every service class generated:
         <editortab [alone]="true" fileType="js">
             @Injectable
             class MyService{
@@ -32,6 +27,12 @@
                     //...
                 }
             }
+        </editortab>
+    </li>
+    <li>
+        Otherwise you can add <em>@Inject</em> on the constructor parameters:
+        <editortab [alone]="true" fileType="js">
+            constructor(@Inject(MyService) myService: MyService){}
         </editortab>
     </li>
 </ul>
