@@ -8,7 +8,7 @@
         You can easily create your own events
     </li>
     <li>
-        Use <em>next()</em> method on an <em>EventEmitter</em> instance 
+        Use <em>emit()</em> method on an <em>EventEmitter</em> instance 
     </li>
     <li>
       This allows a <em>down to top</em> communication
@@ -17,10 +17,10 @@
       You need to specify the corresponding attribute (the EventEmitter) either
       <ul>
         <li>
-          with <em>outputs</em> attribute in the <em>@Component</em> 
+          with the the <em>@Output</em> annotation
         </li>
         <li>
-          with the the <em>@Output</em> annotation
+          or with <em>outputs</em> attribute in the <em>@Component</em> 
         </li>
       </ul> 
     </li>
@@ -55,7 +55,9 @@ class AppComponent{
 class SubCmp{
   @Output()
   customevent= new EventEmitter();
-  propagateEvent= () => this.customevent.next('some data') ;
+  propagateEvent() {
+    this.customevent.emit('some data');
+  }
 }
 
 export const ModuleDefs= {
