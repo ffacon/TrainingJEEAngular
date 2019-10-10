@@ -9,6 +9,7 @@
     The declaration of providers will be deported: 
 </p>
 <ul>
+    <li>To the service declaration (<em>@Injectable</em>)</li>
     <li>To the module declaration (<em>@NgModule</em>)</li>
     <li>To a component declaration (<em>@Component</em>) </li>
     <li>
@@ -16,17 +17,38 @@
         <ul>
             <li>Declare a provider on a component make it available for its children components only</li>
             <li>By default, a service is a singleton</li>
-            <li>But if a service is  provided twice, then let's have one instance by provider</li>
+            <li>But if a service is  provided twice, then we will have one instance by provider</li>
         </ul>
     </li>
 </ul>
 
 <editor>
-    <editortab title="app/app.provider1.ts" fileType="js">
-import {NgModule, Component} from '@angular/core';
+<editortab title="app/app.provider.injectable.ts" fileType="js">
+import {NgModule, Component, Injectable} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+            
+@Injectable({providedIn: 'root'})
+export class CustomService {}
+            
+@Component({
+   selector: 'app',
+   template: 'Hello World!'
+})
+export class AppCmp{}
+            
+@NgModule({
+   imports: [BrowserModule],
+   declarations: [AppCmp],
+   bootstrap:[ AppCmp ]
+   })
+export class AppModule{}
+</editortab>
+    <editortab title="app/app.provider.module.ts" fileType="js">
+import {NgModule, Component, Injectable} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
-import {CustomService} from './custom-service';
+@Injectable()
+export class CustomService {}
 
 @Component({
     selector: 'app',
@@ -42,11 +64,12 @@ class AppCmp{}
 })
 export class AppModule{}
     </editortab>
-    <editortab title="app/app.provider2.ts" fileType="js">
-import {NgModule, Component} from '@angular/core';
+    <editortab title="app/app.provider.component.ts" fileType="js">
+iimport {NgModule, Component, Injectable} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
-import {CustomService} from './custom-service';
+@Injectable()
+export class CustomService {}
 
 @Component({
     selector: 'app',

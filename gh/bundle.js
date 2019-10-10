@@ -2,15 +2,15 @@
 System.register("src/services/slidesDefs.js", [], function (exports_1, context_1) {
     "use strict";
 
-    var __moduleName = context_1 && context_1.id;
     var SlideLinkModel;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
         execute: function () {
             // Just a been which contains data about a slide
             // Have a look at the SLideLink component to see
             // where it's used
-            SlideLinkModel = function () {
+            SlideLinkModel = /** @class */function () {
                 function SlideLinkModel() {}
                 SlideLinkModel.prototype.getComponentName = function () {
                     return this.componentName;
@@ -66,17 +66,17 @@ System.register("src/components/slideLink/slideLink.js", ["npm:@angular/core@2.0
     var __metadata = this && this.__metadata || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, SlideLink;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
         }],
         execute: function () {
-            // Basic class which contains informations about a slide ( its name, its index)
-            // These informations can be used to display a tooltip when the cursor is on the 
-            // link element, and can also be used to navigate to a given slide
-            SlideLink = function () {
+            SlideLink = /** @class */function () {
+                // Basic class which contains informations about a slide ( its name, its index)
+                // These informations can be used to display a tooltip when the cursor is on the 
+                // link element, and can also be used to navigate to a given slide
                 function SlideLink() {
                     var _this = this;
                     this.navigate = new core_1.EventEmitter();
@@ -98,15 +98,19 @@ System.register("src/components/slideLink/slideLink.js", ["npm:@angular/core@2.0
                     enumerable: true,
                     configurable: true
                 });
+                __decorate([core_1.Output(), __metadata("design:type", core_1.EventEmitter)], SlideLink.prototype, "navigate", void 0);
+                SlideLink = __decorate([core_1.Component({
+                    selector: 'slide-link',
+                    styleUrls: ['src/components/slideLink/slideLink.css'],
+                    templateUrl: 'src/components/slideLink/slideLink.html',
+                    inputs: ['model']
+                })
+                // Basic class which contains informations about a slide ( its name, its index)
+                // These informations can be used to display a tooltip when the cursor is on the 
+                // link element, and can also be used to navigate to a given slide
+                ], SlideLink);
                 return SlideLink;
             }();
-            __decorate([core_1.Output(), __metadata("design:type", core_1.EventEmitter)], SlideLink.prototype, "navigate", void 0);
-            SlideLink = __decorate([core_1.Component({
-                selector: 'slide-link',
-                styleUrls: ['src/components/slideLink/slideLink.css'],
-                templateUrl: 'src/components/slideLink/slideLink.html',
-                inputs: ['model']
-            }), __metadata("design:paramtypes", [])], SlideLink);
             exports_1("SlideLink", SlideLink);
         }
     };
@@ -114,13 +118,23 @@ System.register("src/components/slideLink/slideLink.js", ["npm:@angular/core@2.0
 System.register("src/components/slideMove/slideMoveLeft.js", ["npm:@angular/core@2.0.0-rc.1.js", "npm:rxjs@5.0.0-beta.6/add/observable/fromEvent.js", "src/services/slidesHelper.js", "src/services/keyupListener.js", "src/services/slideMove.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -131,8 +145,8 @@ System.register("src/components/slideMove/slideMoveLeft.js", ["npm:@angular/core
     var __metadata = this && this.__metadata || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slidesHelper_1, keyupListener_1, slideMove_1, SlideMoveLeft;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -144,13 +158,12 @@ System.register("src/components/slideMove/slideMoveLeft.js", ["npm:@angular/core
             slideMove_1 = slideMove_1_1;
         }],
         execute: function () {
-            // Display a button which can be clicked to navigate to the previous slide (see template)
-            // Also observe the left arrow keypress to navigate to the previous slide
-            SlideMoveLeft = function (_super) {
+            SlideMoveLeft = /** @class */function (_super) {
                 __extends(SlideMoveLeft, _super);
                 function SlideMoveLeft(slidesHelper, keyupListener) {
-                    _super.call(this, slidesHelper, keyupListener);
-                    this.label = 'left';
+                    var _this = _super.call(this, slidesHelper, keyupListener) || this;
+                    _this.label = 'left';
+                    return _this;
                 }
                 // Return the stream which has to be obesrved and which corresponds
                 // to left keypress
@@ -161,13 +174,17 @@ System.register("src/components/slideMove/slideMoveLeft.js", ["npm:@angular/core
                 SlideMoveLeft.prototype.goToSlide = function () {
                     this.slidesHelper.previousSlide();
                 };
+                SlideMoveLeft = __decorate([core_1.Component({
+                    selector: 'slide-move-left',
+                    templateUrl: 'src/components/slideMove/slideMove.html',
+                    directives: []
+                })
+                // Display a button which can be clicked to navigate to the previous slide (see template)
+                // Also observe the left arrow keypress to navigate to the previous slide
+
+                , __metadata("design:paramtypes", [slidesHelper_1.SlidesHelper, keyupListener_1.KeyupListener])], SlideMoveLeft);
                 return SlideMoveLeft;
             }(slideMove_1.SlideMove);
-            SlideMoveLeft = __decorate([core_1.Component({
-                selector: 'slide-move-left',
-                templateUrl: 'src/components/slideMove/slideMove.html',
-                directives: []
-            }), __metadata("design:paramtypes", [slidesHelper_1.SlidesHelper, keyupListener_1.KeyupListener])], SlideMoveLeft);
             exports_1("SlideMoveLeft", SlideMoveLeft);
         }
     };
@@ -12329,8 +12346,8 @@ System.register("src/services/slidesHelper.js", ["npm:@angular/core@2.0.0-rc.1.j
     var __metadata = this && this.__metadata || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, Observable_1, zip_1, router_deprecated_1, http_1, SlidesHelper;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -12344,15 +12361,7 @@ System.register("src/services/slidesHelper.js", ["npm:@angular/core@2.0.0-rc.1.j
             http_1 = http_1_1;
         }],
         execute: function () {
-            // This service is used in the application for all navigation
-            // purpose (router service should not be used outside of this service)
-            // More specifically, the service does the following:
-            // -> configure the routes based on the data/slides.json file (have a look a configureSlide method)
-            // -> Get the route definitions if needed (observe the slidesObservable stream to do so)
-            // -> Observe that a slide has been accessed successfully (observe the slideChangedObservable stream to do so)
-            // -> Navigate to a given slide (use the goto method to do so)
-            // -> Navigate to the preivous or next slide (use the previousSlide and nextSlide methods to do so)
-            SlidesHelper = function () {
+            SlidesHelper = /** @class */function () {
                 function SlidesHelper(http, router) {
                     var _this = this;
                     this.http = http;
@@ -12391,7 +12400,12 @@ System.register("src/services/slidesHelper.js", ["npm:@angular/core@2.0.0-rc.1.j
                                 res.slidePath = slideDef.path;
                                 return res;
                             });
-                        }).toArray();
+                        })
+                        // Value returns by flatMap is an observable of RouteDefinition
+                        // -> ( RouteDef 1, RouteDef2, ... )
+                        // And we want an observable of array of RouteDefinition...
+                        // ( [RouteDef1, RouteDef2, ...] )
+                        .toArray();
                         // The route definitions array is passed to the slidesObservable stream
                         // So the slidesObservable stream will just contains the array of route
                         // definitions and notify every observer which subscribed to id
@@ -12446,11 +12460,21 @@ System.register("src/services/slidesHelper.js", ["npm:@angular/core@2.0.0-rc.1.j
                         _this.routesConfig = routesConfig;
                     });
                 }
+                SlidesHelper = __decorate([core_1.Component({
+                    providers: [http_1.HTTP_PROVIDERS]
+                })
+                // This service is used in the application for all navigation
+                // purpose (router service should not be used outside of this service)
+                // More specifically, the service does the following:
+                // -> configure the routes based on the data/slides.json file (have a look a configureSlide method)
+                // -> Get the route definitions if needed (observe the slidesObservable stream to do so)
+                // -> Observe that a slide has been accessed successfully (observe the slideChangedObservable stream to do so)
+                // -> Navigate to a given slide (use the goto method to do so)
+                // -> Navigate to the preivous or next slide (use the previousSlide and nextSlide methods to do so)
+
+                , __metadata("design:paramtypes", [http_1.Http, router_deprecated_1.Router])], SlidesHelper);
                 return SlidesHelper;
             }();
-            SlidesHelper = __decorate([core_1.Component({
-                providers: [http_1.HTTP_PROVIDERS]
-            }), __metadata("design:paramtypes", [http_1.Http, router_deprecated_1.Router])], SlidesHelper);
             exports_1("SlidesHelper", SlidesHelper);
         }
     };
@@ -12590,8 +12614,8 @@ System.registerDynamic('npm:rxjs@5.0.0-beta.6/add/operator/filter.js', ['npm:rxj
 System.register("src/services/keyupListener.js", ["npm:rxjs@5.0.0-beta.6/Observable.js", "npm:rxjs@5.0.0-beta.6/add/operator/map.js", "npm:rxjs@5.0.0-beta.6/add/operator/filter.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __moduleName = context_1 && context_1.id;
     var Observable_1, KeyupListener;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (Observable_1_1) {
             Observable_1 = Observable_1_1;
@@ -12602,7 +12626,7 @@ System.register("src/services/keyupListener.js", ["npm:rxjs@5.0.0-beta.6/Observa
             //  stream2: stream1.filter(left keypress): (left keypress) 
             //  stream3: stream1.filter(right keypress): (left keypress)
             // This service will be used by: slideMoveLeft and slideMoveRight components
-            KeyupListener = function () {
+            KeyupListener = /** @class */function () {
                 function KeyupListener() {
                     //Stream which observe all keydown events
                     this.keydownObservable = Observable_1.Observable.fromEvent(document.getElementsByTagName('body')[0], 'keydown').map(function (event) {
@@ -12626,15 +12650,15 @@ System.register("src/services/keyupListener.js", ["npm:rxjs@5.0.0-beta.6/Observa
 System.register("src/services/slideMove.js", [], function (exports_1, context_1) {
     "use strict";
 
-    var __moduleName = context_1 && context_1.id;
     var SlideMove;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
         execute: function () {
             // IS NOT A SERVICE
             // Abstract class for SlideMoveLeft and SlideMoveRight components
             // See their comments for details
-            SlideMove = function () {
+            SlideMove = /** @class */function () {
                 function SlideMove(slidesHelper, keyupListener) {
                     var _this = this;
                     this.label = 'default';
@@ -12659,13 +12683,23 @@ System.register("src/services/slideMove.js", [], function (exports_1, context_1)
 System.register("src/components/slideMove/slideMoveRight.js", ["npm:@angular/core@2.0.0-rc.1.js", "npm:rxjs@5.0.0-beta.6/add/observable/fromEvent.js", "src/services/slidesHelper.js", "src/services/keyupListener.js", "src/services/slideMove.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -12676,8 +12710,8 @@ System.register("src/components/slideMove/slideMoveRight.js", ["npm:@angular/cor
     var __metadata = this && this.__metadata || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slidesHelper_1, keyupListener_1, slideMove_1, SlideMoveRight;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -12689,13 +12723,12 @@ System.register("src/components/slideMove/slideMoveRight.js", ["npm:@angular/cor
             slideMove_1 = slideMove_1_1;
         }],
         execute: function () {
-            // Display a button which can be clicked to navigate to the next slide (see template)
-            // Also observe the right arrow keypress to navigate to the next slide
-            SlideMoveRight = function (_super) {
+            SlideMoveRight = /** @class */function (_super) {
                 __extends(SlideMoveRight, _super);
                 function SlideMoveRight(slidesHelper, keyupListener) {
-                    _super.call(this, slidesHelper, keyupListener);
-                    this.label = 'right';
+                    var _this = _super.call(this, slidesHelper, keyupListener) || this;
+                    _this.label = 'right';
+                    return _this;
                 }
                 // Return the stream which has to be observed and which corresponds
                 // to the right keypress
@@ -12706,13 +12739,17 @@ System.register("src/components/slideMove/slideMoveRight.js", ["npm:@angular/cor
                 SlideMoveRight.prototype.goToSlide = function () {
                     this.slidesHelper.nextSlide();
                 };
+                SlideMoveRight = __decorate([core_1.Component({
+                    selector: 'slide-move-right',
+                    templateUrl: 'src/components/slideMove/slideMove.html',
+                    directives: []
+                })
+                // Display a button which can be clicked to navigate to the next slide (see template)
+                // Also observe the right arrow keypress to navigate to the next slide
+
+                , __metadata("design:paramtypes", [slidesHelper_1.SlidesHelper, keyupListener_1.KeyupListener])], SlideMoveRight);
                 return SlideMoveRight;
             }(slideMove_1.SlideMove);
-            SlideMoveRight = __decorate([core_1.Component({
-                selector: 'slide-move-right',
-                templateUrl: 'src/components/slideMove/slideMove.html',
-                directives: []
-            }), __metadata("design:paramtypes", [slidesHelper_1.SlidesHelper, keyupListener_1.KeyupListener])], SlideMoveRight);
             exports_1("SlideMoveRight", SlideMoveRight);
         }
     };
@@ -12730,8 +12767,8 @@ System.register("src/components/menu/menu.js", ["npm:@angular/core@2.0.0-rc.1.js
     var __metadata = this && this.__metadata || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, common_1, slidesDefs_1, slidesHelper_1, slideLink_1, slideMoveLeft_1, slideMoveRight_1, Menu;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -12749,9 +12786,7 @@ System.register("src/components/menu/menu.js", ["npm:@angular/core@2.0.0-rc.1.js
             slideMoveRight_1 = slideMoveRight_1_1;
         }],
         execute: function () {
-            // The menu allows both to  display a progress bar depending on the current slide
-            // and allows to navigate to a slide by clicking on the progress bar
-            Menu = function () {
+            Menu = /** @class */function () {
                 function Menu(slidesHelper) {
                     var _this = this;
                     // The current slide index (so it's easy to set previous slide links
@@ -12781,14 +12816,18 @@ System.register("src/components/menu/menu.js", ["npm:@angular/core@2.0.0-rc.1.js
                         _this.slidesIndex = idx;
                     });
                 }
+                Menu = __decorate([core_1.Component({
+                    selector: 'menu',
+                    styleUrls: ['src/components/menu/menu.css'],
+                    templateUrl: 'src/components/menu/menu.html',
+                    directives: [common_1.NgFor, slideLink_1.SlideLink, slideMoveLeft_1.SlideMoveLeft, slideMoveRight_1.SlideMoveRight]
+                })
+                // The menu allows both to  display a progress bar depending on the current slide
+                // and allows to navigate to a slide by clicking on the progress bar
+
+                , __metadata("design:paramtypes", [slidesHelper_1.SlidesHelper])], Menu);
                 return Menu;
             }();
-            Menu = __decorate([core_1.Component({
-                selector: 'menu',
-                styleUrls: ['src/components/menu/menu.css'],
-                templateUrl: 'src/components/menu/menu.html',
-                directives: [common_1.NgFor, slideLink_1.SlideLink, slideMoveLeft_1.SlideMoveLeft, slideMoveRight_1.SlideMoveRight]
-            }), __metadata("design:paramtypes", [slidesHelper_1.SlidesHelper])], Menu);
             exports_1("Menu", Menu);
         }
     };
@@ -35342,8 +35381,8 @@ System.register("src/components/app/app.js", ["npm:@angular/core@2.0.0-rc.1.js",
     var __metadata = this && this.__metadata || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, platform_browser_1, common_1, router_deprecated_1, http_1, slidesHelper_1, keyupListener_1, constants_1, menu_1, compiler_1, compiler_2, xhr_impl_1, App, ALL_ROUTER_BINDINGS, IN_BINDINGS, ALL_BINDINGS;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35370,20 +35409,22 @@ System.register("src/components/app/app.js", ["npm:@angular/core@2.0.0-rc.1.js",
             xhr_impl_1 = xhr_impl_1_1;
         }, function (_1) {}, function (_2) {}, function (_3) {}],
         execute: function () {
-            //The app component contains the app version and name
-            App = function () {
+            App = /** @class */function () {
                 function App() {
                     this.name = 'Training Angular';
                     this.version = '7.0.0';
                 }
+                App = __decorate([core_1.Component({
+                    selector: 'app',
+                    styleUrls: ['src/components/app/app.css'],
+                    templateUrl: 'src/components/app/app.html',
+                    directives: [menu_1.Menu, router_deprecated_1.ROUTER_DIRECTIVES]
+                })
+                //The app component contains the app version and name
+
+                , __metadata("design:paramtypes", [])], App);
                 return App;
             }();
-            App = __decorate([core_1.Component({
-                selector: 'app',
-                styleUrls: ['src/components/app/app.css'],
-                templateUrl: 'src/components/app/app.html',
-                directives: [menu_1.Menu, router_deprecated_1.ROUTER_DIRECTIVES]
-            }), __metadata("design:paramtypes", [])], App);
             exports_1("App", App);
             //Define providers for Router
             ALL_ROUTER_BINDINGS = [router_deprecated_1.ROUTER_BINDINGS, core_1.provide(common_1.APP_BASE_HREF, { useValue: '/' }), core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })];
@@ -35402,13 +35443,23 @@ System.register("src/components/app/app.js", ["npm:@angular/core@2.0.0-rc.1.js",
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection/aboutChangeDetection.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35424,8 +35475,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection/abo
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35439,19 +35490,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection/abo
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection = function (_super) {
+            AboutChangeDetection = /** @class */function (_super) {
                 __extends(AboutChangeDetection, _super);
                 function AboutChangeDetection(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection/aboutChangeDetection.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection/aboutChangeDetection.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection);
                 return AboutChangeDetection;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection/aboutChangeDetection.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection/aboutChangeDetection.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection);
             exports_1("AboutChangeDetection", AboutChangeDetection);
         }
     };
@@ -35459,13 +35510,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection/abo
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection1/aboutChangeDetection1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35481,8 +35542,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection1/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35496,19 +35557,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection1/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection1 = function (_super) {
+            AboutChangeDetection1 = /** @class */function (_super) {
                 __extends(AboutChangeDetection1, _super);
                 function AboutChangeDetection1(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection1 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection1',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection1/aboutChangeDetection1.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection1/aboutChangeDetection1.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection1);
                 return AboutChangeDetection1;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection1 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection1',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection1/aboutChangeDetection1.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection1/aboutChangeDetection1.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection1);
             exports_1("AboutChangeDetection1", AboutChangeDetection1);
         }
     };
@@ -35516,13 +35577,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection1/ab
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection2/aboutChangeDetection2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35538,8 +35609,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection2/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35553,19 +35624,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection2/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection2 = function (_super) {
+            AboutChangeDetection2 = /** @class */function (_super) {
                 __extends(AboutChangeDetection2, _super);
                 function AboutChangeDetection2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection2 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection2',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection2/aboutChangeDetection2.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection2/aboutChangeDetection2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection2);
                 return AboutChangeDetection2;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection2 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection2',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection2/aboutChangeDetection2.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection2/aboutChangeDetection2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection2);
             exports_1("AboutChangeDetection2", AboutChangeDetection2);
         }
     };
@@ -35573,13 +35644,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection2/ab
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection3/aboutChangeDetection3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35595,8 +35676,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection3/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35610,19 +35691,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection3/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection3 = function (_super) {
+            AboutChangeDetection3 = /** @class */function (_super) {
                 __extends(AboutChangeDetection3, _super);
                 function AboutChangeDetection3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection3 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection3',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection3/aboutChangeDetection3.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection3/aboutChangeDetection3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection3);
                 return AboutChangeDetection3;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection3 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection3',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection3/aboutChangeDetection3.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection3/aboutChangeDetection3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection3);
             exports_1("AboutChangeDetection3", AboutChangeDetection3);
         }
     };
@@ -35630,13 +35711,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection3/ab
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection4/aboutChangeDetection4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35652,8 +35743,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection4/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35667,19 +35758,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection4/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection4 = function (_super) {
+            AboutChangeDetection4 = /** @class */function (_super) {
                 __extends(AboutChangeDetection4, _super);
                 function AboutChangeDetection4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection4 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection4',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection4/aboutChangeDetection4.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection4/aboutChangeDetection4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection4);
                 return AboutChangeDetection4;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection4 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection4',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection4/aboutChangeDetection4.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection4/aboutChangeDetection4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection4);
             exports_1("AboutChangeDetection4", AboutChangeDetection4);
         }
     };
@@ -35687,13 +35778,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection4/ab
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection5/aboutChangeDetection5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35709,8 +35810,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection5/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35724,19 +35825,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection5/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection5 = function (_super) {
+            AboutChangeDetection5 = /** @class */function (_super) {
                 __extends(AboutChangeDetection5, _super);
                 function AboutChangeDetection5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection5 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection5',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection5/aboutChangeDetection5.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection5/aboutChangeDetection5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection5);
                 return AboutChangeDetection5;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection5 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection5',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection5/aboutChangeDetection5.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection5/aboutChangeDetection5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection5);
             exports_1("AboutChangeDetection5", AboutChangeDetection5);
         }
     };
@@ -35744,13 +35845,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection5/ab
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection6/aboutChangeDetection6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35766,8 +35877,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection6/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35781,19 +35892,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection6/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection6 = function (_super) {
+            AboutChangeDetection6 = /** @class */function (_super) {
                 __extends(AboutChangeDetection6, _super);
                 function AboutChangeDetection6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection6 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection6',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection6/aboutChangeDetection6.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection6/aboutChangeDetection6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection6);
                 return AboutChangeDetection6;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection6 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection6',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection6/aboutChangeDetection6.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection6/aboutChangeDetection6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection6);
             exports_1("AboutChangeDetection6", AboutChangeDetection6);
         }
     };
@@ -35801,13 +35912,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection6/ab
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection7/aboutChangeDetection7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35823,8 +35944,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection7/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35838,19 +35959,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection7/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection7 = function (_super) {
+            AboutChangeDetection7 = /** @class */function (_super) {
                 __extends(AboutChangeDetection7, _super);
                 function AboutChangeDetection7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection7 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection7',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection7/aboutChangeDetection7.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection7/aboutChangeDetection7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection7);
                 return AboutChangeDetection7;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection7 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection7',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection7/aboutChangeDetection7.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection7/aboutChangeDetection7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection7);
             exports_1("AboutChangeDetection7", AboutChangeDetection7);
         }
     };
@@ -35858,13 +35979,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection7/ab
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection8/aboutChangeDetection8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35880,8 +36011,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection8/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection8;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35895,19 +36026,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection8/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection8 = function (_super) {
+            AboutChangeDetection8 = /** @class */function (_super) {
                 __extends(AboutChangeDetection8, _super);
                 function AboutChangeDetection8(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection8 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection8',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection8/aboutChangeDetection8.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection8/aboutChangeDetection8.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection8);
                 return AboutChangeDetection8;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection8 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection8',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection8/aboutChangeDetection8.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection8/aboutChangeDetection8.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection8);
             exports_1("AboutChangeDetection8", AboutChangeDetection8);
         }
     };
@@ -35915,13 +36046,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection8/ab
 System.register("src/components/slides/advancedConcepts/aboutChangeDetection9/aboutChangeDetection9.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35937,8 +36078,8 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection9/ab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutChangeDetection9;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -35952,19 +36093,19 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection9/ab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutChangeDetection9 = function (_super) {
+            AboutChangeDetection9 = /** @class */function (_super) {
                 __extends(AboutChangeDetection9, _super);
                 function AboutChangeDetection9(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutChangeDetection9 = __decorate([core_1.Component({
+                    selector: 'AboutChangeDetection9',
+                    templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection9/aboutChangeDetection9.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection9/aboutChangeDetection9.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection9);
                 return AboutChangeDetection9;
             }(slideCommon_1.SlideCommon);
-            AboutChangeDetection9 = __decorate([core_1.Component({
-                selector: 'AboutChangeDetection9',
-                templateUrl: 'src/components/slides/advancedConcepts/aboutChangeDetection9/aboutChangeDetection9.html',
-                styleUrls: ['src/components/slides/advancedConcepts/aboutChangeDetection9/aboutChangeDetection9.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutChangeDetection9);
             exports_1("AboutChangeDetection9", AboutChangeDetection9);
         }
     };
@@ -35972,13 +36113,23 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection9/ab
 System.register("src/components/slides/advancedConcepts/e2e/e2e.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -35994,8 +36145,8 @@ System.register("src/components/slides/advancedConcepts/e2e/e2e.js", ["npm:@angu
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, E2e;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36009,19 +36160,19 @@ System.register("src/components/slides/advancedConcepts/e2e/e2e.js", ["npm:@angu
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            E2e = function (_super) {
+            E2e = /** @class */function (_super) {
                 __extends(E2e, _super);
                 function E2e(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                E2e = __decorate([core_1.Component({
+                    selector: 'E2e',
+                    templateUrl: 'src/components/slides/advancedConcepts/e2e/e2e.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/e2e/e2e.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], E2e);
                 return E2e;
             }(slideCommon_1.SlideCommon);
-            E2e = __decorate([core_1.Component({
-                selector: 'E2e',
-                templateUrl: 'src/components/slides/advancedConcepts/e2e/e2e.html',
-                styleUrls: ['src/components/slides/advancedConcepts/e2e/e2e.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], E2e);
             exports_1("E2e", E2e);
         }
     };
@@ -36029,13 +36180,23 @@ System.register("src/components/slides/advancedConcepts/e2e/e2e.js", ["npm:@angu
 System.register("src/components/slides/advancedConcepts/e2e2/e2e2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36051,8 +36212,8 @@ System.register("src/components/slides/advancedConcepts/e2e2/e2e2.js", ["npm:@an
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, E2e2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36066,19 +36227,19 @@ System.register("src/components/slides/advancedConcepts/e2e2/e2e2.js", ["npm:@an
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            E2e2 = function (_super) {
+            E2e2 = /** @class */function (_super) {
                 __extends(E2e2, _super);
                 function E2e2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                E2e2 = __decorate([core_1.Component({
+                    selector: 'E2e2',
+                    templateUrl: 'src/components/slides/advancedConcepts/e2e2/e2e2.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/e2e2/e2e2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], E2e2);
                 return E2e2;
             }(slideCommon_1.SlideCommon);
-            E2e2 = __decorate([core_1.Component({
-                selector: 'E2e2',
-                templateUrl: 'src/components/slides/advancedConcepts/e2e2/e2e2.html',
-                styleUrls: ['src/components/slides/advancedConcepts/e2e2/e2e2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], E2e2);
             exports_1("E2e2", E2e2);
         }
     };
@@ -36086,13 +36247,23 @@ System.register("src/components/slides/advancedConcepts/e2e2/e2e2.js", ["npm:@an
 System.register("src/components/slides/advancedConcepts/e2e3/e2e3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36108,8 +36279,8 @@ System.register("src/components/slides/advancedConcepts/e2e3/e2e3.js", ["npm:@an
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, E2e3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36123,19 +36294,19 @@ System.register("src/components/slides/advancedConcepts/e2e3/e2e3.js", ["npm:@an
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            E2e3 = function (_super) {
+            E2e3 = /** @class */function (_super) {
                 __extends(E2e3, _super);
                 function E2e3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                E2e3 = __decorate([core_1.Component({
+                    selector: 'E2e3',
+                    templateUrl: 'src/components/slides/advancedConcepts/e2e3/e2e3.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/e2e3/e2e3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], E2e3);
                 return E2e3;
             }(slideCommon_1.SlideCommon);
-            E2e3 = __decorate([core_1.Component({
-                selector: 'E2e3',
-                templateUrl: 'src/components/slides/advancedConcepts/e2e3/e2e3.html',
-                styleUrls: ['src/components/slides/advancedConcepts/e2e3/e2e3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], E2e3);
             exports_1("E2e3", E2e3);
         }
     };
@@ -36143,13 +36314,23 @@ System.register("src/components/slides/advancedConcepts/e2e3/e2e3.js", ["npm:@an
 System.register("src/components/slides/advancedConcepts/pWE2E/pWE2E.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36165,8 +36346,8 @@ System.register("src/components/slides/advancedConcepts/pWE2E/pWE2E.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PWE2E;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36180,19 +36361,19 @@ System.register("src/components/slides/advancedConcepts/pWE2E/pWE2E.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PWE2E = function (_super) {
+            PWE2E = /** @class */function (_super) {
                 __extends(PWE2E, _super);
                 function PWE2E(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PWE2E = __decorate([core_1.Component({
+                    selector: 'PWE2E',
+                    templateUrl: 'src/components/slides/advancedConcepts/pWE2E/pWE2E.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/pWE2E/pWE2E.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PWE2E);
                 return PWE2E;
             }(slideCommon_1.SlideCommon);
-            PWE2E = __decorate([core_1.Component({
-                selector: 'PWE2E',
-                templateUrl: 'src/components/slides/advancedConcepts/pWE2E/pWE2E.html',
-                styleUrls: ['src/components/slides/advancedConcepts/pWE2E/pWE2E.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PWE2E);
             exports_1("PWE2E", PWE2E);
         }
     };
@@ -36200,13 +36381,23 @@ System.register("src/components/slides/advancedConcepts/pWE2E/pWE2E.js", ["npm:@
 System.register("src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36222,8 +36413,8 @@ System.register("src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PWUnitTests;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36237,19 +36428,19 @@ System.register("src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PWUnitTests = function (_super) {
+            PWUnitTests = /** @class */function (_super) {
                 __extends(PWUnitTests, _super);
                 function PWUnitTests(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PWUnitTests = __decorate([core_1.Component({
+                    selector: 'PWUnitTests',
+                    templateUrl: 'src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PWUnitTests);
                 return PWUnitTests;
             }(slideCommon_1.SlideCommon);
-            PWUnitTests = __decorate([core_1.Component({
-                selector: 'PWUnitTests',
-                templateUrl: 'src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.html',
-                styleUrls: ['src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PWUnitTests);
             exports_1("PWUnitTests", PWUnitTests);
         }
     };
@@ -36257,13 +36448,23 @@ System.register("src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.
 System.register("src/components/slides/advancedConcepts/pwObservables/pwObservables.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36279,8 +36480,8 @@ System.register("src/components/slides/advancedConcepts/pwObservables/pwObservab
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwObservables;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36294,19 +36495,19 @@ System.register("src/components/slides/advancedConcepts/pwObservables/pwObservab
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwObservables = function (_super) {
+            PwObservables = /** @class */function (_super) {
                 __extends(PwObservables, _super);
                 function PwObservables(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwObservables = __decorate([core_1.Component({
+                    selector: 'PwObservables',
+                    templateUrl: 'src/components/slides/advancedConcepts/pwObservables/pwObservables.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/pwObservables/pwObservables.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwObservables);
                 return PwObservables;
             }(slideCommon_1.SlideCommon);
-            PwObservables = __decorate([core_1.Component({
-                selector: 'PwObservables',
-                templateUrl: 'src/components/slides/advancedConcepts/pwObservables/pwObservables.html',
-                styleUrls: ['src/components/slides/advancedConcepts/pwObservables/pwObservables.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwObservables);
             exports_1("PwObservables", PwObservables);
         }
     };
@@ -36314,13 +36515,23 @@ System.register("src/components/slides/advancedConcepts/pwObservables/pwObservab
 System.register("src/components/slides/advancedConcepts/unitTests/unitTests.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36336,8 +36547,8 @@ System.register("src/components/slides/advancedConcepts/unitTests/unitTests.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, UnitTests;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36351,19 +36562,19 @@ System.register("src/components/slides/advancedConcepts/unitTests/unitTests.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            UnitTests = function (_super) {
+            UnitTests = /** @class */function (_super) {
                 __extends(UnitTests, _super);
                 function UnitTests(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                UnitTests = __decorate([core_1.Component({
+                    selector: 'UnitTests',
+                    templateUrl: 'src/components/slides/advancedConcepts/unitTests/unitTests.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/unitTests/unitTests.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests);
                 return UnitTests;
             }(slideCommon_1.SlideCommon);
-            UnitTests = __decorate([core_1.Component({
-                selector: 'UnitTests',
-                templateUrl: 'src/components/slides/advancedConcepts/unitTests/unitTests.html',
-                styleUrls: ['src/components/slides/advancedConcepts/unitTests/unitTests.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests);
             exports_1("UnitTests", UnitTests);
         }
     };
@@ -36371,13 +36582,23 @@ System.register("src/components/slides/advancedConcepts/unitTests/unitTests.js",
 System.register("src/components/slides/advancedConcepts/unitTests2/unitTests2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36393,8 +36614,8 @@ System.register("src/components/slides/advancedConcepts/unitTests2/unitTests2.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, UnitTests2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36408,19 +36629,19 @@ System.register("src/components/slides/advancedConcepts/unitTests2/unitTests2.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            UnitTests2 = function (_super) {
+            UnitTests2 = /** @class */function (_super) {
                 __extends(UnitTests2, _super);
                 function UnitTests2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                UnitTests2 = __decorate([core_1.Component({
+                    selector: 'UnitTests2',
+                    templateUrl: 'src/components/slides/advancedConcepts/unitTests2/unitTests2.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/unitTests2/unitTests2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests2);
                 return UnitTests2;
             }(slideCommon_1.SlideCommon);
-            UnitTests2 = __decorate([core_1.Component({
-                selector: 'UnitTests2',
-                templateUrl: 'src/components/slides/advancedConcepts/unitTests2/unitTests2.html',
-                styleUrls: ['src/components/slides/advancedConcepts/unitTests2/unitTests2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests2);
             exports_1("UnitTests2", UnitTests2);
         }
     };
@@ -36428,13 +36649,23 @@ System.register("src/components/slides/advancedConcepts/unitTests2/unitTests2.js
 System.register("src/components/slides/advancedConcepts/unitTests3/unitTests3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36450,8 +36681,8 @@ System.register("src/components/slides/advancedConcepts/unitTests3/unitTests3.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, UnitTests3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36465,19 +36696,19 @@ System.register("src/components/slides/advancedConcepts/unitTests3/unitTests3.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            UnitTests3 = function (_super) {
+            UnitTests3 = /** @class */function (_super) {
                 __extends(UnitTests3, _super);
                 function UnitTests3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                UnitTests3 = __decorate([core_1.Component({
+                    selector: 'UnitTests3',
+                    templateUrl: 'src/components/slides/advancedConcepts/unitTests3/unitTests3.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/unitTests3/unitTests3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests3);
                 return UnitTests3;
             }(slideCommon_1.SlideCommon);
-            UnitTests3 = __decorate([core_1.Component({
-                selector: 'UnitTests3',
-                templateUrl: 'src/components/slides/advancedConcepts/unitTests3/unitTests3.html',
-                styleUrls: ['src/components/slides/advancedConcepts/unitTests3/unitTests3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests3);
             exports_1("UnitTests3", UnitTests3);
         }
     };
@@ -36485,13 +36716,23 @@ System.register("src/components/slides/advancedConcepts/unitTests3/unitTests3.js
 System.register("src/components/slides/advancedConcepts/unitTests4/unitTests4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36507,8 +36748,8 @@ System.register("src/components/slides/advancedConcepts/unitTests4/unitTests4.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, UnitTests4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36522,19 +36763,19 @@ System.register("src/components/slides/advancedConcepts/unitTests4/unitTests4.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            UnitTests4 = function (_super) {
+            UnitTests4 = /** @class */function (_super) {
                 __extends(UnitTests4, _super);
                 function UnitTests4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                UnitTests4 = __decorate([core_1.Component({
+                    selector: 'UnitTests4',
+                    templateUrl: 'src/components/slides/advancedConcepts/unitTests4/unitTests4.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/unitTests4/unitTests4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests4);
                 return UnitTests4;
             }(slideCommon_1.SlideCommon);
-            UnitTests4 = __decorate([core_1.Component({
-                selector: 'UnitTests4',
-                templateUrl: 'src/components/slides/advancedConcepts/unitTests4/unitTests4.html',
-                styleUrls: ['src/components/slides/advancedConcepts/unitTests4/unitTests4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests4);
             exports_1("UnitTests4", UnitTests4);
         }
     };
@@ -36542,13 +36783,23 @@ System.register("src/components/slides/advancedConcepts/unitTests4/unitTests4.js
 System.register("src/components/slides/advancedConcepts/unitTests5/unitTests5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36564,8 +36815,8 @@ System.register("src/components/slides/advancedConcepts/unitTests5/unitTests5.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, UnitTests5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36579,19 +36830,19 @@ System.register("src/components/slides/advancedConcepts/unitTests5/unitTests5.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            UnitTests5 = function (_super) {
+            UnitTests5 = /** @class */function (_super) {
                 __extends(UnitTests5, _super);
                 function UnitTests5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                UnitTests5 = __decorate([core_1.Component({
+                    selector: 'UnitTests5',
+                    templateUrl: 'src/components/slides/advancedConcepts/unitTests5/unitTests5.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/unitTests5/unitTests5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests5);
                 return UnitTests5;
             }(slideCommon_1.SlideCommon);
-            UnitTests5 = __decorate([core_1.Component({
-                selector: 'UnitTests5',
-                templateUrl: 'src/components/slides/advancedConcepts/unitTests5/unitTests5.html',
-                styleUrls: ['src/components/slides/advancedConcepts/unitTests5/unitTests5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests5);
             exports_1("UnitTests5", UnitTests5);
         }
     };
@@ -36599,13 +36850,23 @@ System.register("src/components/slides/advancedConcepts/unitTests5/unitTests5.js
 System.register("src/components/slides/advancedConcepts/unitTests6/unitTests6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36621,8 +36882,8 @@ System.register("src/components/slides/advancedConcepts/unitTests6/unitTests6.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, UnitTests6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36636,19 +36897,19 @@ System.register("src/components/slides/advancedConcepts/unitTests6/unitTests6.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            UnitTests6 = function (_super) {
+            UnitTests6 = /** @class */function (_super) {
                 __extends(UnitTests6, _super);
                 function UnitTests6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                UnitTests6 = __decorate([core_1.Component({
+                    selector: 'UnitTests6',
+                    templateUrl: 'src/components/slides/advancedConcepts/unitTests6/unitTests6.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/unitTests6/unitTests6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests6);
                 return UnitTests6;
             }(slideCommon_1.SlideCommon);
-            UnitTests6 = __decorate([core_1.Component({
-                selector: 'UnitTests6',
-                templateUrl: 'src/components/slides/advancedConcepts/unitTests6/unitTests6.html',
-                styleUrls: ['src/components/slides/advancedConcepts/unitTests6/unitTests6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests6);
             exports_1("UnitTests6", UnitTests6);
         }
     };
@@ -36656,13 +36917,23 @@ System.register("src/components/slides/advancedConcepts/unitTests6/unitTests6.js
 System.register("src/components/slides/advancedConcepts/unitTests7/unitTests7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36678,8 +36949,8 @@ System.register("src/components/slides/advancedConcepts/unitTests7/unitTests7.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, UnitTests7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36693,19 +36964,19 @@ System.register("src/components/slides/advancedConcepts/unitTests7/unitTests7.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            UnitTests7 = function (_super) {
+            UnitTests7 = /** @class */function (_super) {
                 __extends(UnitTests7, _super);
                 function UnitTests7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                UnitTests7 = __decorate([core_1.Component({
+                    selector: 'UnitTests7',
+                    templateUrl: 'src/components/slides/advancedConcepts/unitTests7/unitTests7.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/unitTests7/unitTests7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests7);
                 return UnitTests7;
             }(slideCommon_1.SlideCommon);
-            UnitTests7 = __decorate([core_1.Component({
-                selector: 'UnitTests7',
-                templateUrl: 'src/components/slides/advancedConcepts/unitTests7/unitTests7.html',
-                styleUrls: ['src/components/slides/advancedConcepts/unitTests7/unitTests7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests7);
             exports_1("UnitTests7", UnitTests7);
         }
     };
@@ -36713,13 +36984,23 @@ System.register("src/components/slides/advancedConcepts/unitTests7/unitTests7.js
 System.register("src/components/slides/advancedConcepts/unitTests8/unitTests8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36735,8 +37016,8 @@ System.register("src/components/slides/advancedConcepts/unitTests8/unitTests8.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, UnitTests8;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36750,19 +37031,19 @@ System.register("src/components/slides/advancedConcepts/unitTests8/unitTests8.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            UnitTests8 = function (_super) {
+            UnitTests8 = /** @class */function (_super) {
                 __extends(UnitTests8, _super);
                 function UnitTests8(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                UnitTests8 = __decorate([core_1.Component({
+                    selector: 'UnitTests8',
+                    templateUrl: 'src/components/slides/advancedConcepts/unitTests8/unitTests8.html',
+                    styleUrls: ['src/components/slides/advancedConcepts/unitTests8/unitTests8.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests8);
                 return UnitTests8;
             }(slideCommon_1.SlideCommon);
-            UnitTests8 = __decorate([core_1.Component({
-                selector: 'UnitTests8',
-                templateUrl: 'src/components/slides/advancedConcepts/unitTests8/unitTests8.html',
-                styleUrls: ['src/components/slides/advancedConcepts/unitTests8/unitTests8.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], UnitTests8);
             exports_1("UnitTests8", UnitTests8);
         }
     };
@@ -36770,13 +37051,23 @@ System.register("src/components/slides/advancedConcepts/unitTests8/unitTests8.js
 System.register("src/components/slides/ecosystem/esSix1/esSix1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36792,8 +37083,8 @@ System.register("src/components/slides/ecosystem/esSix1/esSix1.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36807,19 +37098,19 @@ System.register("src/components/slides/ecosystem/esSix1/esSix1.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix1 = function (_super) {
+            EsSix1 = /** @class */function (_super) {
                 __extends(EsSix1, _super);
                 function EsSix1(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix1 = __decorate([core_1.Component({
+                    selector: 'EsSix1',
+                    templateUrl: 'src/components/slides/ecosystem/esSix1/esSix1.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix1/esSix1.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix1);
                 return EsSix1;
             }(slideCommon_1.SlideCommon);
-            EsSix1 = __decorate([core_1.Component({
-                selector: 'EsSix1',
-                templateUrl: 'src/components/slides/ecosystem/esSix1/esSix1.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix1/esSix1.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix1);
             exports_1("EsSix1", EsSix1);
         }
     };
@@ -36827,13 +37118,23 @@ System.register("src/components/slides/ecosystem/esSix1/esSix1.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/esSix10/esSix10.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36849,8 +37150,8 @@ System.register("src/components/slides/ecosystem/esSix10/esSix10.js", ["npm:@ang
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix10;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36864,19 +37165,19 @@ System.register("src/components/slides/ecosystem/esSix10/esSix10.js", ["npm:@ang
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix10 = function (_super) {
+            EsSix10 = /** @class */function (_super) {
                 __extends(EsSix10, _super);
                 function EsSix10(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix10 = __decorate([core_1.Component({
+                    selector: 'EsSix10',
+                    templateUrl: 'src/components/slides/ecosystem/esSix10/esSix10.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix10/esSix10.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix10);
                 return EsSix10;
             }(slideCommon_1.SlideCommon);
-            EsSix10 = __decorate([core_1.Component({
-                selector: 'EsSix10',
-                templateUrl: 'src/components/slides/ecosystem/esSix10/esSix10.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix10/esSix10.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix10);
             exports_1("EsSix10", EsSix10);
         }
     };
@@ -36884,13 +37185,23 @@ System.register("src/components/slides/ecosystem/esSix10/esSix10.js", ["npm:@ang
 System.register("src/components/slides/ecosystem/esSix11/esSix11.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36906,8 +37217,8 @@ System.register("src/components/slides/ecosystem/esSix11/esSix11.js", ["npm:@ang
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix11;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36921,19 +37232,19 @@ System.register("src/components/slides/ecosystem/esSix11/esSix11.js", ["npm:@ang
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix11 = function (_super) {
+            EsSix11 = /** @class */function (_super) {
                 __extends(EsSix11, _super);
                 function EsSix11(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix11 = __decorate([core_1.Component({
+                    selector: 'EsSix11',
+                    templateUrl: 'src/components/slides/ecosystem/esSix11/esSix11.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix11/esSix11.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix11);
                 return EsSix11;
             }(slideCommon_1.SlideCommon);
-            EsSix11 = __decorate([core_1.Component({
-                selector: 'EsSix11',
-                templateUrl: 'src/components/slides/ecosystem/esSix11/esSix11.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix11/esSix11.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix11);
             exports_1("EsSix11", EsSix11);
         }
     };
@@ -36941,13 +37252,23 @@ System.register("src/components/slides/ecosystem/esSix11/esSix11.js", ["npm:@ang
 System.register("src/components/slides/ecosystem/esSix12/esSix12.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -36963,8 +37284,8 @@ System.register("src/components/slides/ecosystem/esSix12/esSix12.js", ["npm:@ang
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix12;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -36978,19 +37299,19 @@ System.register("src/components/slides/ecosystem/esSix12/esSix12.js", ["npm:@ang
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix12 = function (_super) {
+            EsSix12 = /** @class */function (_super) {
                 __extends(EsSix12, _super);
                 function EsSix12(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix12 = __decorate([core_1.Component({
+                    selector: 'EsSix12',
+                    templateUrl: 'src/components/slides/ecosystem/esSix12/esSix12.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix12/esSix12.css'],
+                    directives: [editorTab_1.EditorTab, editor_1.Editor]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix12);
                 return EsSix12;
             }(slideCommon_1.SlideCommon);
-            EsSix12 = __decorate([core_1.Component({
-                selector: 'EsSix12',
-                templateUrl: 'src/components/slides/ecosystem/esSix12/esSix12.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix12/esSix12.css'],
-                directives: [editorTab_1.EditorTab, editor_1.Editor]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix12);
             exports_1("EsSix12", EsSix12);
         }
     };
@@ -36998,13 +37319,23 @@ System.register("src/components/slides/ecosystem/esSix12/esSix12.js", ["npm:@ang
 System.register("src/components/slides/ecosystem/esSix12_2/esSix12_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37020,8 +37351,8 @@ System.register("src/components/slides/ecosystem/esSix12_2/esSix12_2.js", ["npm:
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix12_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37035,19 +37366,19 @@ System.register("src/components/slides/ecosystem/esSix12_2/esSix12_2.js", ["npm:
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix12_2 = function (_super) {
+            EsSix12_2 = /** @class */function (_super) {
                 __extends(EsSix12_2, _super);
                 function EsSix12_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix12_2 = __decorate([core_1.Component({
+                    selector: 'EsSix12_2',
+                    templateUrl: 'src/components/slides/ecosystem/esSix12_2/esSix12_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix12_2/esSix12_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix12_2);
                 return EsSix12_2;
             }(slideCommon_1.SlideCommon);
-            EsSix12_2 = __decorate([core_1.Component({
-                selector: 'EsSix12_2',
-                templateUrl: 'src/components/slides/ecosystem/esSix12_2/esSix12_2.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix12_2/esSix12_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix12_2);
             exports_1("EsSix12_2", EsSix12_2);
         }
     };
@@ -37055,13 +37386,23 @@ System.register("src/components/slides/ecosystem/esSix12_2/esSix12_2.js", ["npm:
 System.register("src/components/slides/ecosystem/esSix2/esSix2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37077,8 +37418,8 @@ System.register("src/components/slides/ecosystem/esSix2/esSix2.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37092,19 +37433,19 @@ System.register("src/components/slides/ecosystem/esSix2/esSix2.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix2 = function (_super) {
+            EsSix2 = /** @class */function (_super) {
                 __extends(EsSix2, _super);
                 function EsSix2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix2 = __decorate([core_1.Component({
+                    selector: 'EsSix2',
+                    templateUrl: 'src/components/slides/ecosystem/esSix2/esSix2.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix2/esSix2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix2);
                 return EsSix2;
             }(slideCommon_1.SlideCommon);
-            EsSix2 = __decorate([core_1.Component({
-                selector: 'EsSix2',
-                templateUrl: 'src/components/slides/ecosystem/esSix2/esSix2.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix2/esSix2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix2);
             exports_1("EsSix2", EsSix2);
         }
     };
@@ -37112,13 +37453,23 @@ System.register("src/components/slides/ecosystem/esSix2/esSix2.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/esSix3/esSix3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37134,8 +37485,8 @@ System.register("src/components/slides/ecosystem/esSix3/esSix3.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37149,19 +37500,19 @@ System.register("src/components/slides/ecosystem/esSix3/esSix3.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix3 = function (_super) {
+            EsSix3 = /** @class */function (_super) {
                 __extends(EsSix3, _super);
                 function EsSix3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix3 = __decorate([core_1.Component({
+                    selector: 'EsSix3',
+                    templateUrl: 'src/components/slides/ecosystem/esSix3/esSix3.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix3/esSix3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix3);
                 return EsSix3;
             }(slideCommon_1.SlideCommon);
-            EsSix3 = __decorate([core_1.Component({
-                selector: 'EsSix3',
-                templateUrl: 'src/components/slides/ecosystem/esSix3/esSix3.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix3/esSix3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix3);
             exports_1("EsSix3", EsSix3);
         }
     };
@@ -37169,13 +37520,23 @@ System.register("src/components/slides/ecosystem/esSix3/esSix3.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/esSix4/esSix4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37191,8 +37552,8 @@ System.register("src/components/slides/ecosystem/esSix4/esSix4.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37206,19 +37567,19 @@ System.register("src/components/slides/ecosystem/esSix4/esSix4.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix4 = function (_super) {
+            EsSix4 = /** @class */function (_super) {
                 __extends(EsSix4, _super);
                 function EsSix4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix4 = __decorate([core_1.Component({
+                    selector: 'EsSix4',
+                    templateUrl: 'src/components/slides/ecosystem/esSix4/esSix4.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix4/esSix4.css'],
+                    directives: [editorTab_1.EditorTab, editor_1.Editor]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix4);
                 return EsSix4;
             }(slideCommon_1.SlideCommon);
-            EsSix4 = __decorate([core_1.Component({
-                selector: 'EsSix4',
-                templateUrl: 'src/components/slides/ecosystem/esSix4/esSix4.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix4/esSix4.css'],
-                directives: [editorTab_1.EditorTab, editor_1.Editor]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix4);
             exports_1("EsSix4", EsSix4);
         }
     };
@@ -37226,13 +37587,23 @@ System.register("src/components/slides/ecosystem/esSix4/esSix4.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/esSix4_2/esSix4_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37248,8 +37619,8 @@ System.register("src/components/slides/ecosystem/esSix4_2/esSix4_2.js", ["npm:@a
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix4_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37263,19 +37634,19 @@ System.register("src/components/slides/ecosystem/esSix4_2/esSix4_2.js", ["npm:@a
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix4_2 = function (_super) {
+            EsSix4_2 = /** @class */function (_super) {
                 __extends(EsSix4_2, _super);
                 function EsSix4_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix4_2 = __decorate([core_1.Component({
+                    selector: 'EsSix4_2',
+                    templateUrl: 'src/components/slides/ecosystem/esSix4_2/esSix4_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix4_2/esSix4_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix4_2);
                 return EsSix4_2;
             }(slideCommon_1.SlideCommon);
-            EsSix4_2 = __decorate([core_1.Component({
-                selector: 'EsSix4_2',
-                templateUrl: 'src/components/slides/ecosystem/esSix4_2/esSix4_2.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix4_2/esSix4_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix4_2);
             exports_1("EsSix4_2", EsSix4_2);
         }
     };
@@ -37283,13 +37654,23 @@ System.register("src/components/slides/ecosystem/esSix4_2/esSix4_2.js", ["npm:@a
 System.register("src/components/slides/ecosystem/esSix4_3/esSix4_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37305,8 +37686,8 @@ System.register("src/components/slides/ecosystem/esSix4_3/esSix4_3.js", ["npm:@a
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix4_3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37320,19 +37701,19 @@ System.register("src/components/slides/ecosystem/esSix4_3/esSix4_3.js", ["npm:@a
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix4_3 = function (_super) {
+            EsSix4_3 = /** @class */function (_super) {
                 __extends(EsSix4_3, _super);
                 function EsSix4_3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix4_3 = __decorate([core_1.Component({
+                    selector: 'EsSix4_3',
+                    templateUrl: 'src/components/slides/ecosystem/esSix4_3/esSix4_3.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix4_3/esSix4_3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix4_3);
                 return EsSix4_3;
             }(slideCommon_1.SlideCommon);
-            EsSix4_3 = __decorate([core_1.Component({
-                selector: 'EsSix4_3',
-                templateUrl: 'src/components/slides/ecosystem/esSix4_3/esSix4_3.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix4_3/esSix4_3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix4_3);
             exports_1("EsSix4_3", EsSix4_3);
         }
     };
@@ -37340,13 +37721,23 @@ System.register("src/components/slides/ecosystem/esSix4_3/esSix4_3.js", ["npm:@a
 System.register("src/components/slides/ecosystem/esSix5/esSix5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37362,8 +37753,8 @@ System.register("src/components/slides/ecosystem/esSix5/esSix5.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37377,19 +37768,19 @@ System.register("src/components/slides/ecosystem/esSix5/esSix5.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix5 = function (_super) {
+            EsSix5 = /** @class */function (_super) {
                 __extends(EsSix5, _super);
                 function EsSix5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix5 = __decorate([core_1.Component({
+                    selector: 'EsSix5',
+                    templateUrl: 'src/components/slides/ecosystem/esSix5/esSix5.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix5/esSix5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix5);
                 return EsSix5;
             }(slideCommon_1.SlideCommon);
-            EsSix5 = __decorate([core_1.Component({
-                selector: 'EsSix5',
-                templateUrl: 'src/components/slides/ecosystem/esSix5/esSix5.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix5/esSix5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix5);
             exports_1("EsSix5", EsSix5);
         }
     };
@@ -37397,13 +37788,23 @@ System.register("src/components/slides/ecosystem/esSix5/esSix5.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/esSix5_2/esSix5_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37419,8 +37820,8 @@ System.register("src/components/slides/ecosystem/esSix5_2/esSix5_2.js", ["npm:@a
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix5_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37434,19 +37835,19 @@ System.register("src/components/slides/ecosystem/esSix5_2/esSix5_2.js", ["npm:@a
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix5_2 = function (_super) {
+            EsSix5_2 = /** @class */function (_super) {
                 __extends(EsSix5_2, _super);
                 function EsSix5_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix5_2 = __decorate([core_1.Component({
+                    selector: 'EsSix5_2',
+                    templateUrl: 'src/components/slides/ecosystem/esSix5_2/esSix5_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix5_2/esSix5_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix5_2);
                 return EsSix5_2;
             }(slideCommon_1.SlideCommon);
-            EsSix5_2 = __decorate([core_1.Component({
-                selector: 'EsSix5_2',
-                templateUrl: 'src/components/slides/ecosystem/esSix5_2/esSix5_2.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix5_2/esSix5_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix5_2);
             exports_1("EsSix5_2", EsSix5_2);
         }
     };
@@ -37454,13 +37855,23 @@ System.register("src/components/slides/ecosystem/esSix5_2/esSix5_2.js", ["npm:@a
 System.register("src/components/slides/ecosystem/esSix6/esSix6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37476,8 +37887,8 @@ System.register("src/components/slides/ecosystem/esSix6/esSix6.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37491,19 +37902,19 @@ System.register("src/components/slides/ecosystem/esSix6/esSix6.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix6 = function (_super) {
+            EsSix6 = /** @class */function (_super) {
                 __extends(EsSix6, _super);
                 function EsSix6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix6 = __decorate([core_1.Component({
+                    selector: 'EsSix6',
+                    templateUrl: 'src/components/slides/ecosystem/esSix6/esSix6.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix6/esSix6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix6);
                 return EsSix6;
             }(slideCommon_1.SlideCommon);
-            EsSix6 = __decorate([core_1.Component({
-                selector: 'EsSix6',
-                templateUrl: 'src/components/slides/ecosystem/esSix6/esSix6.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix6/esSix6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix6);
             exports_1("EsSix6", EsSix6);
         }
     };
@@ -37511,13 +37922,23 @@ System.register("src/components/slides/ecosystem/esSix6/esSix6.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/esSix6_2/esSix6_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37533,8 +37954,8 @@ System.register("src/components/slides/ecosystem/esSix6_2/esSix6_2.js", ["npm:@a
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix6_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37548,19 +37969,19 @@ System.register("src/components/slides/ecosystem/esSix6_2/esSix6_2.js", ["npm:@a
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix6_2 = function (_super) {
+            EsSix6_2 = /** @class */function (_super) {
                 __extends(EsSix6_2, _super);
                 function EsSix6_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix6_2 = __decorate([core_1.Component({
+                    selector: 'EsSix6_2',
+                    templateUrl: 'src/components/slides/ecosystem/esSix6_2/esSix6_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix6_2/esSix6_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix6_2);
                 return EsSix6_2;
             }(slideCommon_1.SlideCommon);
-            EsSix6_2 = __decorate([core_1.Component({
-                selector: 'EsSix6_2',
-                templateUrl: 'src/components/slides/ecosystem/esSix6_2/esSix6_2.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix6_2/esSix6_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix6_2);
             exports_1("EsSix6_2", EsSix6_2);
         }
     };
@@ -37568,13 +37989,23 @@ System.register("src/components/slides/ecosystem/esSix6_2/esSix6_2.js", ["npm:@a
 System.register("src/components/slides/ecosystem/esSix7/esSix7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37590,8 +38021,8 @@ System.register("src/components/slides/ecosystem/esSix7/esSix7.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37605,19 +38036,19 @@ System.register("src/components/slides/ecosystem/esSix7/esSix7.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix7 = function (_super) {
+            EsSix7 = /** @class */function (_super) {
                 __extends(EsSix7, _super);
                 function EsSix7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix7 = __decorate([core_1.Component({
+                    selector: 'EsSix7',
+                    templateUrl: 'src/components/slides/ecosystem/esSix7/esSix7.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix7/esSix7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7);
                 return EsSix7;
             }(slideCommon_1.SlideCommon);
-            EsSix7 = __decorate([core_1.Component({
-                selector: 'EsSix7',
-                templateUrl: 'src/components/slides/ecosystem/esSix7/esSix7.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix7/esSix7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7);
             exports_1("EsSix7", EsSix7);
         }
     };
@@ -37625,13 +38056,23 @@ System.register("src/components/slides/ecosystem/esSix7/esSix7.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/esSix7_2/esSix7_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37647,8 +38088,8 @@ System.register("src/components/slides/ecosystem/esSix7_2/esSix7_2.js", ["npm:@a
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix7_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37662,19 +38103,19 @@ System.register("src/components/slides/ecosystem/esSix7_2/esSix7_2.js", ["npm:@a
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix7_2 = function (_super) {
+            EsSix7_2 = /** @class */function (_super) {
                 __extends(EsSix7_2, _super);
                 function EsSix7_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix7_2 = __decorate([core_1.Component({
+                    selector: 'EsSix7_2',
+                    templateUrl: 'src/components/slides/ecosystem/esSix7_2/esSix7_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix7_2/esSix7_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7_2);
                 return EsSix7_2;
             }(slideCommon_1.SlideCommon);
-            EsSix7_2 = __decorate([core_1.Component({
-                selector: 'EsSix7_2',
-                templateUrl: 'src/components/slides/ecosystem/esSix7_2/esSix7_2.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix7_2/esSix7_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7_2);
             exports_1("EsSix7_2", EsSix7_2);
         }
     };
@@ -37682,13 +38123,23 @@ System.register("src/components/slides/ecosystem/esSix7_2/esSix7_2.js", ["npm:@a
 System.register("src/components/slides/ecosystem/esSix7_3/esSix7_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37704,8 +38155,8 @@ System.register("src/components/slides/ecosystem/esSix7_3/esSix7_3.js", ["npm:@a
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix7_3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37719,19 +38170,19 @@ System.register("src/components/slides/ecosystem/esSix7_3/esSix7_3.js", ["npm:@a
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix7_3 = function (_super) {
+            EsSix7_3 = /** @class */function (_super) {
                 __extends(EsSix7_3, _super);
                 function EsSix7_3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix7_3 = __decorate([core_1.Component({
+                    selector: 'EsSix7_3',
+                    templateUrl: 'src/components/slides/ecosystem/esSix7_3/esSix7_3.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix7_3/esSix7_3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7_3);
                 return EsSix7_3;
             }(slideCommon_1.SlideCommon);
-            EsSix7_3 = __decorate([core_1.Component({
-                selector: 'EsSix7_3',
-                templateUrl: 'src/components/slides/ecosystem/esSix7_3/esSix7_3.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix7_3/esSix7_3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7_3);
             exports_1("EsSix7_3", EsSix7_3);
         }
     };
@@ -37739,13 +38190,23 @@ System.register("src/components/slides/ecosystem/esSix7_3/esSix7_3.js", ["npm:@a
 System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37761,8 +38222,8 @@ System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix8;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37776,19 +38237,19 @@ System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix8 = function (_super) {
+            EsSix8 = /** @class */function (_super) {
                 __extends(EsSix8, _super);
                 function EsSix8(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix8 = __decorate([core_1.Component({
+                    selector: 'EsSix8',
+                    templateUrl: 'src/components/slides/ecosystem/esSix8/esSix8.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix8/esSix8.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix8);
                 return EsSix8;
             }(slideCommon_1.SlideCommon);
-            EsSix8 = __decorate([core_1.Component({
-                selector: 'EsSix8',
-                templateUrl: 'src/components/slides/ecosystem/esSix8/esSix8.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix8/esSix8.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix8);
             exports_1("EsSix8", EsSix8);
         }
     };
@@ -37796,13 +38257,23 @@ System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37818,8 +38289,8 @@ System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angul
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix9;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37833,19 +38304,19 @@ System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            EsSix9 = function (_super) {
+            EsSix9 = /** @class */function (_super) {
                 __extends(EsSix9, _super);
                 function EsSix9(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                EsSix9 = __decorate([core_1.Component({
+                    selector: 'EsSix9',
+                    templateUrl: 'src/components/slides/ecosystem/esSix9/esSix9.html',
+                    styleUrls: ['src/components/slides/ecosystem/esSix9/esSix9.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix9);
                 return EsSix9;
             }(slideCommon_1.SlideCommon);
-            EsSix9 = __decorate([core_1.Component({
-                selector: 'EsSix9',
-                templateUrl: 'src/components/slides/ecosystem/esSix9/esSix9.html',
-                styleUrls: ['src/components/slides/ecosystem/esSix9/esSix9.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix9);
             exports_1("EsSix9", EsSix9);
         }
     };
@@ -37853,13 +38324,23 @@ System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angul
 System.register("src/components/slides/ecosystem/observables/observables.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37875,8 +38356,8 @@ System.register("src/components/slides/ecosystem/observables/observables.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37890,19 +38371,19 @@ System.register("src/components/slides/ecosystem/observables/observables.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Observables = function (_super) {
+            Observables = /** @class */function (_super) {
                 __extends(Observables, _super);
                 function Observables(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Observables = __decorate([core_1.Component({
+                    selector: 'Observables',
+                    templateUrl: 'src/components/slides/ecosystem/observables/observables.html',
+                    styleUrls: ['src/components/slides/ecosystem/observables/observables.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables);
                 return Observables;
             }(slideCommon_1.SlideCommon);
-            Observables = __decorate([core_1.Component({
-                selector: 'Observables',
-                templateUrl: 'src/components/slides/ecosystem/observables/observables.html',
-                styleUrls: ['src/components/slides/ecosystem/observables/observables.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables);
             exports_1("Observables", Observables);
         }
     };
@@ -37910,13 +38391,23 @@ System.register("src/components/slides/ecosystem/observables/observables.js", ["
 System.register("src/components/slides/ecosystem/observables2/observables2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37932,8 +38423,8 @@ System.register("src/components/slides/ecosystem/observables2/observables2.js", 
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37947,19 +38438,19 @@ System.register("src/components/slides/ecosystem/observables2/observables2.js", 
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Observables2 = function (_super) {
+            Observables2 = /** @class */function (_super) {
                 __extends(Observables2, _super);
                 function Observables2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Observables2 = __decorate([core_1.Component({
+                    selector: 'Observables2',
+                    templateUrl: 'src/components/slides/ecosystem/observables2/observables2.html',
+                    styleUrls: ['src/components/slides/ecosystem/observables2/observables2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables2);
                 return Observables2;
             }(slideCommon_1.SlideCommon);
-            Observables2 = __decorate([core_1.Component({
-                selector: 'Observables2',
-                templateUrl: 'src/components/slides/ecosystem/observables2/observables2.html',
-                styleUrls: ['src/components/slides/ecosystem/observables2/observables2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables2);
             exports_1("Observables2", Observables2);
         }
     };
@@ -37967,13 +38458,23 @@ System.register("src/components/slides/ecosystem/observables2/observables2.js", 
 System.register("src/components/slides/ecosystem/observables3/observables3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -37989,8 +38490,8 @@ System.register("src/components/slides/ecosystem/observables3/observables3.js", 
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38004,19 +38505,19 @@ System.register("src/components/slides/ecosystem/observables3/observables3.js", 
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Observables3 = function (_super) {
+            Observables3 = /** @class */function (_super) {
                 __extends(Observables3, _super);
                 function Observables3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Observables3 = __decorate([core_1.Component({
+                    selector: 'Observables3',
+                    templateUrl: 'src/components/slides/ecosystem/observables3/observables3.html',
+                    styleUrls: ['src/components/slides/ecosystem/observables3/observables3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables3);
                 return Observables3;
             }(slideCommon_1.SlideCommon);
-            Observables3 = __decorate([core_1.Component({
-                selector: 'Observables3',
-                templateUrl: 'src/components/slides/ecosystem/observables3/observables3.html',
-                styleUrls: ['src/components/slides/ecosystem/observables3/observables3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables3);
             exports_1("Observables3", Observables3);
         }
     };
@@ -38024,13 +38525,23 @@ System.register("src/components/slides/ecosystem/observables3/observables3.js", 
 System.register("src/components/slides/ecosystem/observables4/observables4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38046,8 +38557,8 @@ System.register("src/components/slides/ecosystem/observables4/observables4.js", 
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38061,19 +38572,19 @@ System.register("src/components/slides/ecosystem/observables4/observables4.js", 
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Observables4 = function (_super) {
+            Observables4 = /** @class */function (_super) {
                 __extends(Observables4, _super);
                 function Observables4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Observables4 = __decorate([core_1.Component({
+                    selector: 'Observables4',
+                    templateUrl: 'src/components/slides/ecosystem/observables4/observables4.html',
+                    styleUrls: ['src/components/slides/ecosystem/observables4/observables4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables4);
                 return Observables4;
             }(slideCommon_1.SlideCommon);
-            Observables4 = __decorate([core_1.Component({
-                selector: 'Observables4',
-                templateUrl: 'src/components/slides/ecosystem/observables4/observables4.html',
-                styleUrls: ['src/components/slides/ecosystem/observables4/observables4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables4);
             exports_1("Observables4", Observables4);
         }
     };
@@ -38081,13 +38592,23 @@ System.register("src/components/slides/ecosystem/observables4/observables4.js", 
 System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38103,8 +38624,8 @@ System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/cor
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Pw1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38118,19 +38639,19 @@ System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/cor
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Pw1 = function (_super) {
+            Pw1 = /** @class */function (_super) {
                 __extends(Pw1, _super);
                 function Pw1(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Pw1 = __decorate([core_1.Component({
+                    selector: 'Pw1',
+                    templateUrl: 'src/components/slides/ecosystem/pw1/pw1.html',
+                    styleUrls: ['src/components/slides/ecosystem/pw1/pw1.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1);
                 return Pw1;
             }(slideCommon_1.SlideCommon);
-            Pw1 = __decorate([core_1.Component({
-                selector: 'Pw1',
-                templateUrl: 'src/components/slides/ecosystem/pw1/pw1.html',
-                styleUrls: ['src/components/slides/ecosystem/pw1/pw1.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1);
             exports_1("Pw1", Pw1);
         }
     };
@@ -38138,13 +38659,23 @@ System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/cor
 System.register("src/components/slides/ecosystem/pw1_jhipster/pw1_jhipster.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38160,8 +38691,8 @@ System.register("src/components/slides/ecosystem/pw1_jhipster/pw1_jhipster.js", 
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Pw1_jhipster;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38175,19 +38706,19 @@ System.register("src/components/slides/ecosystem/pw1_jhipster/pw1_jhipster.js", 
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Pw1_jhipster = function (_super) {
+            Pw1_jhipster = /** @class */function (_super) {
                 __extends(Pw1_jhipster, _super);
                 function Pw1_jhipster(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Pw1_jhipster = __decorate([core_1.Component({
+                    selector: 'Pw1_jhipster',
+                    templateUrl: 'src/components/slides/ecosystem/pw1_jhipster/pw1_jhipster.html',
+                    styleUrls: ['src/components/slides/ecosystem/pw1_jhipster/pw1_jhipster.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1_jhipster);
                 return Pw1_jhipster;
             }(slideCommon_1.SlideCommon);
-            Pw1_jhipster = __decorate([core_1.Component({
-                selector: 'Pw1_jhipster',
-                templateUrl: 'src/components/slides/ecosystem/pw1_jhipster/pw1_jhipster.html',
-                styleUrls: ['src/components/slides/ecosystem/pw1_jhipster/pw1_jhipster.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1_jhipster);
             exports_1("Pw1_jhipster", Pw1_jhipster);
         }
     };
@@ -38195,13 +38726,23 @@ System.register("src/components/slides/ecosystem/pw1_jhipster/pw1_jhipster.js", 
 System.register("src/components/slides/ecosystem/pw1_router/pw1_router.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38217,8 +38758,8 @@ System.register("src/components/slides/ecosystem/pw1_router/pw1_router.js", ["np
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Pw1_router;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38232,19 +38773,19 @@ System.register("src/components/slides/ecosystem/pw1_router/pw1_router.js", ["np
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Pw1_router = function (_super) {
+            Pw1_router = /** @class */function (_super) {
                 __extends(Pw1_router, _super);
                 function Pw1_router(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Pw1_router = __decorate([core_1.Component({
+                    selector: 'Pw1_router',
+                    templateUrl: 'src/components/slides/ecosystem/pw1_router/pw1_router.html',
+                    styleUrls: ['src/components/slides/ecosystem/pw1_router/pw1_router.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1_router);
                 return Pw1_router;
             }(slideCommon_1.SlideCommon);
-            Pw1_router = __decorate([core_1.Component({
-                selector: 'Pw1_router',
-                templateUrl: 'src/components/slides/ecosystem/pw1_router/pw1_router.html',
-                styleUrls: ['src/components/slides/ecosystem/pw1_router/pw1_router.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1_router);
             exports_1("Pw1_router", Pw1_router);
         }
     };
@@ -38252,13 +38793,23 @@ System.register("src/components/slides/ecosystem/pw1_router/pw1_router.js", ["np
 System.register("src/components/slides/ecosystem/startFromScratch/startFromScratch.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38274,8 +38825,8 @@ System.register("src/components/slides/ecosystem/startFromScratch/startFromScrat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38289,19 +38840,19 @@ System.register("src/components/slides/ecosystem/startFromScratch/startFromScrat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartFromScratch = function (_super) {
+            StartFromScratch = /** @class */function (_super) {
                 __extends(StartFromScratch, _super);
                 function StartFromScratch(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartFromScratch = __decorate([core_1.Component({
+                    selector: 'StartFromScratch',
+                    templateUrl: 'src/components/slides/ecosystem/startFromScratch/startFromScratch.html',
+                    styleUrls: ['src/components/slides/ecosystem/startFromScratch/startFromScratch.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch);
                 return StartFromScratch;
             }(slideCommon_1.SlideCommon);
-            StartFromScratch = __decorate([core_1.Component({
-                selector: 'StartFromScratch',
-                templateUrl: 'src/components/slides/ecosystem/startFromScratch/startFromScratch.html',
-                styleUrls: ['src/components/slides/ecosystem/startFromScratch/startFromScratch.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch);
             exports_1("StartFromScratch", StartFromScratch);
         }
     };
@@ -38309,13 +38860,23 @@ System.register("src/components/slides/ecosystem/startFromScratch/startFromScrat
 System.register("src/components/slides/ecosystem/startFromScratch2/startFromScratch2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38331,8 +38892,8 @@ System.register("src/components/slides/ecosystem/startFromScratch2/startFromScra
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38346,19 +38907,19 @@ System.register("src/components/slides/ecosystem/startFromScratch2/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartFromScratch2 = function (_super) {
+            StartFromScratch2 = /** @class */function (_super) {
                 __extends(StartFromScratch2, _super);
                 function StartFromScratch2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartFromScratch2 = __decorate([core_1.Component({
+                    selector: 'StartFromScratch2',
+                    templateUrl: 'src/components/slides/ecosystem/startFromScratch2/startFromScratch2.html',
+                    styleUrls: ['src/components/slides/ecosystem/startFromScratch2/startFromScratch2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch2);
                 return StartFromScratch2;
             }(slideCommon_1.SlideCommon);
-            StartFromScratch2 = __decorate([core_1.Component({
-                selector: 'StartFromScratch2',
-                templateUrl: 'src/components/slides/ecosystem/startFromScratch2/startFromScratch2.html',
-                styleUrls: ['src/components/slides/ecosystem/startFromScratch2/startFromScratch2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch2);
             exports_1("StartFromScratch2", StartFromScratch2);
         }
     };
@@ -38366,13 +38927,23 @@ System.register("src/components/slides/ecosystem/startFromScratch2/startFromScra
 System.register("src/components/slides/ecosystem/startFromScratch3/startFromScratch3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38388,8 +38959,8 @@ System.register("src/components/slides/ecosystem/startFromScratch3/startFromScra
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38403,19 +38974,19 @@ System.register("src/components/slides/ecosystem/startFromScratch3/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartFromScratch3 = function (_super) {
+            StartFromScratch3 = /** @class */function (_super) {
                 __extends(StartFromScratch3, _super);
                 function StartFromScratch3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartFromScratch3 = __decorate([core_1.Component({
+                    selector: 'StartFromScratch3',
+                    templateUrl: 'src/components/slides/ecosystem/startFromScratch3/startFromScratch3.html',
+                    styleUrls: ['src/components/slides/ecosystem/startFromScratch3/startFromScratch3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch3);
                 return StartFromScratch3;
             }(slideCommon_1.SlideCommon);
-            StartFromScratch3 = __decorate([core_1.Component({
-                selector: 'StartFromScratch3',
-                templateUrl: 'src/components/slides/ecosystem/startFromScratch3/startFromScratch3.html',
-                styleUrls: ['src/components/slides/ecosystem/startFromScratch3/startFromScratch3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch3);
             exports_1("StartFromScratch3", StartFromScratch3);
         }
     };
@@ -38423,13 +38994,23 @@ System.register("src/components/slides/ecosystem/startFromScratch3/startFromScra
 System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38445,8 +39026,8 @@ System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromSc
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch3_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38460,19 +39041,19 @@ System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromSc
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartFromScratch3_2 = function (_super) {
+            StartFromScratch3_2 = /** @class */function (_super) {
                 __extends(StartFromScratch3_2, _super);
                 function StartFromScratch3_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartFromScratch3_2 = __decorate([core_1.Component({
+                    selector: 'StartFromScratch3_2',
+                    templateUrl: 'src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch3_2);
                 return StartFromScratch3_2;
             }(slideCommon_1.SlideCommon);
-            StartFromScratch3_2 = __decorate([core_1.Component({
-                selector: 'StartFromScratch3_2',
-                templateUrl: 'src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.html',
-                styleUrls: ['src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch3_2);
             exports_1("StartFromScratch3_2", StartFromScratch3_2);
         }
     };
@@ -38480,13 +39061,23 @@ System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromSc
 System.register("src/components/slides/ecosystem/startFromScratch4/startFromScratch4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38502,8 +39093,8 @@ System.register("src/components/slides/ecosystem/startFromScratch4/startFromScra
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38517,19 +39108,19 @@ System.register("src/components/slides/ecosystem/startFromScratch4/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartFromScratch4 = function (_super) {
+            StartFromScratch4 = /** @class */function (_super) {
                 __extends(StartFromScratch4, _super);
                 function StartFromScratch4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartFromScratch4 = __decorate([core_1.Component({
+                    selector: 'StartFromScratch4',
+                    templateUrl: 'src/components/slides/ecosystem/startFromScratch4/startFromScratch4.html',
+                    styleUrls: ['src/components/slides/ecosystem/startFromScratch4/startFromScratch4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch4);
                 return StartFromScratch4;
             }(slideCommon_1.SlideCommon);
-            StartFromScratch4 = __decorate([core_1.Component({
-                selector: 'StartFromScratch4',
-                templateUrl: 'src/components/slides/ecosystem/startFromScratch4/startFromScratch4.html',
-                styleUrls: ['src/components/slides/ecosystem/startFromScratch4/startFromScratch4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch4);
             exports_1("StartFromScratch4", StartFromScratch4);
         }
     };
@@ -38537,13 +39128,23 @@ System.register("src/components/slides/ecosystem/startFromScratch4/startFromScra
 System.register("src/components/slides/ecosystem/startFromScratch5/startFromScratch5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38559,8 +39160,8 @@ System.register("src/components/slides/ecosystem/startFromScratch5/startFromScra
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38574,19 +39175,19 @@ System.register("src/components/slides/ecosystem/startFromScratch5/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartFromScratch5 = function (_super) {
+            StartFromScratch5 = /** @class */function (_super) {
                 __extends(StartFromScratch5, _super);
                 function StartFromScratch5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartFromScratch5 = __decorate([core_1.Component({
+                    selector: 'StartFromScratch5',
+                    templateUrl: 'src/components/slides/ecosystem/startFromScratch5/startFromScratch5.html',
+                    styleUrls: ['src/components/slides/ecosystem/startFromScratch5/startFromScratch5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch5);
                 return StartFromScratch5;
             }(slideCommon_1.SlideCommon);
-            StartFromScratch5 = __decorate([core_1.Component({
-                selector: 'StartFromScratch5',
-                templateUrl: 'src/components/slides/ecosystem/startFromScratch5/startFromScratch5.html',
-                styleUrls: ['src/components/slides/ecosystem/startFromScratch5/startFromScratch5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch5);
             exports_1("StartFromScratch5", StartFromScratch5);
         }
     };
@@ -38594,13 +39195,23 @@ System.register("src/components/slides/ecosystem/startFromScratch5/startFromScra
 System.register("src/components/slides/ecosystem/startFromScratch6/startFromScratch6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38616,8 +39227,8 @@ System.register("src/components/slides/ecosystem/startFromScratch6/startFromScra
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38631,19 +39242,19 @@ System.register("src/components/slides/ecosystem/startFromScratch6/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartFromScratch6 = function (_super) {
+            StartFromScratch6 = /** @class */function (_super) {
                 __extends(StartFromScratch6, _super);
                 function StartFromScratch6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartFromScratch6 = __decorate([core_1.Component({
+                    selector: 'StartFromScratch6',
+                    templateUrl: 'src/components/slides/ecosystem/startFromScratch6/startFromScratch6.html',
+                    styleUrls: ['src/components/slides/ecosystem/startFromScratch6/startFromScratch6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch6);
                 return StartFromScratch6;
             }(slideCommon_1.SlideCommon);
-            StartFromScratch6 = __decorate([core_1.Component({
-                selector: 'StartFromScratch6',
-                templateUrl: 'src/components/slides/ecosystem/startFromScratch6/startFromScratch6.html',
-                styleUrls: ['src/components/slides/ecosystem/startFromScratch6/startFromScratch6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch6);
             exports_1("StartFromScratch6", StartFromScratch6);
         }
     };
@@ -38651,13 +39262,23 @@ System.register("src/components/slides/ecosystem/startFromScratch6/startFromScra
 System.register("src/components/slides/ecosystem/typescript1/typescript1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38673,8 +39294,8 @@ System.register("src/components/slides/ecosystem/typescript1/typescript1.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, Typescript1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38684,18 +39305,18 @@ System.register("src/components/slides/ecosystem/typescript1/typescript1.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript1 = function (_super) {
+            Typescript1 = /** @class */function (_super) {
                 __extends(Typescript1, _super);
                 function Typescript1(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript1 = __decorate([core_1.Component({
+                    selector: 'Typescript1',
+                    templateUrl: 'src/components/slides/ecosystem/typescript1/typescript1.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript1/typescript1.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript1);
                 return Typescript1;
             }(slideCommon_1.SlideCommon);
-            Typescript1 = __decorate([core_1.Component({
-                selector: 'Typescript1',
-                templateUrl: 'src/components/slides/ecosystem/typescript1/typescript1.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript1/typescript1.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript1);
             exports_1("Typescript1", Typescript1);
         }
     };
@@ -38703,13 +39324,23 @@ System.register("src/components/slides/ecosystem/typescript1/typescript1.js", ["
 System.register("src/components/slides/ecosystem/typescript2/typescript2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38725,8 +39356,8 @@ System.register("src/components/slides/ecosystem/typescript2/typescript2.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, Typescript2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38736,18 +39367,18 @@ System.register("src/components/slides/ecosystem/typescript2/typescript2.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript2 = function (_super) {
+            Typescript2 = /** @class */function (_super) {
                 __extends(Typescript2, _super);
                 function Typescript2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript2 = __decorate([core_1.Component({
+                    selector: 'Typescript2',
+                    templateUrl: 'src/components/slides/ecosystem/typescript2/typescript2.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript2/typescript2.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript2);
                 return Typescript2;
             }(slideCommon_1.SlideCommon);
-            Typescript2 = __decorate([core_1.Component({
-                selector: 'Typescript2',
-                templateUrl: 'src/components/slides/ecosystem/typescript2/typescript2.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript2/typescript2.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript2);
             exports_1("Typescript2", Typescript2);
         }
     };
@@ -38755,13 +39386,23 @@ System.register("src/components/slides/ecosystem/typescript2/typescript2.js", ["
 System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38777,8 +39418,8 @@ System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38792,19 +39433,19 @@ System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript3 = function (_super) {
+            Typescript3 = /** @class */function (_super) {
                 __extends(Typescript3, _super);
                 function Typescript3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript3 = __decorate([core_1.Component({
+                    selector: 'Typescript3',
+                    templateUrl: 'src/components/slides/ecosystem/typescript3/typescript3.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript3/typescript3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript3);
                 return Typescript3;
             }(slideCommon_1.SlideCommon);
-            Typescript3 = __decorate([core_1.Component({
-                selector: 'Typescript3',
-                templateUrl: 'src/components/slides/ecosystem/typescript3/typescript3.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript3/typescript3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript3);
             exports_1("Typescript3", Typescript3);
         }
     };
@@ -38812,13 +39453,23 @@ System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["
 System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38834,8 +39485,8 @@ System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38849,19 +39500,19 @@ System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript4 = function (_super) {
+            Typescript4 = /** @class */function (_super) {
                 __extends(Typescript4, _super);
                 function Typescript4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript4 = __decorate([core_1.Component({
+                    selector: 'Typescript4',
+                    templateUrl: 'src/components/slides/ecosystem/typescript4/typescript4.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript4/typescript4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4);
                 return Typescript4;
             }(slideCommon_1.SlideCommon);
-            Typescript4 = __decorate([core_1.Component({
-                selector: 'Typescript4',
-                templateUrl: 'src/components/slides/ecosystem/typescript4/typescript4.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript4/typescript4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4);
             exports_1("Typescript4", Typescript4);
         }
     };
@@ -38869,13 +39520,23 @@ System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["
 System.register("src/components/slides/ecosystem/typescript4_2/typescript4_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38891,8 +39552,8 @@ System.register("src/components/slides/ecosystem/typescript4_2/typescript4_2.js"
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38906,19 +39567,19 @@ System.register("src/components/slides/ecosystem/typescript4_2/typescript4_2.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript4_2 = function (_super) {
+            Typescript4_2 = /** @class */function (_super) {
                 __extends(Typescript4_2, _super);
                 function Typescript4_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript4_2 = __decorate([core_1.Component({
+                    selector: 'Typescript4_2',
+                    templateUrl: 'src/components/slides/ecosystem/typescript4_2/typescript4_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript4_2/typescript4_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_2);
                 return Typescript4_2;
             }(slideCommon_1.SlideCommon);
-            Typescript4_2 = __decorate([core_1.Component({
-                selector: 'Typescript4_2',
-                templateUrl: 'src/components/slides/ecosystem/typescript4_2/typescript4_2.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript4_2/typescript4_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_2);
             exports_1("Typescript4_2", Typescript4_2);
         }
     };
@@ -38926,13 +39587,23 @@ System.register("src/components/slides/ecosystem/typescript4_2/typescript4_2.js"
 System.register("src/components/slides/ecosystem/typescript4_3/typescript4_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -38948,8 +39619,8 @@ System.register("src/components/slides/ecosystem/typescript4_3/typescript4_3.js"
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38963,19 +39634,19 @@ System.register("src/components/slides/ecosystem/typescript4_3/typescript4_3.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript4_3 = function (_super) {
+            Typescript4_3 = /** @class */function (_super) {
                 __extends(Typescript4_3, _super);
                 function Typescript4_3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript4_3 = __decorate([core_1.Component({
+                    selector: 'Typescript4_3',
+                    templateUrl: 'src/components/slides/ecosystem/typescript4_3/typescript4_3.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript4_3/typescript4_3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_3);
                 return Typescript4_3;
             }(slideCommon_1.SlideCommon);
-            Typescript4_3 = __decorate([core_1.Component({
-                selector: 'Typescript4_3',
-                templateUrl: 'src/components/slides/ecosystem/typescript4_3/typescript4_3.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript4_3/typescript4_3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_3);
             exports_1("Typescript4_3", Typescript4_3);
         }
     };
@@ -38983,13 +39654,23 @@ System.register("src/components/slides/ecosystem/typescript4_3/typescript4_3.js"
 System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39005,8 +39686,8 @@ System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js"
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39020,19 +39701,19 @@ System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript4_4 = function (_super) {
+            Typescript4_4 = /** @class */function (_super) {
                 __extends(Typescript4_4, _super);
                 function Typescript4_4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript4_4 = __decorate([core_1.Component({
+                    selector: 'Typescript4_4',
+                    templateUrl: 'src/components/slides/ecosystem/typescript4_4/typescript4_4.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript4_4/typescript4_4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_4);
                 return Typescript4_4;
             }(slideCommon_1.SlideCommon);
-            Typescript4_4 = __decorate([core_1.Component({
-                selector: 'Typescript4_4',
-                templateUrl: 'src/components/slides/ecosystem/typescript4_4/typescript4_4.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript4_4/typescript4_4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_4);
             exports_1("Typescript4_4", Typescript4_4);
         }
     };
@@ -39040,13 +39721,23 @@ System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js"
 System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39062,8 +39753,8 @@ System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39077,19 +39768,19 @@ System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript5 = function (_super) {
+            Typescript5 = /** @class */function (_super) {
                 __extends(Typescript5, _super);
                 function Typescript5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript5 = __decorate([core_1.Component({
+                    selector: 'Typescript5',
+                    templateUrl: 'src/components/slides/ecosystem/typescript5/typescript5.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript5/typescript5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript5);
                 return Typescript5;
             }(slideCommon_1.SlideCommon);
-            Typescript5 = __decorate([core_1.Component({
-                selector: 'Typescript5',
-                templateUrl: 'src/components/slides/ecosystem/typescript5/typescript5.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript5/typescript5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript5);
             exports_1("Typescript5", Typescript5);
         }
     };
@@ -39097,13 +39788,23 @@ System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["
 System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39119,8 +39820,8 @@ System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js"
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript5_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39134,19 +39835,19 @@ System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript5_2 = function (_super) {
+            Typescript5_2 = /** @class */function (_super) {
                 __extends(Typescript5_2, _super);
                 function Typescript5_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript5_2 = __decorate([core_1.Component({
+                    selector: 'Typescript5_2',
+                    templateUrl: 'src/components/slides/ecosystem/typescript5_2/typescript5_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript5_2/typescript5_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript5_2);
                 return Typescript5_2;
             }(slideCommon_1.SlideCommon);
-            Typescript5_2 = __decorate([core_1.Component({
-                selector: 'Typescript5_2',
-                templateUrl: 'src/components/slides/ecosystem/typescript5_2/typescript5_2.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript5_2/typescript5_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript5_2);
             exports_1("Typescript5_2", Typescript5_2);
         }
     };
@@ -39154,13 +39855,23 @@ System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js"
 System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39176,8 +39887,8 @@ System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39191,19 +39902,19 @@ System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript6 = function (_super) {
+            Typescript6 = /** @class */function (_super) {
                 __extends(Typescript6, _super);
                 function Typescript6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript6 = __decorate([core_1.Component({
+                    selector: 'Typescript6',
+                    templateUrl: 'src/components/slides/ecosystem/typescript6/typescript6.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript6/typescript6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript6);
                 return Typescript6;
             }(slideCommon_1.SlideCommon);
-            Typescript6 = __decorate([core_1.Component({
-                selector: 'Typescript6',
-                templateUrl: 'src/components/slides/ecosystem/typescript6/typescript6.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript6/typescript6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript6);
             exports_1("Typescript6", Typescript6);
         }
     };
@@ -39211,13 +39922,23 @@ System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["
 System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39233,8 +39954,8 @@ System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39248,19 +39969,19 @@ System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript7 = function (_super) {
+            Typescript7 = /** @class */function (_super) {
                 __extends(Typescript7, _super);
                 function Typescript7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript7 = __decorate([core_1.Component({
+                    selector: 'Typescript7',
+                    templateUrl: 'src/components/slides/ecosystem/typescript7/typescript7.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript7/typescript7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7);
                 return Typescript7;
             }(slideCommon_1.SlideCommon);
-            Typescript7 = __decorate([core_1.Component({
-                selector: 'Typescript7',
-                templateUrl: 'src/components/slides/ecosystem/typescript7/typescript7.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript7/typescript7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7);
             exports_1("Typescript7", Typescript7);
         }
     };
@@ -39268,13 +39989,23 @@ System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["
 System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39290,8 +40021,8 @@ System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js"
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39305,19 +40036,19 @@ System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript7_2 = function (_super) {
+            Typescript7_2 = /** @class */function (_super) {
                 __extends(Typescript7_2, _super);
                 function Typescript7_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript7_2 = __decorate([core_1.Component({
+                    selector: 'Typescript7_2',
+                    templateUrl: 'src/components/slides/ecosystem/typescript7_2/typescript7_2.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript7_2/typescript7_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7_2);
                 return Typescript7_2;
             }(slideCommon_1.SlideCommon);
-            Typescript7_2 = __decorate([core_1.Component({
-                selector: 'Typescript7_2',
-                templateUrl: 'src/components/slides/ecosystem/typescript7_2/typescript7_2.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript7_2/typescript7_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7_2);
             exports_1("Typescript7_2", Typescript7_2);
         }
     };
@@ -39325,13 +40056,23 @@ System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js"
 System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39347,8 +40088,8 @@ System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js"
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7_3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39362,19 +40103,19 @@ System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript7_3 = function (_super) {
+            Typescript7_3 = /** @class */function (_super) {
                 __extends(Typescript7_3, _super);
                 function Typescript7_3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript7_3 = __decorate([core_1.Component({
+                    selector: 'Typescript7_3',
+                    templateUrl: 'src/components/slides/ecosystem/typescript7_3/typescript7_3.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript7_3/typescript7_3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7_3);
                 return Typescript7_3;
             }(slideCommon_1.SlideCommon);
-            Typescript7_3 = __decorate([core_1.Component({
-                selector: 'Typescript7_3',
-                templateUrl: 'src/components/slides/ecosystem/typescript7_3/typescript7_3.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript7_3/typescript7_3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7_3);
             exports_1("Typescript7_3", Typescript7_3);
         }
     };
@@ -39382,13 +40123,23 @@ System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js"
 System.register("src/components/slides/ecosystem/typescript7_4/typescript7_4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39404,8 +40155,8 @@ System.register("src/components/slides/ecosystem/typescript7_4/typescript7_4.js"
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7_4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39419,19 +40170,19 @@ System.register("src/components/slides/ecosystem/typescript7_4/typescript7_4.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript7_4 = function (_super) {
+            Typescript7_4 = /** @class */function (_super) {
                 __extends(Typescript7_4, _super);
                 function Typescript7_4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript7_4 = __decorate([core_1.Component({
+                    selector: 'Typescript7_4',
+                    templateUrl: 'src/components/slides/ecosystem/typescript7_4/typescript7_4.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript7_4/typescript7_4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7_4);
                 return Typescript7_4;
             }(slideCommon_1.SlideCommon);
-            Typescript7_4 = __decorate([core_1.Component({
-                selector: 'Typescript7_4',
-                templateUrl: 'src/components/slides/ecosystem/typescript7_4/typescript7_4.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript7_4/typescript7_4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7_4);
             exports_1("Typescript7_4", Typescript7_4);
         }
     };
@@ -39439,13 +40190,23 @@ System.register("src/components/slides/ecosystem/typescript7_4/typescript7_4.js"
 System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39461,8 +40222,8 @@ System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript8;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39476,19 +40237,19 @@ System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Typescript8 = function (_super) {
+            Typescript8 = /** @class */function (_super) {
                 __extends(Typescript8, _super);
                 function Typescript8(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Typescript8 = __decorate([core_1.Component({
+                    selector: 'typescript8',
+                    templateUrl: 'src/components/slides/ecosystem/typescript8/typescript8.html',
+                    styleUrls: ['src/components/slides/ecosystem/typescript8/typescript8.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript8);
                 return Typescript8;
             }(slideCommon_1.SlideCommon);
-            Typescript8 = __decorate([core_1.Component({
-                selector: 'typescript8',
-                templateUrl: 'src/components/slides/ecosystem/typescript8/typescript8.html',
-                styleUrls: ['src/components/slides/ecosystem/typescript8/typescript8.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript8);
             exports_1("Typescript8", Typescript8);
         }
     };
@@ -39496,13 +40257,23 @@ System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["
 System.register("src/components/slides/mainConcepts/aboutComposition/aboutComposition.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39518,8 +40289,8 @@ System.register("src/components/slides/mainConcepts/aboutComposition/aboutCompos
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutComposition;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39533,19 +40304,19 @@ System.register("src/components/slides/mainConcepts/aboutComposition/aboutCompos
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutComposition = function (_super) {
+            AboutComposition = /** @class */function (_super) {
                 __extends(AboutComposition, _super);
                 function AboutComposition(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutComposition = __decorate([core_1.Component({
+                    selector: 'AboutComposition',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutComposition/aboutComposition.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutComposition/aboutComposition.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutComposition);
                 return AboutComposition;
             }(slideCommon_1.SlideCommon);
-            AboutComposition = __decorate([core_1.Component({
-                selector: 'AboutComposition',
-                templateUrl: 'src/components/slides/mainConcepts/aboutComposition/aboutComposition.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutComposition/aboutComposition.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutComposition);
             exports_1("AboutComposition", AboutComposition);
         }
     };
@@ -39553,13 +40324,23 @@ System.register("src/components/slides/mainConcepts/aboutComposition/aboutCompos
 System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39575,8 +40356,8 @@ System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", [
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39590,19 +40371,19 @@ System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutForms = function (_super) {
+            AboutForms = /** @class */function (_super) {
                 __extends(AboutForms, _super);
                 function AboutForms(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutForms = __decorate([core_1.Component({
+                    selector: 'AboutForms',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutForms/aboutForms.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutForms/aboutForms.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms);
                 return AboutForms;
             }(slideCommon_1.SlideCommon);
-            AboutForms = __decorate([core_1.Component({
-                selector: 'AboutForms',
-                templateUrl: 'src/components/slides/mainConcepts/aboutForms/aboutForms.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutForms/aboutForms.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms);
             exports_1("AboutForms", AboutForms);
         }
     };
@@ -39610,13 +40391,23 @@ System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", [
 System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39632,8 +40423,8 @@ System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39647,19 +40438,19 @@ System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutForms2 = function (_super) {
+            AboutForms2 = /** @class */function (_super) {
                 __extends(AboutForms2, _super);
                 function AboutForms2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutForms2 = __decorate([core_1.Component({
+                    selector: 'AboutForms2',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutForms2/aboutForms2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutForms2/aboutForms2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms2);
                 return AboutForms2;
             }(slideCommon_1.SlideCommon);
-            AboutForms2 = __decorate([core_1.Component({
-                selector: 'AboutForms2',
-                templateUrl: 'src/components/slides/mainConcepts/aboutForms2/aboutForms2.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutForms2/aboutForms2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms2);
             exports_1("AboutForms2", AboutForms2);
         }
     };
@@ -39667,13 +40458,23 @@ System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js",
 System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39689,8 +40490,8 @@ System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39704,19 +40505,19 @@ System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutForms3 = function (_super) {
+            AboutForms3 = /** @class */function (_super) {
                 __extends(AboutForms3, _super);
                 function AboutForms3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutForms3 = __decorate([core_1.Component({
+                    selector: 'AboutForms3',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutForms3/aboutForms3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutForms3/aboutForms3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms3);
                 return AboutForms3;
             }(slideCommon_1.SlideCommon);
-            AboutForms3 = __decorate([core_1.Component({
-                selector: 'AboutForms3',
-                templateUrl: 'src/components/slides/mainConcepts/aboutForms3/aboutForms3.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutForms3/aboutForms3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms3);
             exports_1("AboutForms3", AboutForms3);
         }
     };
@@ -39724,13 +40525,23 @@ System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js",
 System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39746,8 +40557,8 @@ System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39761,19 +40572,19 @@ System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutForms4 = function (_super) {
+            AboutForms4 = /** @class */function (_super) {
                 __extends(AboutForms4, _super);
                 function AboutForms4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutForms4 = __decorate([core_1.Component({
+                    selector: 'AboutForms4',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutForms4/aboutForms4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutForms4/aboutForms4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms4);
                 return AboutForms4;
             }(slideCommon_1.SlideCommon);
-            AboutForms4 = __decorate([core_1.Component({
-                selector: 'AboutForms4',
-                templateUrl: 'src/components/slides/mainConcepts/aboutForms4/aboutForms4.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutForms4/aboutForms4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms4);
             exports_1("AboutForms4", AboutForms4);
         }
     };
@@ -39781,13 +40592,23 @@ System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js",
 System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39803,8 +40624,8 @@ System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39818,19 +40639,19 @@ System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutForms5 = function (_super) {
+            AboutForms5 = /** @class */function (_super) {
                 __extends(AboutForms5, _super);
                 function AboutForms5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutForms5 = __decorate([core_1.Component({
+                    selector: 'AboutForms5',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutForms5/aboutForms5.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutForms5/aboutForms5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms5);
                 return AboutForms5;
             }(slideCommon_1.SlideCommon);
-            AboutForms5 = __decorate([core_1.Component({
-                selector: 'AboutForms5',
-                templateUrl: 'src/components/slides/mainConcepts/aboutForms5/aboutForms5.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutForms5/aboutForms5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms5);
             exports_1("AboutForms5", AboutForms5);
         }
     };
@@ -39838,13 +40659,23 @@ System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js",
 System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39860,8 +40691,8 @@ System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39875,19 +40706,19 @@ System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutForms6 = function (_super) {
+            AboutForms6 = /** @class */function (_super) {
                 __extends(AboutForms6, _super);
                 function AboutForms6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutForms6 = __decorate([core_1.Component({
+                    selector: 'AboutForms6',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutForms6/aboutForms6.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutForms6/aboutForms6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms6);
                 return AboutForms6;
             }(slideCommon_1.SlideCommon);
-            AboutForms6 = __decorate([core_1.Component({
-                selector: 'AboutForms6',
-                templateUrl: 'src/components/slides/mainConcepts/aboutForms6/aboutForms6.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutForms6/aboutForms6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms6);
             exports_1("AboutForms6", AboutForms6);
         }
     };
@@ -39895,13 +40726,23 @@ System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js",
 System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39917,8 +40758,8 @@ System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39932,19 +40773,19 @@ System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutForms7 = function (_super) {
+            AboutForms7 = /** @class */function (_super) {
                 __extends(AboutForms7, _super);
                 function AboutForms7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutForms7 = __decorate([core_1.Component({
+                    selector: 'AboutForms7',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutForms7/aboutForms7.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutForms7/aboutForms7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms7);
                 return AboutForms7;
             }(slideCommon_1.SlideCommon);
-            AboutForms7 = __decorate([core_1.Component({
-                selector: 'AboutForms7',
-                templateUrl: 'src/components/slides/mainConcepts/aboutForms7/aboutForms7.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutForms7/aboutForms7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms7);
             exports_1("AboutForms7", AboutForms7);
         }
     };
@@ -39952,13 +40793,23 @@ System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js",
 System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -39974,8 +40825,8 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycl
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39989,19 +40840,19 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycl
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutLifecycle = function (_super) {
+            AboutLifecycle = /** @class */function (_super) {
                 __extends(AboutLifecycle, _super);
                 function AboutLifecycle(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutLifecycle = __decorate([core_1.Component({
+                    selector: 'AboutLifecycle',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle);
                 return AboutLifecycle;
             }(slideCommon_1.SlideCommon);
-            AboutLifecycle = __decorate([core_1.Component({
-                selector: 'AboutLifecycle',
-                templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle);
             exports_1("AboutLifecycle", AboutLifecycle);
         }
     };
@@ -40009,13 +40860,23 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycl
 System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40031,8 +40892,8 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecyc
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40046,19 +40907,19 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecyc
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutLifecycle2 = function (_super) {
+            AboutLifecycle2 = /** @class */function (_super) {
                 __extends(AboutLifecycle2, _super);
                 function AboutLifecycle2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutLifecycle2 = __decorate([core_1.Component({
+                    selector: 'AboutLifecycle2',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle2);
                 return AboutLifecycle2;
             }(slideCommon_1.SlideCommon);
-            AboutLifecycle2 = __decorate([core_1.Component({
-                selector: 'AboutLifecycle2',
-                templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle2);
             exports_1("AboutLifecycle2", AboutLifecycle2);
         }
     };
@@ -40066,13 +40927,23 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecyc
 System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40088,8 +40959,8 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecyc
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40103,19 +40974,19 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecyc
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutLifecycle3 = function (_super) {
+            AboutLifecycle3 = /** @class */function (_super) {
                 __extends(AboutLifecycle3, _super);
                 function AboutLifecycle3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutLifecycle3 = __decorate([core_1.Component({
+                    selector: 'AboutLifecycle3',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle3);
                 return AboutLifecycle3;
             }(slideCommon_1.SlideCommon);
-            AboutLifecycle3 = __decorate([core_1.Component({
-                selector: 'AboutLifecycle3',
-                templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle3);
             exports_1("AboutLifecycle3", AboutLifecycle3);
         }
     };
@@ -40123,13 +40994,23 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecyc
 System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40145,8 +41026,8 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecyc
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40160,19 +41041,19 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecyc
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutLifecycle4 = function (_super) {
+            AboutLifecycle4 = /** @class */function (_super) {
                 __extends(AboutLifecycle4, _super);
                 function AboutLifecycle4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutLifecycle4 = __decorate([core_1.Component({
+                    selector: 'AboutLifecycle4',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle4);
                 return AboutLifecycle4;
             }(slideCommon_1.SlideCommon);
-            AboutLifecycle4 = __decorate([core_1.Component({
-                selector: 'AboutLifecycle4',
-                templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle4);
             exports_1("AboutLifecycle4", AboutLifecycle4);
         }
     };
@@ -40180,13 +41061,23 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecyc
 System.register("src/components/slides/mainConcepts/aboutModules/aboutModules.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40202,8 +41093,8 @@ System.register("src/components/slides/mainConcepts/aboutModules/aboutModules.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutModules;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40217,19 +41108,19 @@ System.register("src/components/slides/mainConcepts/aboutModules/aboutModules.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutModules = function (_super) {
+            AboutModules = /** @class */function (_super) {
                 __extends(AboutModules, _super);
                 function AboutModules(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutModules = __decorate([core_1.Component({
+                    selector: 'AboutModules',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutModules/aboutModules.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutModules/aboutModules.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules);
                 return AboutModules;
             }(slideCommon_1.SlideCommon);
-            AboutModules = __decorate([core_1.Component({
-                selector: 'AboutModules',
-                templateUrl: 'src/components/slides/mainConcepts/aboutModules/aboutModules.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutModules/aboutModules.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules);
             exports_1("AboutModules", AboutModules);
         }
     };
@@ -40237,13 +41128,23 @@ System.register("src/components/slides/mainConcepts/aboutModules/aboutModules.js
 System.register("src/components/slides/mainConcepts/aboutModules2/aboutModules2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40259,8 +41160,8 @@ System.register("src/components/slides/mainConcepts/aboutModules2/aboutModules2.
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutModules2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40274,19 +41175,19 @@ System.register("src/components/slides/mainConcepts/aboutModules2/aboutModules2.
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutModules2 = function (_super) {
+            AboutModules2 = /** @class */function (_super) {
                 __extends(AboutModules2, _super);
                 function AboutModules2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutModules2 = __decorate([core_1.Component({
+                    selector: 'AboutModules2',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutModules2/aboutModules2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutModules2/aboutModules2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules2);
                 return AboutModules2;
             }(slideCommon_1.SlideCommon);
-            AboutModules2 = __decorate([core_1.Component({
-                selector: 'AboutModules2',
-                templateUrl: 'src/components/slides/mainConcepts/aboutModules2/aboutModules2.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutModules2/aboutModules2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules2);
             exports_1("AboutModules2", AboutModules2);
         }
     };
@@ -40294,13 +41195,23 @@ System.register("src/components/slides/mainConcepts/aboutModules2/aboutModules2.
 System.register("src/components/slides/mainConcepts/aboutModules3/aboutModules3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40316,8 +41227,8 @@ System.register("src/components/slides/mainConcepts/aboutModules3/aboutModules3.
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutModules3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40331,19 +41242,19 @@ System.register("src/components/slides/mainConcepts/aboutModules3/aboutModules3.
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutModules3 = function (_super) {
+            AboutModules3 = /** @class */function (_super) {
                 __extends(AboutModules3, _super);
                 function AboutModules3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutModules3 = __decorate([core_1.Component({
+                    selector: 'AboutModules3',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutModules3/aboutModules3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutModules3/aboutModules3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules3);
                 return AboutModules3;
             }(slideCommon_1.SlideCommon);
-            AboutModules3 = __decorate([core_1.Component({
-                selector: 'AboutModules3',
-                templateUrl: 'src/components/slides/mainConcepts/aboutModules3/aboutModules3.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutModules3/aboutModules3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules3);
             exports_1("AboutModules3", AboutModules3);
         }
     };
@@ -40351,13 +41262,23 @@ System.register("src/components/slides/mainConcepts/aboutModules3/aboutModules3.
 System.register("src/components/slides/mainConcepts/aboutModules4/aboutModules4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40373,8 +41294,8 @@ System.register("src/components/slides/mainConcepts/aboutModules4/aboutModules4.
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutModules4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40388,19 +41309,19 @@ System.register("src/components/slides/mainConcepts/aboutModules4/aboutModules4.
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutModules4 = function (_super) {
+            AboutModules4 = /** @class */function (_super) {
                 __extends(AboutModules4, _super);
                 function AboutModules4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutModules4 = __decorate([core_1.Component({
+                    selector: 'AboutModules4',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutModules4/aboutModules4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutModules4/aboutModules4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules4);
                 return AboutModules4;
             }(slideCommon_1.SlideCommon);
-            AboutModules4 = __decorate([core_1.Component({
-                selector: 'AboutModules4',
-                templateUrl: 'src/components/slides/mainConcepts/aboutModules4/aboutModules4.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutModules4/aboutModules4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules4);
             exports_1("AboutModules4", AboutModules4);
         }
     };
@@ -40408,13 +41329,23 @@ System.register("src/components/slides/mainConcepts/aboutModules4/aboutModules4.
 System.register("src/components/slides/mainConcepts/aboutPipes/aboutPipes.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40430,8 +41361,8 @@ System.register("src/components/slides/mainConcepts/aboutPipes/aboutPipes.js", [
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutPipes;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40445,19 +41376,19 @@ System.register("src/components/slides/mainConcepts/aboutPipes/aboutPipes.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutPipes = function (_super) {
+            AboutPipes = /** @class */function (_super) {
                 __extends(AboutPipes, _super);
                 function AboutPipes(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutPipes = __decorate([core_1.Component({
+                    selector: 'aboutPipes',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutPipes/aboutPipes.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutPipes/aboutPipes.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes);
                 return AboutPipes;
             }(slideCommon_1.SlideCommon);
-            AboutPipes = __decorate([core_1.Component({
-                selector: 'aboutPipes',
-                templateUrl: 'src/components/slides/mainConcepts/aboutPipes/aboutPipes.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutPipes/aboutPipes.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes);
             exports_1("AboutPipes", AboutPipes);
         }
     };
@@ -40465,13 +41396,23 @@ System.register("src/components/slides/mainConcepts/aboutPipes/aboutPipes.js", [
 System.register("src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40487,8 +41428,8 @@ System.register("src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutPipes2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40502,19 +41443,19 @@ System.register("src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutPipes2 = function (_super) {
+            AboutPipes2 = /** @class */function (_super) {
                 __extends(AboutPipes2, _super);
                 function AboutPipes2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutPipes2 = __decorate([core_1.Component({
+                    selector: 'AboutPipes2',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes2);
                 return AboutPipes2;
             }(slideCommon_1.SlideCommon);
-            AboutPipes2 = __decorate([core_1.Component({
-                selector: 'AboutPipes2',
-                templateUrl: 'src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes2);
             exports_1("AboutPipes2", AboutPipes2);
         }
     };
@@ -40522,13 +41463,23 @@ System.register("src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.js",
 System.register("src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40544,8 +41495,8 @@ System.register("src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutPipes3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40559,19 +41510,19 @@ System.register("src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutPipes3 = function (_super) {
+            AboutPipes3 = /** @class */function (_super) {
                 __extends(AboutPipes3, _super);
                 function AboutPipes3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutPipes3 = __decorate([core_1.Component({
+                    selector: 'AboutPipes3',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes3);
                 return AboutPipes3;
             }(slideCommon_1.SlideCommon);
-            AboutPipes3 = __decorate([core_1.Component({
-                selector: 'AboutPipes3',
-                templateUrl: 'src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes3);
             exports_1("AboutPipes3", AboutPipes3);
         }
     };
@@ -40579,13 +41530,23 @@ System.register("src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.js",
 System.register("src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40601,8 +41562,8 @@ System.register("src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutPipes4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40616,19 +41577,19 @@ System.register("src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutPipes4 = function (_super) {
+            AboutPipes4 = /** @class */function (_super) {
                 __extends(AboutPipes4, _super);
                 function AboutPipes4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutPipes4 = __decorate([core_1.Component({
+                    selector: 'AboutPipes4',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes4);
                 return AboutPipes4;
             }(slideCommon_1.SlideCommon);
-            AboutPipes4 = __decorate([core_1.Component({
-                selector: 'AboutPipes4',
-                templateUrl: 'src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes4);
             exports_1("AboutPipes4", AboutPipes4);
         }
     };
@@ -40636,13 +41597,23 @@ System.register("src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.js",
 System.register("src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40658,8 +41629,8 @@ System.register("src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutPipes5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40673,19 +41644,19 @@ System.register("src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutPipes5 = function (_super) {
+            AboutPipes5 = /** @class */function (_super) {
                 __extends(AboutPipes5, _super);
                 function AboutPipes5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutPipes5 = __decorate([core_1.Component({
+                    selector: 'AboutPipes5',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes5);
                 return AboutPipes5;
             }(slideCommon_1.SlideCommon);
-            AboutPipes5 = __decorate([core_1.Component({
-                selector: 'AboutPipes5',
-                templateUrl: 'src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes5);
             exports_1("AboutPipes5", AboutPipes5);
         }
     };
@@ -40693,13 +41664,23 @@ System.register("src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.js",
 System.register("src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40715,8 +41696,8 @@ System.register("src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutPipes6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40730,19 +41711,19 @@ System.register("src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutPipes6 = function (_super) {
+            AboutPipes6 = /** @class */function (_super) {
                 __extends(AboutPipes6, _super);
                 function AboutPipes6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutPipes6 = __decorate([core_1.Component({
+                    selector: 'AboutPipes6',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes6);
                 return AboutPipes6;
             }(slideCommon_1.SlideCommon);
-            AboutPipes6 = __decorate([core_1.Component({
-                selector: 'AboutPipes6',
-                templateUrl: 'src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes6);
             exports_1("AboutPipes6", AboutPipes6);
         }
     };
@@ -40750,13 +41731,23 @@ System.register("src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.js",
 System.register("src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40772,8 +41763,8 @@ System.register("src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutPipes7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40787,19 +41778,19 @@ System.register("src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutPipes7 = function (_super) {
+            AboutPipes7 = /** @class */function (_super) {
                 __extends(AboutPipes7, _super);
                 function AboutPipes7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutPipes7 = __decorate([core_1.Component({
+                    selector: 'AboutPipes7',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes7);
                 return AboutPipes7;
             }(slideCommon_1.SlideCommon);
-            AboutPipes7 = __decorate([core_1.Component({
-                selector: 'AboutPipes7',
-                templateUrl: 'src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes7);
             exports_1("AboutPipes7", AboutPipes7);
         }
     };
@@ -40807,13 +41798,23 @@ System.register("src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.js",
 System.register("src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40829,8 +41830,8 @@ System.register("src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutPipes8;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40844,19 +41845,19 @@ System.register("src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutPipes8 = function (_super) {
+            AboutPipes8 = /** @class */function (_super) {
                 __extends(AboutPipes8, _super);
                 function AboutPipes8(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutPipes8 = __decorate([core_1.Component({
+                    selector: 'AboutPipes8',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes8);
                 return AboutPipes8;
             }(slideCommon_1.SlideCommon);
-            AboutPipes8 = __decorate([core_1.Component({
-                selector: 'AboutPipes8',
-                templateUrl: 'src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutPipes8);
             exports_1("AboutPipes8", AboutPipes8);
         }
     };
@@ -40864,13 +41865,23 @@ System.register("src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.js",
 System.register("src/components/slides/mainConcepts/aboutRouter/aboutRouter.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40886,8 +41897,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter/aboutRouter.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40901,19 +41912,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter/aboutRouter.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter = function (_super) {
+            AboutRouter = /** @class */function (_super) {
                 __extends(AboutRouter, _super);
                 function AboutRouter(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter = __decorate([core_1.Component({
+                    selector: 'AboutRouter',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter/aboutRouter.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter/aboutRouter.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter);
                 return AboutRouter;
             }(slideCommon_1.SlideCommon);
-            AboutRouter = __decorate([core_1.Component({
-                selector: 'AboutRouter',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter/aboutRouter.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter/aboutRouter.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter);
             exports_1("AboutRouter", AboutRouter);
         }
     };
@@ -40921,13 +41932,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter/aboutRouter.js",
 System.register("src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -40943,8 +41964,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter10;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40958,19 +41979,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter10 = function (_super) {
+            AboutRouter10 = /** @class */function (_super) {
                 __extends(AboutRouter10, _super);
                 function AboutRouter10(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter10 = __decorate([core_1.Component({
+                    selector: 'AboutRouter10',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter10);
                 return AboutRouter10;
             }(slideCommon_1.SlideCommon);
-            AboutRouter10 = __decorate([core_1.Component({
-                selector: 'AboutRouter10',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter10);
             exports_1("AboutRouter10", AboutRouter10);
         }
     };
@@ -40978,13 +41999,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.
 System.register("src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41000,8 +42031,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41015,19 +42046,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter2 = function (_super) {
+            AboutRouter2 = /** @class */function (_super) {
                 __extends(AboutRouter2, _super);
                 function AboutRouter2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter2 = __decorate([core_1.Component({
+                    selector: 'AboutRouter2',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter2);
                 return AboutRouter2;
             }(slideCommon_1.SlideCommon);
-            AboutRouter2 = __decorate([core_1.Component({
-                selector: 'AboutRouter2',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter2);
             exports_1("AboutRouter2", AboutRouter2);
         }
     };
@@ -41035,13 +42066,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.js
 System.register("src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41057,8 +42098,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41072,19 +42113,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter3 = function (_super) {
+            AboutRouter3 = /** @class */function (_super) {
                 __extends(AboutRouter3, _super);
                 function AboutRouter3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter3 = __decorate([core_1.Component({
+                    selector: 'AboutRouter3',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter3);
                 return AboutRouter3;
             }(slideCommon_1.SlideCommon);
-            AboutRouter3 = __decorate([core_1.Component({
-                selector: 'AboutRouter3',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter3);
             exports_1("AboutRouter3", AboutRouter3);
         }
     };
@@ -41092,13 +42133,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.js
 System.register("src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41114,8 +42165,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41129,19 +42180,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter4 = function (_super) {
+            AboutRouter4 = /** @class */function (_super) {
                 __extends(AboutRouter4, _super);
                 function AboutRouter4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter4 = __decorate([core_1.Component({
+                    selector: 'AboutRouter4',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter4);
                 return AboutRouter4;
             }(slideCommon_1.SlideCommon);
-            AboutRouter4 = __decorate([core_1.Component({
-                selector: 'AboutRouter4',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter4);
             exports_1("AboutRouter4", AboutRouter4);
         }
     };
@@ -41149,13 +42200,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.js
 System.register("src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41171,8 +42232,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41186,19 +42247,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter5 = function (_super) {
+            AboutRouter5 = /** @class */function (_super) {
                 __extends(AboutRouter5, _super);
                 function AboutRouter5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter5 = __decorate([core_1.Component({
+                    selector: 'AboutRouter5',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter5);
                 return AboutRouter5;
             }(slideCommon_1.SlideCommon);
-            AboutRouter5 = __decorate([core_1.Component({
-                selector: 'AboutRouter5',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter5);
             exports_1("AboutRouter5", AboutRouter5);
         }
     };
@@ -41206,13 +42267,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.js
 System.register("src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41228,8 +42299,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41243,19 +42314,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter6 = function (_super) {
+            AboutRouter6 = /** @class */function (_super) {
                 __extends(AboutRouter6, _super);
                 function AboutRouter6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter6 = __decorate([core_1.Component({
+                    selector: 'AboutRouter6',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter6);
                 return AboutRouter6;
             }(slideCommon_1.SlideCommon);
-            AboutRouter6 = __decorate([core_1.Component({
-                selector: 'AboutRouter6',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter6);
             exports_1("AboutRouter6", AboutRouter6);
         }
     };
@@ -41263,13 +42334,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.js
 System.register("src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41285,8 +42366,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41300,19 +42381,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter7 = function (_super) {
+            AboutRouter7 = /** @class */function (_super) {
                 __extends(AboutRouter7, _super);
                 function AboutRouter7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter7 = __decorate([core_1.Component({
+                    selector: 'AboutRouter7',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter7);
                 return AboutRouter7;
             }(slideCommon_1.SlideCommon);
-            AboutRouter7 = __decorate([core_1.Component({
-                selector: 'AboutRouter7',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter7);
             exports_1("AboutRouter7", AboutRouter7);
         }
     };
@@ -41320,13 +42401,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.js
 System.register("src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41342,8 +42433,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter8;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41357,19 +42448,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter8 = function (_super) {
+            AboutRouter8 = /** @class */function (_super) {
                 __extends(AboutRouter8, _super);
                 function AboutRouter8(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter8 = __decorate([core_1.Component({
+                    selector: 'AboutRouter8',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter8);
                 return AboutRouter8;
             }(slideCommon_1.SlideCommon);
-            AboutRouter8 = __decorate([core_1.Component({
-                selector: 'AboutRouter8',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter8);
             exports_1("AboutRouter8", AboutRouter8);
         }
     };
@@ -41377,13 +42468,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.js
 System.register("src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41399,8 +42500,8 @@ System.register("src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutRouter9;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41414,19 +42515,19 @@ System.register("src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutRouter9 = function (_super) {
+            AboutRouter9 = /** @class */function (_super) {
                 __extends(AboutRouter9, _super);
                 function AboutRouter9(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutRouter9 = __decorate([core_1.Component({
+                    selector: 'AboutRouter9',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter9);
                 return AboutRouter9;
             }(slideCommon_1.SlideCommon);
-            AboutRouter9 = __decorate([core_1.Component({
-                selector: 'AboutRouter9',
-                templateUrl: 'src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutRouter9);
             exports_1("AboutRouter9", AboutRouter9);
         }
     };
@@ -41434,13 +42535,23 @@ System.register("src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.js
 System.register("src/components/slides/mainConcepts/aboutTemplates/aboutTemplates.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41456,8 +42567,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates/aboutTemplate
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41471,19 +42582,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates/aboutTemplate
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates = function (_super) {
+            AboutTemplates = /** @class */function (_super) {
                 __extends(AboutTemplates, _super);
                 function AboutTemplates(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates = __decorate([core_1.Component({
+                    selector: 'AboutTemplates',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates/aboutTemplates.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates/aboutTemplates.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates);
                 return AboutTemplates;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates = __decorate([core_1.Component({
-                selector: 'AboutTemplates',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates/aboutTemplates.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates/aboutTemplates.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates);
             exports_1("AboutTemplates", AboutTemplates);
         }
     };
@@ -41491,13 +42602,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates/aboutTemplate
 System.register("src/components/slides/mainConcepts/aboutTemplates10/aboutTemplates10.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41513,8 +42634,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates10/aboutTempla
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates10;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41528,19 +42649,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates10/aboutTempla
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates10 = function (_super) {
+            AboutTemplates10 = /** @class */function (_super) {
                 __extends(AboutTemplates10, _super);
                 function AboutTemplates10(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates10 = __decorate([core_1.Component({
+                    selector: 'aboutTemplates10',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates10/aboutTemplates10.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates10/aboutTemplates10.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates10);
                 return AboutTemplates10;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates10 = __decorate([core_1.Component({
-                selector: 'aboutTemplates10',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates10/aboutTemplates10.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates10/aboutTemplates10.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates10);
             exports_1("AboutTemplates10", AboutTemplates10);
         }
     };
@@ -41548,13 +42669,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates10/aboutTempla
 System.register("src/components/slides/mainConcepts/aboutTemplates11/aboutTemplates11.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41570,8 +42701,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates11/aboutTempla
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates11;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41585,19 +42716,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates11/aboutTempla
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates11 = function (_super) {
+            AboutTemplates11 = /** @class */function (_super) {
                 __extends(AboutTemplates11, _super);
                 function AboutTemplates11(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates11 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates11',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates11/aboutTemplates11.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates11/aboutTemplates11.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates11);
                 return AboutTemplates11;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates11 = __decorate([core_1.Component({
-                selector: 'AboutTemplates11',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates11/aboutTemplates11.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates11/aboutTemplates11.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates11);
             exports_1("AboutTemplates11", AboutTemplates11);
         }
     };
@@ -41605,13 +42736,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates11/aboutTempla
 System.register("src/components/slides/mainConcepts/aboutTemplates2/aboutTemplates2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41627,8 +42768,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates2/aboutTemplat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41642,19 +42783,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates2/aboutTemplat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates2 = function (_super) {
+            AboutTemplates2 = /** @class */function (_super) {
                 __extends(AboutTemplates2, _super);
                 function AboutTemplates2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates2 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates2',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates2/aboutTemplates2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates2/aboutTemplates2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates2);
                 return AboutTemplates2;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates2 = __decorate([core_1.Component({
-                selector: 'AboutTemplates2',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates2/aboutTemplates2.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates2/aboutTemplates2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates2);
             exports_1("AboutTemplates2", AboutTemplates2);
         }
     };
@@ -41662,13 +42803,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates2/aboutTemplat
 System.register("src/components/slides/mainConcepts/aboutTemplates3/aboutTemplates3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41684,8 +42835,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates3/aboutTemplat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41699,19 +42850,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates3/aboutTemplat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates3 = function (_super) {
+            AboutTemplates3 = /** @class */function (_super) {
                 __extends(AboutTemplates3, _super);
                 function AboutTemplates3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates3 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates3',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates3/aboutTemplates3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates3/aboutTemplates3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates3);
                 return AboutTemplates3;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates3 = __decorate([core_1.Component({
-                selector: 'AboutTemplates3',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates3/aboutTemplates3.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates3/aboutTemplates3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates3);
             exports_1("AboutTemplates3", AboutTemplates3);
         }
     };
@@ -41719,13 +42870,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates3/aboutTemplat
 System.register("src/components/slides/mainConcepts/aboutTemplates4/aboutTemplates4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41741,8 +42902,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates4/aboutTemplat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41756,19 +42917,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates4/aboutTemplat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates4 = function (_super) {
+            AboutTemplates4 = /** @class */function (_super) {
                 __extends(AboutTemplates4, _super);
                 function AboutTemplates4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates4 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates4',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates4/aboutTemplates4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates4/aboutTemplates4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates4);
                 return AboutTemplates4;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates4 = __decorate([core_1.Component({
-                selector: 'AboutTemplates4',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates4/aboutTemplates4.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates4/aboutTemplates4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates4);
             exports_1("AboutTemplates4", AboutTemplates4);
         }
     };
@@ -41776,13 +42937,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates4/aboutTemplat
 System.register("src/components/slides/mainConcepts/aboutTemplates5/aboutTemplates5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41798,8 +42969,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates5/aboutTemplat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41813,19 +42984,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates5/aboutTemplat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates5 = function (_super) {
+            AboutTemplates5 = /** @class */function (_super) {
                 __extends(AboutTemplates5, _super);
                 function AboutTemplates5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates5 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates5',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates5/aboutTemplates5.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates5/aboutTemplates5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates5);
                 return AboutTemplates5;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates5 = __decorate([core_1.Component({
-                selector: 'AboutTemplates5',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates5/aboutTemplates5.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates5/aboutTemplates5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates5);
             exports_1("AboutTemplates5", AboutTemplates5);
         }
     };
@@ -41833,13 +43004,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates5/aboutTemplat
 System.register("src/components/slides/mainConcepts/aboutTemplates6/aboutTemplates6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41855,8 +43036,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates6/aboutTemplat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41870,19 +43051,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates6/aboutTemplat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates6 = function (_super) {
+            AboutTemplates6 = /** @class */function (_super) {
                 __extends(AboutTemplates6, _super);
                 function AboutTemplates6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates6 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates6',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates6/aboutTemplates6.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates6/aboutTemplates6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates6);
                 return AboutTemplates6;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates6 = __decorate([core_1.Component({
-                selector: 'AboutTemplates6',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates6/aboutTemplates6.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates6/aboutTemplates6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates6);
             exports_1("AboutTemplates6", AboutTemplates6);
         }
     };
@@ -41890,13 +43071,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates6/aboutTemplat
 System.register("src/components/slides/mainConcepts/aboutTemplates7/aboutTemplates7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41912,8 +43103,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates7/aboutTemplat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41927,19 +43118,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates7/aboutTemplat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates7 = function (_super) {
+            AboutTemplates7 = /** @class */function (_super) {
                 __extends(AboutTemplates7, _super);
                 function AboutTemplates7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates7 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates7',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates7/aboutTemplates7.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates7/aboutTemplates7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates7);
                 return AboutTemplates7;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates7 = __decorate([core_1.Component({
-                selector: 'AboutTemplates7',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates7/aboutTemplates7.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates7/aboutTemplates7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates7);
             exports_1("AboutTemplates7", AboutTemplates7);
         }
     };
@@ -41947,13 +43138,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates7/aboutTemplat
 System.register("src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemplates7Bis.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -41969,8 +43170,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemp
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates7Bis;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -41984,19 +43185,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemp
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates7Bis = function (_super) {
+            AboutTemplates7Bis = /** @class */function (_super) {
                 __extends(AboutTemplates7Bis, _super);
                 function AboutTemplates7Bis(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates7Bis = __decorate([core_1.Component({
+                    selector: 'AboutTemplates7Bis',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemplates7Bis.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemplates7Bis.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates7Bis);
                 return AboutTemplates7Bis;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates7Bis = __decorate([core_1.Component({
-                selector: 'AboutTemplates7Bis',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemplates7Bis.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemplates7Bis.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates7Bis);
             exports_1("AboutTemplates7Bis", AboutTemplates7Bis);
         }
     };
@@ -42004,13 +43205,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemp
 System.register("src/components/slides/mainConcepts/aboutTemplates8/aboutTemplates8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42026,8 +43237,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates8/aboutTemplat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates8;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42041,19 +43252,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates8/aboutTemplat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates8 = function (_super) {
+            AboutTemplates8 = /** @class */function (_super) {
                 __extends(AboutTemplates8, _super);
                 function AboutTemplates8(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates8 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates8',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates8/aboutTemplates8.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates8/aboutTemplates8.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates8);
                 return AboutTemplates8;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates8 = __decorate([core_1.Component({
-                selector: 'AboutTemplates8',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates8/aboutTemplates8.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates8/aboutTemplates8.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates8);
             exports_1("AboutTemplates8", AboutTemplates8);
         }
     };
@@ -42061,13 +43272,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates8/aboutTemplat
 System.register("src/components/slides/mainConcepts/aboutTemplates8_2/aboutTemplates8_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42083,8 +43304,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates8_2/aboutTempl
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates8_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42098,19 +43319,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates8_2/aboutTempl
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates8_2 = function (_super) {
+            AboutTemplates8_2 = /** @class */function (_super) {
                 __extends(AboutTemplates8_2, _super);
                 function AboutTemplates8_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates8_2 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates8_2',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates8_2/aboutTemplates8_2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates8_2/aboutTemplates8_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates8_2);
                 return AboutTemplates8_2;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates8_2 = __decorate([core_1.Component({
-                selector: 'AboutTemplates8_2',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates8_2/aboutTemplates8_2.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates8_2/aboutTemplates8_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates8_2);
             exports_1("AboutTemplates8_2", AboutTemplates8_2);
         }
     };
@@ -42118,13 +43339,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates8_2/aboutTempl
 System.register("src/components/slides/mainConcepts/aboutTemplates9/aboutTemplates9.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42140,8 +43371,8 @@ System.register("src/components/slides/mainConcepts/aboutTemplates9/aboutTemplat
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutTemplates9;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42155,19 +43386,19 @@ System.register("src/components/slides/mainConcepts/aboutTemplates9/aboutTemplat
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AboutTemplates9 = function (_super) {
+            AboutTemplates9 = /** @class */function (_super) {
                 __extends(AboutTemplates9, _super);
                 function AboutTemplates9(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AboutTemplates9 = __decorate([core_1.Component({
+                    selector: 'AboutTemplates9',
+                    templateUrl: 'src/components/slides/mainConcepts/aboutTemplates9/aboutTemplates9.html',
+                    styleUrls: ['src/components/slides/mainConcepts/aboutTemplates9/aboutTemplates9.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates9);
                 return AboutTemplates9;
             }(slideCommon_1.SlideCommon);
-            AboutTemplates9 = __decorate([core_1.Component({
-                selector: 'AboutTemplates9',
-                templateUrl: 'src/components/slides/mainConcepts/aboutTemplates9/aboutTemplates9.html',
-                styleUrls: ['src/components/slides/mainConcepts/aboutTemplates9/aboutTemplates9.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutTemplates9);
             exports_1("AboutTemplates9", AboutTemplates9);
         }
     };
@@ -42175,13 +43406,23 @@ System.register("src/components/slides/mainConcepts/aboutTemplates9/aboutTemplat
 System.register("src/components/slides/mainConcepts/allIsComponent/allIsComponent.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42197,8 +43438,8 @@ System.register("src/components/slides/mainConcepts/allIsComponent/allIsComponen
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AllIsComponent;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42212,19 +43453,19 @@ System.register("src/components/slides/mainConcepts/allIsComponent/allIsComponen
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AllIsComponent = function (_super) {
+            AllIsComponent = /** @class */function (_super) {
                 __extends(AllIsComponent, _super);
                 function AllIsComponent(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AllIsComponent = __decorate([core_1.Component({
+                    selector: 'AllIsComponent',
+                    templateUrl: 'src/components/slides/mainConcepts/allIsComponent/allIsComponent.html',
+                    styleUrls: ['src/components/slides/mainConcepts/allIsComponent/allIsComponent.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent);
                 return AllIsComponent;
             }(slideCommon_1.SlideCommon);
-            AllIsComponent = __decorate([core_1.Component({
-                selector: 'AllIsComponent',
-                templateUrl: 'src/components/slides/mainConcepts/allIsComponent/allIsComponent.html',
-                styleUrls: ['src/components/slides/mainConcepts/allIsComponent/allIsComponent.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent);
             exports_1("AllIsComponent", AllIsComponent);
         }
     };
@@ -42232,13 +43473,23 @@ System.register("src/components/slides/mainConcepts/allIsComponent/allIsComponen
 System.register("src/components/slides/mainConcepts/allIsComponent2/allIsComponent2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42254,8 +43505,8 @@ System.register("src/components/slides/mainConcepts/allIsComponent2/allIsCompone
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AllIsComponent2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42269,19 +43520,19 @@ System.register("src/components/slides/mainConcepts/allIsComponent2/allIsCompone
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AllIsComponent2 = function (_super) {
+            AllIsComponent2 = /** @class */function (_super) {
                 __extends(AllIsComponent2, _super);
                 function AllIsComponent2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AllIsComponent2 = __decorate([core_1.Component({
+                    selector: 'AllIsComponent2',
+                    templateUrl: 'src/components/slides/mainConcepts/allIsComponent2/allIsComponent2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/allIsComponent2/allIsComponent2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent2);
                 return AllIsComponent2;
             }(slideCommon_1.SlideCommon);
-            AllIsComponent2 = __decorate([core_1.Component({
-                selector: 'AllIsComponent2',
-                templateUrl: 'src/components/slides/mainConcepts/allIsComponent2/allIsComponent2.html',
-                styleUrls: ['src/components/slides/mainConcepts/allIsComponent2/allIsComponent2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent2);
             exports_1("AllIsComponent2", AllIsComponent2);
         }
     };
@@ -42289,13 +43540,23 @@ System.register("src/components/slides/mainConcepts/allIsComponent2/allIsCompone
 System.register("src/components/slides/mainConcepts/allIsComponent3/allIsComponent3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42311,8 +43572,8 @@ System.register("src/components/slides/mainConcepts/allIsComponent3/allIsCompone
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AllIsComponent3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42326,19 +43587,19 @@ System.register("src/components/slides/mainConcepts/allIsComponent3/allIsCompone
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AllIsComponent3 = function (_super) {
+            AllIsComponent3 = /** @class */function (_super) {
                 __extends(AllIsComponent3, _super);
                 function AllIsComponent3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AllIsComponent3 = __decorate([core_1.Component({
+                    selector: 'AllIsComponent3',
+                    templateUrl: 'src/components/slides/mainConcepts/allIsComponent3/allIsComponent3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/allIsComponent3/allIsComponent3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent3);
                 return AllIsComponent3;
             }(slideCommon_1.SlideCommon);
-            AllIsComponent3 = __decorate([core_1.Component({
-                selector: 'AllIsComponent3',
-                templateUrl: 'src/components/slides/mainConcepts/allIsComponent3/allIsComponent3.html',
-                styleUrls: ['src/components/slides/mainConcepts/allIsComponent3/allIsComponent3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent3);
             exports_1("AllIsComponent3", AllIsComponent3);
         }
     };
@@ -42346,13 +43607,23 @@ System.register("src/components/slides/mainConcepts/allIsComponent3/allIsCompone
 System.register("src/components/slides/mainConcepts/allIsComponent3_2/allIsComponent3_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42368,8 +43639,8 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_2/allIsCompo
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AllIsComponent3_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42383,19 +43654,19 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_2/allIsCompo
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AllIsComponent3_2 = function (_super) {
+            AllIsComponent3_2 = /** @class */function (_super) {
                 __extends(AllIsComponent3_2, _super);
                 function AllIsComponent3_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AllIsComponent3_2 = __decorate([core_1.Component({
+                    selector: 'AllIsComponent3_2',
+                    templateUrl: 'src/components/slides/mainConcepts/allIsComponent3_2/allIsComponent3_2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/allIsComponent3_2/allIsComponent3_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent3_2);
                 return AllIsComponent3_2;
             }(slideCommon_1.SlideCommon);
-            AllIsComponent3_2 = __decorate([core_1.Component({
-                selector: 'AllIsComponent3_2',
-                templateUrl: 'src/components/slides/mainConcepts/allIsComponent3_2/allIsComponent3_2.html',
-                styleUrls: ['src/components/slides/mainConcepts/allIsComponent3_2/allIsComponent3_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent3_2);
             exports_1("AllIsComponent3_2", AllIsComponent3_2);
         }
     };
@@ -42403,13 +43674,23 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_2/allIsCompo
 System.register("src/components/slides/mainConcepts/allIsComponent3_3/allIsComponent3_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42425,8 +43706,8 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_3/allIsCompo
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AllIsComponent3_3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42440,19 +43721,19 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_3/allIsCompo
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AllIsComponent3_3 = function (_super) {
+            AllIsComponent3_3 = /** @class */function (_super) {
                 __extends(AllIsComponent3_3, _super);
                 function AllIsComponent3_3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AllIsComponent3_3 = __decorate([core_1.Component({
+                    selector: 'AllIsComponent3_3',
+                    templateUrl: 'src/components/slides/mainConcepts/allIsComponent3_3/allIsComponent3_3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/allIsComponent3_3/allIsComponent3_3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent3_3);
                 return AllIsComponent3_3;
             }(slideCommon_1.SlideCommon);
-            AllIsComponent3_3 = __decorate([core_1.Component({
-                selector: 'AllIsComponent3_3',
-                templateUrl: 'src/components/slides/mainConcepts/allIsComponent3_3/allIsComponent3_3.html',
-                styleUrls: ['src/components/slides/mainConcepts/allIsComponent3_3/allIsComponent3_3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent3_3);
             exports_1("AllIsComponent3_3", AllIsComponent3_3);
         }
     };
@@ -42460,13 +43741,23 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_3/allIsCompo
 System.register("src/components/slides/mainConcepts/allIsComponent3_4/allIsComponent3_4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42482,8 +43773,8 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_4/allIsCompo
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AllIsComponent3_4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42497,19 +43788,19 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_4/allIsCompo
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AllIsComponent3_4 = function (_super) {
+            AllIsComponent3_4 = /** @class */function (_super) {
                 __extends(AllIsComponent3_4, _super);
                 function AllIsComponent3_4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AllIsComponent3_4 = __decorate([core_1.Component({
+                    selector: 'AllIsComponent3_4',
+                    templateUrl: 'src/components/slides/mainConcepts/allIsComponent3_4/allIsComponent3_4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/allIsComponent3_4/allIsComponent3_4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent3_4);
                 return AllIsComponent3_4;
             }(slideCommon_1.SlideCommon);
-            AllIsComponent3_4 = __decorate([core_1.Component({
-                selector: 'AllIsComponent3_4',
-                templateUrl: 'src/components/slides/mainConcepts/allIsComponent3_4/allIsComponent3_4.html',
-                styleUrls: ['src/components/slides/mainConcepts/allIsComponent3_4/allIsComponent3_4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent3_4);
             exports_1("AllIsComponent3_4", AllIsComponent3_4);
         }
     };
@@ -42517,13 +43808,23 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_4/allIsCompo
 System.register("src/components/slides/mainConcepts/allIsComponent4/allIsComponent4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42539,8 +43840,8 @@ System.register("src/components/slides/mainConcepts/allIsComponent4/allIsCompone
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AllIsComponent4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42554,19 +43855,19 @@ System.register("src/components/slides/mainConcepts/allIsComponent4/allIsCompone
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            AllIsComponent4 = function (_super) {
+            AllIsComponent4 = /** @class */function (_super) {
                 __extends(AllIsComponent4, _super);
                 function AllIsComponent4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                AllIsComponent4 = __decorate([core_1.Component({
+                    selector: 'AllIsComponent4',
+                    templateUrl: 'src/components/slides/mainConcepts/allIsComponent4/allIsComponent4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/allIsComponent4/allIsComponent4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent4);
                 return AllIsComponent4;
             }(slideCommon_1.SlideCommon);
-            AllIsComponent4 = __decorate([core_1.Component({
-                selector: 'AllIsComponent4',
-                templateUrl: 'src/components/slides/mainConcepts/allIsComponent4/allIsComponent4.html',
-                styleUrls: ['src/components/slides/mainConcepts/allIsComponent4/allIsComponent4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AllIsComponent4);
             exports_1("AllIsComponent4", AllIsComponent4);
         }
     };
@@ -42574,13 +43875,23 @@ System.register("src/components/slides/mainConcepts/allIsComponent4/allIsCompone
 System.register("src/components/slides/mainConcepts/customComponents/customComponents.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42596,8 +43907,8 @@ System.register("src/components/slides/mainConcepts/customComponents/customCompo
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, CustomComponents;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42611,19 +43922,19 @@ System.register("src/components/slides/mainConcepts/customComponents/customCompo
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            CustomComponents = function (_super) {
+            CustomComponents = /** @class */function (_super) {
                 __extends(CustomComponents, _super);
                 function CustomComponents(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                CustomComponents = __decorate([core_1.Component({
+                    selector: 'CustomComponents',
+                    templateUrl: 'src/components/slides/mainConcepts/customComponents/customComponents.html',
+                    styleUrls: ['src/components/slides/mainConcepts/customComponents/customComponents.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], CustomComponents);
                 return CustomComponents;
             }(slideCommon_1.SlideCommon);
-            CustomComponents = __decorate([core_1.Component({
-                selector: 'CustomComponents',
-                templateUrl: 'src/components/slides/mainConcepts/customComponents/customComponents.html',
-                styleUrls: ['src/components/slides/mainConcepts/customComponents/customComponents.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], CustomComponents);
             exports_1("CustomComponents", CustomComponents);
         }
     };
@@ -42631,13 +43942,23 @@ System.register("src/components/slides/mainConcepts/customComponents/customCompo
 System.register("src/components/slides/mainConcepts/customComponents2/customComponents2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42653,8 +43974,8 @@ System.register("src/components/slides/mainConcepts/customComponents2/customComp
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, CustomComponents2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42668,19 +43989,19 @@ System.register("src/components/slides/mainConcepts/customComponents2/customComp
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            CustomComponents2 = function (_super) {
+            CustomComponents2 = /** @class */function (_super) {
                 __extends(CustomComponents2, _super);
                 function CustomComponents2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                CustomComponents2 = __decorate([core_1.Component({
+                    selector: 'CustomComponents2',
+                    templateUrl: 'src/components/slides/mainConcepts/customComponents2/customComponents2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/customComponents2/customComponents2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], CustomComponents2);
                 return CustomComponents2;
             }(slideCommon_1.SlideCommon);
-            CustomComponents2 = __decorate([core_1.Component({
-                selector: 'CustomComponents2',
-                templateUrl: 'src/components/slides/mainConcepts/customComponents2/customComponents2.html',
-                styleUrls: ['src/components/slides/mainConcepts/customComponents2/customComponents2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], CustomComponents2);
             exports_1("CustomComponents2", CustomComponents2);
         }
     };
@@ -42688,13 +44009,23 @@ System.register("src/components/slides/mainConcepts/customComponents2/customComp
 System.register("src/components/slides/mainConcepts/demoJH/JHNews.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42710,8 +44041,8 @@ System.register("src/components/slides/mainConcepts/demoJH/JHNews.js", ["npm:@an
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, JHNews;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42725,19 +44056,19 @@ System.register("src/components/slides/mainConcepts/demoJH/JHNews.js", ["npm:@an
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            JHNews = function (_super) {
+            JHNews = /** @class */function (_super) {
                 __extends(JHNews, _super);
                 function JHNews(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                JHNews = __decorate([core_1.Component({
+                    selector: 'JHNews',
+                    templateUrl: 'src/components/slides/mainConcepts/demoJH/JHNews.html',
+                    styleUrls: ['src/components/slides/mainConcepts/demoJH/JHNews.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], JHNews);
                 return JHNews;
             }(slideCommon_1.SlideCommon);
-            JHNews = __decorate([core_1.Component({
-                selector: 'JHNews',
-                templateUrl: 'src/components/slides/mainConcepts/demoJH/JHNews.html',
-                styleUrls: ['src/components/slides/mainConcepts/demoJH/JHNews.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], JHNews);
             exports_1("JHNews", JHNews);
         }
     };
@@ -42745,13 +44076,23 @@ System.register("src/components/slides/mainConcepts/demoJH/JHNews.js", ["npm:@an
 System.register("src/components/slides/mainConcepts/globalUnderstanding/globalUnderstanding.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42767,8 +44108,8 @@ System.register("src/components/slides/mainConcepts/globalUnderstanding/globalUn
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, GlobalUnderstanding;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42782,19 +44123,19 @@ System.register("src/components/slides/mainConcepts/globalUnderstanding/globalUn
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            GlobalUnderstanding = function (_super) {
+            GlobalUnderstanding = /** @class */function (_super) {
                 __extends(GlobalUnderstanding, _super);
                 function GlobalUnderstanding(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                GlobalUnderstanding = __decorate([core_1.Component({
+                    selector: 'GlobalUnderstanding',
+                    templateUrl: 'src/components/slides/mainConcepts/globalUnderstanding/globalUnderstanding.html',
+                    styleUrls: ['src/components/slides/mainConcepts/globalUnderstanding/globalUnderstanding.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], GlobalUnderstanding);
                 return GlobalUnderstanding;
             }(slideCommon_1.SlideCommon);
-            GlobalUnderstanding = __decorate([core_1.Component({
-                selector: 'GlobalUnderstanding',
-                templateUrl: 'src/components/slides/mainConcepts/globalUnderstanding/globalUnderstanding.html',
-                styleUrls: ['src/components/slides/mainConcepts/globalUnderstanding/globalUnderstanding.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], GlobalUnderstanding);
             exports_1("GlobalUnderstanding", GlobalUnderstanding);
         }
     };
@@ -42802,13 +44143,23 @@ System.register("src/components/slides/mainConcepts/globalUnderstanding/globalUn
 System.register("src/components/slides/mainConcepts/moreDI/moreDI.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42824,8 +44175,8 @@ System.register("src/components/slides/mainConcepts/moreDI/moreDI.js", ["npm:@an
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42839,19 +44190,19 @@ System.register("src/components/slides/mainConcepts/moreDI/moreDI.js", ["npm:@an
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI = function (_super) {
+            MoreDI = /** @class */function (_super) {
                 __extends(MoreDI, _super);
                 function MoreDI(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI = __decorate([core_1.Component({
+                    selector: 'MoreDI',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI/moreDI.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI/moreDI.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI);
                 return MoreDI;
             }(slideCommon_1.SlideCommon);
-            MoreDI = __decorate([core_1.Component({
-                selector: 'MoreDI',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI/moreDI.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI/moreDI.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI);
             exports_1("MoreDI", MoreDI);
         }
     };
@@ -42859,13 +44210,23 @@ System.register("src/components/slides/mainConcepts/moreDI/moreDI.js", ["npm:@an
 System.register("src/components/slides/mainConcepts/moreDI10/moreDI10.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42881,8 +44242,8 @@ System.register("src/components/slides/mainConcepts/moreDI10/moreDI10.js", ["npm
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI10;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42896,19 +44257,19 @@ System.register("src/components/slides/mainConcepts/moreDI10/moreDI10.js", ["npm
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI10 = function (_super) {
+            MoreDI10 = /** @class */function (_super) {
                 __extends(MoreDI10, _super);
                 function MoreDI10(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI10 = __decorate([core_1.Component({
+                    selector: 'MoreDI10',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI10/moreDI10.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI10/moreDI10.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI10);
                 return MoreDI10;
             }(slideCommon_1.SlideCommon);
-            MoreDI10 = __decorate([core_1.Component({
-                selector: 'MoreDI10',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI10/moreDI10.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI10/moreDI10.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI10);
             exports_1("MoreDI10", MoreDI10);
         }
     };
@@ -42916,13 +44277,23 @@ System.register("src/components/slides/mainConcepts/moreDI10/moreDI10.js", ["npm
 System.register("src/components/slides/mainConcepts/moreDI2/moreDI2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42938,8 +44309,8 @@ System.register("src/components/slides/mainConcepts/moreDI2/moreDI2.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -42953,19 +44324,19 @@ System.register("src/components/slides/mainConcepts/moreDI2/moreDI2.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI2 = function (_super) {
+            MoreDI2 = /** @class */function (_super) {
                 __extends(MoreDI2, _super);
                 function MoreDI2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI2 = __decorate([core_1.Component({
+                    selector: 'MoreDI2',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI2/moreDI2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI2/moreDI2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI2);
                 return MoreDI2;
             }(slideCommon_1.SlideCommon);
-            MoreDI2 = __decorate([core_1.Component({
-                selector: 'MoreDI2',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI2/moreDI2.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI2/moreDI2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI2);
             exports_1("MoreDI2", MoreDI2);
         }
     };
@@ -42973,13 +44344,23 @@ System.register("src/components/slides/mainConcepts/moreDI2/moreDI2.js", ["npm:@
 System.register("src/components/slides/mainConcepts/moreDI3/moreDI3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -42995,8 +44376,8 @@ System.register("src/components/slides/mainConcepts/moreDI3/moreDI3.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43010,19 +44391,19 @@ System.register("src/components/slides/mainConcepts/moreDI3/moreDI3.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI3 = function (_super) {
+            MoreDI3 = /** @class */function (_super) {
                 __extends(MoreDI3, _super);
                 function MoreDI3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI3 = __decorate([core_1.Component({
+                    selector: 'MoreDI3',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI3/moreDI3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI3/moreDI3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI3);
                 return MoreDI3;
             }(slideCommon_1.SlideCommon);
-            MoreDI3 = __decorate([core_1.Component({
-                selector: 'MoreDI3',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI3/moreDI3.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI3/moreDI3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI3);
             exports_1("MoreDI3", MoreDI3);
         }
     };
@@ -43030,13 +44411,23 @@ System.register("src/components/slides/mainConcepts/moreDI3/moreDI3.js", ["npm:@
 System.register("src/components/slides/mainConcepts/moreDI4/moreDI4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43052,8 +44443,8 @@ System.register("src/components/slides/mainConcepts/moreDI4/moreDI4.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43067,19 +44458,19 @@ System.register("src/components/slides/mainConcepts/moreDI4/moreDI4.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI4 = function (_super) {
+            MoreDI4 = /** @class */function (_super) {
                 __extends(MoreDI4, _super);
                 function MoreDI4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI4 = __decorate([core_1.Component({
+                    selector: 'MoreDI4',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI4/moreDI4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI4/moreDI4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI4);
                 return MoreDI4;
             }(slideCommon_1.SlideCommon);
-            MoreDI4 = __decorate([core_1.Component({
-                selector: 'MoreDI4',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI4/moreDI4.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI4/moreDI4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI4);
             exports_1("MoreDI4", MoreDI4);
         }
     };
@@ -43087,13 +44478,23 @@ System.register("src/components/slides/mainConcepts/moreDI4/moreDI4.js", ["npm:@
 System.register("src/components/slides/mainConcepts/moreDI5/moreDI5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43109,8 +44510,8 @@ System.register("src/components/slides/mainConcepts/moreDI5/moreDI5.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43124,19 +44525,19 @@ System.register("src/components/slides/mainConcepts/moreDI5/moreDI5.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI5 = function (_super) {
+            MoreDI5 = /** @class */function (_super) {
                 __extends(MoreDI5, _super);
                 function MoreDI5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI5 = __decorate([core_1.Component({
+                    selector: 'MoreDI5',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI5/moreDI5.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI5/moreDI5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI5);
                 return MoreDI5;
             }(slideCommon_1.SlideCommon);
-            MoreDI5 = __decorate([core_1.Component({
-                selector: 'MoreDI5',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI5/moreDI5.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI5/moreDI5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI5);
             exports_1("MoreDI5", MoreDI5);
         }
     };
@@ -43144,13 +44545,23 @@ System.register("src/components/slides/mainConcepts/moreDI5/moreDI5.js", ["npm:@
 System.register("src/components/slides/mainConcepts/moreDI6/moreDI6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43166,8 +44577,8 @@ System.register("src/components/slides/mainConcepts/moreDI6/moreDI6.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI6;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43181,19 +44592,19 @@ System.register("src/components/slides/mainConcepts/moreDI6/moreDI6.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI6 = function (_super) {
+            MoreDI6 = /** @class */function (_super) {
                 __extends(MoreDI6, _super);
                 function MoreDI6(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI6 = __decorate([core_1.Component({
+                    selector: 'MoreDI6',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI6/moreDI6.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI6/moreDI6.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI6);
                 return MoreDI6;
             }(slideCommon_1.SlideCommon);
-            MoreDI6 = __decorate([core_1.Component({
-                selector: 'MoreDI6',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI6/moreDI6.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI6/moreDI6.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI6);
             exports_1("MoreDI6", MoreDI6);
         }
     };
@@ -43201,13 +44612,23 @@ System.register("src/components/slides/mainConcepts/moreDI6/moreDI6.js", ["npm:@
 System.register("src/components/slides/mainConcepts/moreDI7/moreDI7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43223,8 +44644,8 @@ System.register("src/components/slides/mainConcepts/moreDI7/moreDI7.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI7;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43238,19 +44659,19 @@ System.register("src/components/slides/mainConcepts/moreDI7/moreDI7.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI7 = function (_super) {
+            MoreDI7 = /** @class */function (_super) {
                 __extends(MoreDI7, _super);
                 function MoreDI7(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI7 = __decorate([core_1.Component({
+                    selector: 'MoreDI7',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI7/moreDI7.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI7/moreDI7.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI7);
                 return MoreDI7;
             }(slideCommon_1.SlideCommon);
-            MoreDI7 = __decorate([core_1.Component({
-                selector: 'MoreDI7',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI7/moreDI7.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI7/moreDI7.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI7);
             exports_1("MoreDI7", MoreDI7);
         }
     };
@@ -43258,13 +44679,23 @@ System.register("src/components/slides/mainConcepts/moreDI7/moreDI7.js", ["npm:@
 System.register("src/components/slides/mainConcepts/moreDI8/moreDI8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43280,8 +44711,8 @@ System.register("src/components/slides/mainConcepts/moreDI8/moreDI8.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI8;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43295,19 +44726,19 @@ System.register("src/components/slides/mainConcepts/moreDI8/moreDI8.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI8 = function (_super) {
+            MoreDI8 = /** @class */function (_super) {
                 __extends(MoreDI8, _super);
                 function MoreDI8(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI8 = __decorate([core_1.Component({
+                    selector: 'MoreDI8',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI8/moreDI8.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI8/moreDI8.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI8);
                 return MoreDI8;
             }(slideCommon_1.SlideCommon);
-            MoreDI8 = __decorate([core_1.Component({
-                selector: 'MoreDI8',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI8/moreDI8.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI8/moreDI8.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI8);
             exports_1("MoreDI8", MoreDI8);
         }
     };
@@ -43315,13 +44746,23 @@ System.register("src/components/slides/mainConcepts/moreDI8/moreDI8.js", ["npm:@
 System.register("src/components/slides/mainConcepts/moreDI9/moreDI9.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43337,8 +44778,8 @@ System.register("src/components/slides/mainConcepts/moreDI9/moreDI9.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, MoreDI9;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43352,19 +44793,19 @@ System.register("src/components/slides/mainConcepts/moreDI9/moreDI9.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MoreDI9 = function (_super) {
+            MoreDI9 = /** @class */function (_super) {
                 __extends(MoreDI9, _super);
                 function MoreDI9(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MoreDI9 = __decorate([core_1.Component({
+                    selector: 'MoreDI9',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDI9/moreDI9.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDI9/moreDI9.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI9);
                 return MoreDI9;
             }(slideCommon_1.SlideCommon);
-            MoreDI9 = __decorate([core_1.Component({
-                selector: 'MoreDI9',
-                templateUrl: 'src/components/slides/mainConcepts/moreDI9/moreDI9.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDI9/moreDI9.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MoreDI9);
             exports_1("MoreDI9", MoreDI9);
         }
     };
@@ -43372,13 +44813,23 @@ System.register("src/components/slides/mainConcepts/moreDI9/moreDI9.js", ["npm:@
 System.register("src/components/slides/mainConcepts/moreDIpw/pwDI.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43394,8 +44845,8 @@ System.register("src/components/slides/mainConcepts/moreDIpw/pwDI.js", ["npm:@an
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwDI;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43409,19 +44860,19 @@ System.register("src/components/slides/mainConcepts/moreDIpw/pwDI.js", ["npm:@an
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwDI = function (_super) {
+            PwDI = /** @class */function (_super) {
                 __extends(PwDI, _super);
                 function PwDI(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwDI = __decorate([core_1.Component({
+                    selector: 'PwDI',
+                    templateUrl: 'src/components/slides/mainConcepts/moreDIpw/pwDI.html',
+                    styleUrls: ['src/components/slides/mainConcepts/moreDIpw/pwDI.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwDI);
                 return PwDI;
             }(slideCommon_1.SlideCommon);
-            PwDI = __decorate([core_1.Component({
-                selector: 'PwDI',
-                templateUrl: 'src/components/slides/mainConcepts/moreDIpw/pwDI.html',
-                styleUrls: ['src/components/slides/mainConcepts/moreDIpw/pwDI.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwDI);
             exports_1("PwDI", PwDI);
         }
     };
@@ -43429,13 +44880,23 @@ System.register("src/components/slides/mainConcepts/moreDIpw/pwDI.js", ["npm:@an
 System.register("src/components/slides/mainConcepts/pw1/pw1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43451,8 +44912,8 @@ System.register("src/components/slides/mainConcepts/pw1/pw1.js", ["npm:@angular/
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Pw1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43466,19 +44927,19 @@ System.register("src/components/slides/mainConcepts/pw1/pw1.js", ["npm:@angular/
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Pw1 = function (_super) {
+            Pw1 = /** @class */function (_super) {
                 __extends(Pw1, _super);
                 function Pw1(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Pw1 = __decorate([core_1.Component({
+                    selector: 'Pw1',
+                    templateUrl: 'src/components/slides/mainConcepts/pw1/pw1.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pw1/pw1.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1);
                 return Pw1;
             }(slideCommon_1.SlideCommon);
-            Pw1 = __decorate([core_1.Component({
-                selector: 'Pw1',
-                templateUrl: 'src/components/slides/mainConcepts/pw1/pw1.html',
-                styleUrls: ['src/components/slides/mainConcepts/pw1/pw1.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1);
             exports_1("Pw1", Pw1);
         }
     };
@@ -43486,13 +44947,23 @@ System.register("src/components/slides/mainConcepts/pw1/pw1.js", ["npm:@angular/
 System.register("src/components/slides/mainConcepts/pw2/pw2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43508,8 +44979,8 @@ System.register("src/components/slides/mainConcepts/pw2/pw2.js", ["npm:@angular/
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Pw2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43523,19 +44994,19 @@ System.register("src/components/slides/mainConcepts/pw2/pw2.js", ["npm:@angular/
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Pw2 = function (_super) {
+            Pw2 = /** @class */function (_super) {
                 __extends(Pw2, _super);
                 function Pw2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Pw2 = __decorate([core_1.Component({
+                    selector: 'Pw2',
+                    templateUrl: 'src/components/slides/mainConcepts/pw2/pw2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pw2/pw2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw2);
                 return Pw2;
             }(slideCommon_1.SlideCommon);
-            Pw2 = __decorate([core_1.Component({
-                selector: 'Pw2',
-                templateUrl: 'src/components/slides/mainConcepts/pw2/pw2.html',
-                styleUrls: ['src/components/slides/mainConcepts/pw2/pw2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw2);
             exports_1("Pw2", Pw2);
         }
     };
@@ -43543,13 +45014,23 @@ System.register("src/components/slides/mainConcepts/pw2/pw2.js", ["npm:@angular/
 System.register("src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvancedTemplates.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43565,8 +45046,8 @@ System.register("src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvanc
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwAdvancedTemplates;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43580,19 +45061,19 @@ System.register("src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvanc
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwAdvancedTemplates = function (_super) {
+            PwAdvancedTemplates = /** @class */function (_super) {
                 __extends(PwAdvancedTemplates, _super);
                 function PwAdvancedTemplates(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwAdvancedTemplates = __decorate([core_1.Component({
+                    selector: 'PwAdvancedTemplates',
+                    templateUrl: 'src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvancedTemplates.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvancedTemplates.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwAdvancedTemplates);
                 return PwAdvancedTemplates;
             }(slideCommon_1.SlideCommon);
-            PwAdvancedTemplates = __decorate([core_1.Component({
-                selector: 'PwAdvancedTemplates',
-                templateUrl: 'src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvancedTemplates.html',
-                styleUrls: ['src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvancedTemplates.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwAdvancedTemplates);
             exports_1("PwAdvancedTemplates", PwAdvancedTemplates);
         }
     };
@@ -43600,13 +45081,23 @@ System.register("src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvanc
 System.register("src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTemplate.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43622,8 +45113,8 @@ System.register("src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTempl
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwBasicTemplate;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43637,19 +45128,19 @@ System.register("src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTempl
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwBasicTemplate = function (_super) {
+            PwBasicTemplate = /** @class */function (_super) {
                 __extends(PwBasicTemplate, _super);
                 function PwBasicTemplate(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwBasicTemplate = __decorate([core_1.Component({
+                    selector: 'PwBasicTemplate',
+                    templateUrl: 'src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTemplate.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTemplate.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwBasicTemplate);
                 return PwBasicTemplate;
             }(slideCommon_1.SlideCommon);
-            PwBasicTemplate = __decorate([core_1.Component({
-                selector: 'PwBasicTemplate',
-                templateUrl: 'src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTemplate.html',
-                styleUrls: ['src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTemplate.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwBasicTemplate);
             exports_1("PwBasicTemplate", PwBasicTemplate);
         }
     };
@@ -43657,13 +45148,23 @@ System.register("src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTempl
 System.register("src/components/slides/mainConcepts/pwForms/pwForms.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43679,8 +45180,8 @@ System.register("src/components/slides/mainConcepts/pwForms/pwForms.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwForms;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43694,19 +45195,19 @@ System.register("src/components/slides/mainConcepts/pwForms/pwForms.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwForms = function (_super) {
+            PwForms = /** @class */function (_super) {
                 __extends(PwForms, _super);
                 function PwForms(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwForms = __decorate([core_1.Component({
+                    selector: 'PwForms',
+                    templateUrl: 'src/components/slides/mainConcepts/pwForms/pwForms.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pwForms/pwForms.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwForms);
                 return PwForms;
             }(slideCommon_1.SlideCommon);
-            PwForms = __decorate([core_1.Component({
-                selector: 'PwForms',
-                templateUrl: 'src/components/slides/mainConcepts/pwForms/pwForms.html',
-                styleUrls: ['src/components/slides/mainConcepts/pwForms/pwForms.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwForms);
             exports_1("PwForms", PwForms);
         }
     };
@@ -43714,13 +45215,23 @@ System.register("src/components/slides/mainConcepts/pwForms/pwForms.js", ["npm:@
 System.register("src/components/slides/mainConcepts/pwNewComponent/pwNewComponent.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43736,8 +45247,8 @@ System.register("src/components/slides/mainConcepts/pwNewComponent/pwNewComponen
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwNewComponent;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43751,19 +45262,19 @@ System.register("src/components/slides/mainConcepts/pwNewComponent/pwNewComponen
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwNewComponent = function (_super) {
+            PwNewComponent = /** @class */function (_super) {
                 __extends(PwNewComponent, _super);
                 function PwNewComponent(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwNewComponent = __decorate([core_1.Component({
+                    selector: 'PwNewComponent',
+                    templateUrl: 'src/components/slides/mainConcepts/pwNewComponent/pwNewComponent.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pwNewComponent/pwNewComponent.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwNewComponent);
                 return PwNewComponent;
             }(slideCommon_1.SlideCommon);
-            PwNewComponent = __decorate([core_1.Component({
-                selector: 'PwNewComponent',
-                templateUrl: 'src/components/slides/mainConcepts/pwNewComponent/pwNewComponent.html',
-                styleUrls: ['src/components/slides/mainConcepts/pwNewComponent/pwNewComponent.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwNewComponent);
             exports_1("PwNewComponent", PwNewComponent);
         }
     };
@@ -43771,13 +45282,23 @@ System.register("src/components/slides/mainConcepts/pwNewComponent/pwNewComponen
 System.register("src/components/slides/mainConcepts/pwPipes/pwPipes.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43793,8 +45314,8 @@ System.register("src/components/slides/mainConcepts/pwPipes/pwPipes.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwPipes;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43808,19 +45329,19 @@ System.register("src/components/slides/mainConcepts/pwPipes/pwPipes.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwPipes = function (_super) {
+            PwPipes = /** @class */function (_super) {
                 __extends(PwPipes, _super);
                 function PwPipes(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwPipes = __decorate([core_1.Component({
+                    selector: 'PwPipes',
+                    templateUrl: 'src/components/slides/mainConcepts/pwPipes/pwPipes.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pwPipes/pwPipes.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwPipes);
                 return PwPipes;
             }(slideCommon_1.SlideCommon);
-            PwPipes = __decorate([core_1.Component({
-                selector: 'PwPipes',
-                templateUrl: 'src/components/slides/mainConcepts/pwPipes/pwPipes.html',
-                styleUrls: ['src/components/slides/mainConcepts/pwPipes/pwPipes.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwPipes);
             exports_1("PwPipes", PwPipes);
         }
     };
@@ -43828,13 +45349,23 @@ System.register("src/components/slides/mainConcepts/pwPipes/pwPipes.js", ["npm:@
 System.register("src/components/slides/mainConcepts/pwRouter/pwRouter.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43850,8 +45381,8 @@ System.register("src/components/slides/mainConcepts/pwRouter/pwRouter.js", ["npm
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwRouter;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43865,19 +45396,19 @@ System.register("src/components/slides/mainConcepts/pwRouter/pwRouter.js", ["npm
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwRouter = function (_super) {
+            PwRouter = /** @class */function (_super) {
                 __extends(PwRouter, _super);
                 function PwRouter(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwRouter = __decorate([core_1.Component({
+                    selector: 'PwRouter',
+                    templateUrl: 'src/components/slides/mainConcepts/pwRouter/pwRouter.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pwRouter/pwRouter.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwRouter);
                 return PwRouter;
             }(slideCommon_1.SlideCommon);
-            PwRouter = __decorate([core_1.Component({
-                selector: 'PwRouter',
-                templateUrl: 'src/components/slides/mainConcepts/pwRouter/pwRouter.html',
-                styleUrls: ['src/components/slides/mainConcepts/pwRouter/pwRouter.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwRouter);
             exports_1("PwRouter", PwRouter);
         }
     };
@@ -43885,13 +45416,23 @@ System.register("src/components/slides/mainConcepts/pwRouter/pwRouter.js", ["npm
 System.register("src/components/slides/mainConcepts/pwTemplates/pwTemplates.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43907,8 +45448,8 @@ System.register("src/components/slides/mainConcepts/pwTemplates/pwTemplates.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PwTemplates;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43922,19 +45463,19 @@ System.register("src/components/slides/mainConcepts/pwTemplates/pwTemplates.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PwTemplates = function (_super) {
+            PwTemplates = /** @class */function (_super) {
                 __extends(PwTemplates, _super);
                 function PwTemplates(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PwTemplates = __decorate([core_1.Component({
+                    selector: 'PwTemplates',
+                    templateUrl: 'src/components/slides/mainConcepts/pwTemplates/pwTemplates.html',
+                    styleUrls: ['src/components/slides/mainConcepts/pwTemplates/pwTemplates.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwTemplates);
                 return PwTemplates;
             }(slideCommon_1.SlideCommon);
-            PwTemplates = __decorate([core_1.Component({
-                selector: 'PwTemplates',
-                templateUrl: 'src/components/slides/mainConcepts/pwTemplates/pwTemplates.html',
-                styleUrls: ['src/components/slides/mainConcepts/pwTemplates/pwTemplates.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PwTemplates);
             exports_1("PwTemplates", PwTemplates);
         }
     };
@@ -43942,13 +45483,23 @@ System.register("src/components/slides/mainConcepts/pwTemplates/pwTemplates.js",
 System.register("src/components/slides/mainConcepts/services/services.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -43964,8 +45515,8 @@ System.register("src/components/slides/mainConcepts/services/services.js", ["npm
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Services;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -43979,19 +45530,19 @@ System.register("src/components/slides/mainConcepts/services/services.js", ["npm
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Services = function (_super) {
+            Services = /** @class */function (_super) {
                 __extends(Services, _super);
                 function Services(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Services = __decorate([core_1.Component({
+                    selector: 'Services',
+                    templateUrl: 'src/components/slides/mainConcepts/services/services.html',
+                    styleUrls: ['src/components/slides/mainConcepts/services/services.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services);
                 return Services;
             }(slideCommon_1.SlideCommon);
-            Services = __decorate([core_1.Component({
-                selector: 'Services',
-                templateUrl: 'src/components/slides/mainConcepts/services/services.html',
-                styleUrls: ['src/components/slides/mainConcepts/services/services.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services);
             exports_1("Services", Services);
         }
     };
@@ -43999,13 +45550,23 @@ System.register("src/components/slides/mainConcepts/services/services.js", ["npm
 System.register("src/components/slides/mainConcepts/services1/services1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44021,8 +45582,8 @@ System.register("src/components/slides/mainConcepts/services1/services1.js", ["n
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Services1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44036,19 +45597,19 @@ System.register("src/components/slides/mainConcepts/services1/services1.js", ["n
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Services1 = function (_super) {
+            Services1 = /** @class */function (_super) {
                 __extends(Services1, _super);
                 function Services1(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Services1 = __decorate([core_1.Component({
+                    selector: 'Services1',
+                    templateUrl: 'src/components/slides/mainConcepts/services1/services1.html',
+                    styleUrls: ['src/components/slides/mainConcepts/services1/services1.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services1);
                 return Services1;
             }(slideCommon_1.SlideCommon);
-            Services1 = __decorate([core_1.Component({
-                selector: 'Services1',
-                templateUrl: 'src/components/slides/mainConcepts/services1/services1.html',
-                styleUrls: ['src/components/slides/mainConcepts/services1/services1.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services1);
             exports_1("Services1", Services1);
         }
     };
@@ -44056,13 +45617,23 @@ System.register("src/components/slides/mainConcepts/services1/services1.js", ["n
 System.register("src/components/slides/mainConcepts/services2/services2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44078,8 +45649,8 @@ System.register("src/components/slides/mainConcepts/services2/services2.js", ["n
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Services2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44093,19 +45664,19 @@ System.register("src/components/slides/mainConcepts/services2/services2.js", ["n
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Services2 = function (_super) {
+            Services2 = /** @class */function (_super) {
                 __extends(Services2, _super);
                 function Services2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Services2 = __decorate([core_1.Component({
+                    selector: 'Services2',
+                    templateUrl: 'src/components/slides/mainConcepts/services2/services2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/services2/services2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services2);
                 return Services2;
             }(slideCommon_1.SlideCommon);
-            Services2 = __decorate([core_1.Component({
-                selector: 'Services2',
-                templateUrl: 'src/components/slides/mainConcepts/services2/services2.html',
-                styleUrls: ['src/components/slides/mainConcepts/services2/services2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services2);
             exports_1("Services2", Services2);
         }
     };
@@ -44113,13 +45684,23 @@ System.register("src/components/slides/mainConcepts/services2/services2.js", ["n
 System.register("src/components/slides/mainConcepts/services3/services3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44135,8 +45716,8 @@ System.register("src/components/slides/mainConcepts/services3/services3.js", ["n
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Services3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44150,19 +45731,19 @@ System.register("src/components/slides/mainConcepts/services3/services3.js", ["n
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Services3 = function (_super) {
+            Services3 = /** @class */function (_super) {
                 __extends(Services3, _super);
                 function Services3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Services3 = __decorate([core_1.Component({
+                    selector: 'Services3',
+                    templateUrl: 'src/components/slides/mainConcepts/services3/services3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/services3/services3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services3);
                 return Services3;
             }(slideCommon_1.SlideCommon);
-            Services3 = __decorate([core_1.Component({
-                selector: 'Services3',
-                templateUrl: 'src/components/slides/mainConcepts/services3/services3.html',
-                styleUrls: ['src/components/slides/mainConcepts/services3/services3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services3);
             exports_1("Services3", Services3);
         }
     };
@@ -44170,13 +45751,23 @@ System.register("src/components/slides/mainConcepts/services3/services3.js", ["n
 System.register("src/components/slides/mainConcepts/services3backup/services3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44192,8 +45783,8 @@ System.register("src/components/slides/mainConcepts/services3backup/services3.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Services3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44207,19 +45798,19 @@ System.register("src/components/slides/mainConcepts/services3backup/services3.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Services3 = function (_super) {
+            Services3 = /** @class */function (_super) {
                 __extends(Services3, _super);
                 function Services3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Services3 = __decorate([core_1.Component({
+                    selector: 'Services3',
+                    templateUrl: 'src/components/slides/mainConcepts/services3/services3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/services3/services3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services3);
                 return Services3;
             }(slideCommon_1.SlideCommon);
-            Services3 = __decorate([core_1.Component({
-                selector: 'Services3',
-                templateUrl: 'src/components/slides/mainConcepts/services3/services3.html',
-                styleUrls: ['src/components/slides/mainConcepts/services3/services3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services3);
             exports_1("Services3", Services3);
         }
     };
@@ -44227,13 +45818,23 @@ System.register("src/components/slides/mainConcepts/services3backup/services3.js
 System.register("src/components/slides/mainConcepts/services4/services4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44249,8 +45850,8 @@ System.register("src/components/slides/mainConcepts/services4/services4.js", ["n
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Services4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44264,19 +45865,19 @@ System.register("src/components/slides/mainConcepts/services4/services4.js", ["n
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Services4 = function (_super) {
+            Services4 = /** @class */function (_super) {
                 __extends(Services4, _super);
                 function Services4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Services4 = __decorate([core_1.Component({
+                    selector: 'Services4',
+                    templateUrl: 'src/components/slides/mainConcepts/services4/services4.html',
+                    styleUrls: ['src/components/slides/mainConcepts/services4/services4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services4);
                 return Services4;
             }(slideCommon_1.SlideCommon);
-            Services4 = __decorate([core_1.Component({
-                selector: 'Services4',
-                templateUrl: 'src/components/slides/mainConcepts/services4/services4.html',
-                styleUrls: ['src/components/slides/mainConcepts/services4/services4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Services4);
             exports_1("Services4", Services4);
         }
     };
@@ -44284,13 +45885,23 @@ System.register("src/components/slides/mainConcepts/services4/services4.js", ["n
 System.register("src/components/slides/mainConcepts/startDI/startDI.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44306,8 +45917,8 @@ System.register("src/components/slides/mainConcepts/startDI/startDI.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartDI;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44321,19 +45932,19 @@ System.register("src/components/slides/mainConcepts/startDI/startDI.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartDI = function (_super) {
+            StartDI = /** @class */function (_super) {
                 __extends(StartDI, _super);
                 function StartDI(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartDI = __decorate([core_1.Component({
+                    selector: 'StartDI',
+                    templateUrl: 'src/components/slides/mainConcepts/startDI/startDI.html',
+                    styleUrls: ['src/components/slides/mainConcepts/startDI/startDI.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI);
                 return StartDI;
             }(slideCommon_1.SlideCommon);
-            StartDI = __decorate([core_1.Component({
-                selector: 'StartDI',
-                templateUrl: 'src/components/slides/mainConcepts/startDI/startDI.html',
-                styleUrls: ['src/components/slides/mainConcepts/startDI/startDI.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI);
             exports_1("StartDI", StartDI);
         }
     };
@@ -44341,13 +45952,23 @@ System.register("src/components/slides/mainConcepts/startDI/startDI.js", ["npm:@
 System.register("src/components/slides/mainConcepts/startDI2/startDI2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44363,8 +45984,8 @@ System.register("src/components/slides/mainConcepts/startDI2/startDI2.js", ["npm
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartDI2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44378,19 +45999,19 @@ System.register("src/components/slides/mainConcepts/startDI2/startDI2.js", ["npm
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartDI2 = function (_super) {
+            StartDI2 = /** @class */function (_super) {
                 __extends(StartDI2, _super);
                 function StartDI2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartDI2 = __decorate([core_1.Component({
+                    selector: 'StartDI2',
+                    templateUrl: 'src/components/slides/mainConcepts/startDI2/startDI2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/startDI2/startDI2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI2);
                 return StartDI2;
             }(slideCommon_1.SlideCommon);
-            StartDI2 = __decorate([core_1.Component({
-                selector: 'StartDI2',
-                templateUrl: 'src/components/slides/mainConcepts/startDI2/startDI2.html',
-                styleUrls: ['src/components/slides/mainConcepts/startDI2/startDI2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI2);
             exports_1("StartDI2", StartDI2);
         }
     };
@@ -44398,13 +46019,23 @@ System.register("src/components/slides/mainConcepts/startDI2/startDI2.js", ["npm
 System.register("src/components/slides/mainConcepts/startDI2_2/startDI2_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44420,8 +46051,8 @@ System.register("src/components/slides/mainConcepts/startDI2_2/startDI2_2.js", [
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartDI2_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44435,19 +46066,19 @@ System.register("src/components/slides/mainConcepts/startDI2_2/startDI2_2.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartDI2_2 = function (_super) {
+            StartDI2_2 = /** @class */function (_super) {
                 __extends(StartDI2_2, _super);
                 function StartDI2_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartDI2_2 = __decorate([core_1.Component({
+                    selector: 'StartDI2_2',
+                    templateUrl: 'src/components/slides/mainConcepts/startDI2_2/startDI2_2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/startDI2_2/startDI2_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI2_2);
                 return StartDI2_2;
             }(slideCommon_1.SlideCommon);
-            StartDI2_2 = __decorate([core_1.Component({
-                selector: 'StartDI2_2',
-                templateUrl: 'src/components/slides/mainConcepts/startDI2_2/startDI2_2.html',
-                styleUrls: ['src/components/slides/mainConcepts/startDI2_2/startDI2_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI2_2);
             exports_1("StartDI2_2", StartDI2_2);
         }
     };
@@ -44455,13 +46086,23 @@ System.register("src/components/slides/mainConcepts/startDI2_2/startDI2_2.js", [
 System.register("src/components/slides/mainConcepts/startDI3/startDI3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44477,8 +46118,8 @@ System.register("src/components/slides/mainConcepts/startDI3/startDI3.js", ["npm
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartDI3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44492,19 +46133,19 @@ System.register("src/components/slides/mainConcepts/startDI3/startDI3.js", ["npm
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartDI3 = function (_super) {
+            StartDI3 = /** @class */function (_super) {
                 __extends(StartDI3, _super);
                 function StartDI3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartDI3 = __decorate([core_1.Component({
+                    selector: 'StartDI3',
+                    templateUrl: 'src/components/slides/mainConcepts/startDI3/startDI3.html',
+                    styleUrls: ['src/components/slides/mainConcepts/startDI3/startDI3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI3);
                 return StartDI3;
             }(slideCommon_1.SlideCommon);
-            StartDI3 = __decorate([core_1.Component({
-                selector: 'StartDI3',
-                templateUrl: 'src/components/slides/mainConcepts/startDI3/startDI3.html',
-                styleUrls: ['src/components/slides/mainConcepts/startDI3/startDI3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI3);
             exports_1("StartDI3", StartDI3);
         }
     };
@@ -44512,13 +46153,23 @@ System.register("src/components/slides/mainConcepts/startDI3/startDI3.js", ["npm
 System.register("src/components/slides/mainConcepts/startDI3_2/startDI3_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44534,8 +46185,8 @@ System.register("src/components/slides/mainConcepts/startDI3_2/startDI3_2.js", [
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartDI3_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44549,19 +46200,19 @@ System.register("src/components/slides/mainConcepts/startDI3_2/startDI3_2.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartDI3_2 = function (_super) {
+            StartDI3_2 = /** @class */function (_super) {
                 __extends(StartDI3_2, _super);
                 function StartDI3_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartDI3_2 = __decorate([core_1.Component({
+                    selector: 'StartDI3_2',
+                    templateUrl: 'src/components/slides/mainConcepts/startDI3_2/startDI3_2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/startDI3_2/startDI3_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI3_2);
                 return StartDI3_2;
             }(slideCommon_1.SlideCommon);
-            StartDI3_2 = __decorate([core_1.Component({
-                selector: 'StartDI3_2',
-                templateUrl: 'src/components/slides/mainConcepts/startDI3_2/startDI3_2.html',
-                styleUrls: ['src/components/slides/mainConcepts/startDI3_2/startDI3_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI3_2);
             exports_1("StartDI3_2", StartDI3_2);
         }
     };
@@ -44569,13 +46220,23 @@ System.register("src/components/slides/mainConcepts/startDI3_2/startDI3_2.js", [
 System.register("src/components/slides/mainConcepts/startDI_2/startDI_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44591,8 +46252,8 @@ System.register("src/components/slides/mainConcepts/startDI_2/startDI_2.js", ["n
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartDI_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44606,19 +46267,19 @@ System.register("src/components/slides/mainConcepts/startDI_2/startDI_2.js", ["n
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            StartDI_2 = function (_super) {
+            StartDI_2 = /** @class */function (_super) {
                 __extends(StartDI_2, _super);
                 function StartDI_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                StartDI_2 = __decorate([core_1.Component({
+                    selector: 'StartDI_2',
+                    templateUrl: 'src/components/slides/mainConcepts/startDI_2/startDI_2.html',
+                    styleUrls: ['src/components/slides/mainConcepts/startDI_2/startDI_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI_2);
                 return StartDI_2;
             }(slideCommon_1.SlideCommon);
-            StartDI_2 = __decorate([core_1.Component({
-                selector: 'StartDI_2',
-                templateUrl: 'src/components/slides/mainConcepts/startDI_2/startDI_2.html',
-                styleUrls: ['src/components/slides/mainConcepts/startDI_2/startDI_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartDI_2);
             exports_1("StartDI_2", StartDI_2);
         }
     };
@@ -44626,13 +46287,23 @@ System.register("src/components/slides/mainConcepts/startDI_2/startDI_2.js", ["n
 System.register("src/components/slides/mainTitle/mainTitle.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44648,8 +46319,8 @@ System.register("src/components/slides/mainTitle/mainTitle.js", ["npm:@angular/c
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, MainTitle;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44659,18 +46330,18 @@ System.register("src/components/slides/mainTitle/mainTitle.js", ["npm:@angular/c
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            MainTitle = function (_super) {
+            MainTitle = /** @class */function (_super) {
                 __extends(MainTitle, _super);
                 function MainTitle(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                MainTitle = __decorate([core_1.Component({
+                    selector: 'main-title',
+                    templateUrl: 'src/components/slides/mainTitle/mainTitle.html',
+                    styleUrls: ['src/components/slides/mainTitle/mainTitle.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MainTitle);
                 return MainTitle;
             }(slideCommon_1.SlideCommon);
-            MainTitle = __decorate([core_1.Component({
-                selector: 'main-title',
-                templateUrl: 'src/components/slides/mainTitle/mainTitle.html',
-                styleUrls: ['src/components/slides/mainTitle/mainTitle.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], MainTitle);
             exports_1("MainTitle", MainTitle);
         }
     };
@@ -44678,13 +46349,23 @@ System.register("src/components/slides/mainTitle/mainTitle.js", ["npm:@angular/c
 System.register("src/components/slides/preamble/fwksCompare/fwksCompare.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44700,8 +46381,8 @@ System.register("src/components/slides/preamble/fwksCompare/fwksCompare.js", ["n
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, FwksCompare;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44711,18 +46392,18 @@ System.register("src/components/slides/preamble/fwksCompare/fwksCompare.js", ["n
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            FwksCompare = function (_super) {
+            FwksCompare = /** @class */function (_super) {
                 __extends(FwksCompare, _super);
                 function FwksCompare(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                FwksCompare = __decorate([core_1.Component({
+                    selector: 'FwksCompare',
+                    templateUrl: 'src/components/slides/preamble/fwksCompare/fwksCompare.html',
+                    styleUrls: ['src/components/slides/preamble/fwksCompare/fwksCompare.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare);
                 return FwksCompare;
             }(slideCommon_1.SlideCommon);
-            FwksCompare = __decorate([core_1.Component({
-                selector: 'FwksCompare',
-                templateUrl: 'src/components/slides/preamble/fwksCompare/fwksCompare.html',
-                styleUrls: ['src/components/slides/preamble/fwksCompare/fwksCompare.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare);
             exports_1("FwksCompare", FwksCompare);
         }
     };
@@ -44730,13 +46411,23 @@ System.register("src/components/slides/preamble/fwksCompare/fwksCompare.js", ["n
 System.register("src/components/slides/preamble/fwksCompare2/fwksCompare2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44752,8 +46443,8 @@ System.register("src/components/slides/preamble/fwksCompare2/fwksCompare2.js", [
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, FwksCompare2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44767,19 +46458,19 @@ System.register("src/components/slides/preamble/fwksCompare2/fwksCompare2.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            FwksCompare2 = function (_super) {
+            FwksCompare2 = /** @class */function (_super) {
                 __extends(FwksCompare2, _super);
                 function FwksCompare2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                FwksCompare2 = __decorate([core_1.Component({
+                    selector: 'fwksCompare2',
+                    templateUrl: 'src/components/slides/preamble/fwksCompare2/fwksCompare2.html',
+                    styleUrls: ['src/components/slides/preamble/fwksCompare2/fwksCompare2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare2);
                 return FwksCompare2;
             }(slideCommon_1.SlideCommon);
-            FwksCompare2 = __decorate([core_1.Component({
-                selector: 'fwksCompare2',
-                templateUrl: 'src/components/slides/preamble/fwksCompare2/fwksCompare2.html',
-                styleUrls: ['src/components/slides/preamble/fwksCompare2/fwksCompare2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare2);
             exports_1("FwksCompare2", FwksCompare2);
         }
     };
@@ -44787,13 +46478,23 @@ System.register("src/components/slides/preamble/fwksCompare2/fwksCompare2.js", [
 System.register("src/components/slides/preamble/fwksCompare3/fwksCompare3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44809,8 +46510,8 @@ System.register("src/components/slides/preamble/fwksCompare3/fwksCompare3.js", [
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, FwksCompare3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44824,19 +46525,19 @@ System.register("src/components/slides/preamble/fwksCompare3/fwksCompare3.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            FwksCompare3 = function (_super) {
+            FwksCompare3 = /** @class */function (_super) {
                 __extends(FwksCompare3, _super);
                 function FwksCompare3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                FwksCompare3 = __decorate([core_1.Component({
+                    selector: 'fwksCompare3',
+                    templateUrl: 'src/components/slides/preamble/fwksCompare3/fwksCompare3.html',
+                    styleUrls: ['src/components/slides/preamble/fwksCompare3/fwksCompare3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare3);
                 return FwksCompare3;
             }(slideCommon_1.SlideCommon);
-            FwksCompare3 = __decorate([core_1.Component({
-                selector: 'fwksCompare3',
-                templateUrl: 'src/components/slides/preamble/fwksCompare3/fwksCompare3.html',
-                styleUrls: ['src/components/slides/preamble/fwksCompare3/fwksCompare3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare3);
             exports_1("FwksCompare3", FwksCompare3);
         }
     };
@@ -44844,13 +46545,23 @@ System.register("src/components/slides/preamble/fwksCompare3/fwksCompare3.js", [
 System.register("src/components/slides/preamble/fwksCompare4/fwksCompare4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44866,8 +46577,8 @@ System.register("src/components/slides/preamble/fwksCompare4/fwksCompare4.js", [
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, FwksCompare4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44881,19 +46592,19 @@ System.register("src/components/slides/preamble/fwksCompare4/fwksCompare4.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            FwksCompare4 = function (_super) {
+            FwksCompare4 = /** @class */function (_super) {
                 __extends(FwksCompare4, _super);
                 function FwksCompare4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                FwksCompare4 = __decorate([core_1.Component({
+                    selector: 'fwksCompare4',
+                    templateUrl: 'src/components/slides/preamble/fwksCompare4/fwksCompare4.html',
+                    styleUrls: ['src/components/slides/preamble/fwksCompare4/fwksCompare4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare4);
                 return FwksCompare4;
             }(slideCommon_1.SlideCommon);
-            FwksCompare4 = __decorate([core_1.Component({
-                selector: 'fwksCompare4',
-                templateUrl: 'src/components/slides/preamble/fwksCompare4/fwksCompare4.html',
-                styleUrls: ['src/components/slides/preamble/fwksCompare4/fwksCompare4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare4);
             exports_1("FwksCompare4", FwksCompare4);
         }
     };
@@ -44901,13 +46612,23 @@ System.register("src/components/slides/preamble/fwksCompare4/fwksCompare4.js", [
 System.register("src/components/slides/preamble/fwksCompare5/fwksCompare5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44923,8 +46644,8 @@ System.register("src/components/slides/preamble/fwksCompare5/fwksCompare5.js", [
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, FwksCompare5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44938,19 +46659,19 @@ System.register("src/components/slides/preamble/fwksCompare5/fwksCompare5.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            FwksCompare5 = function (_super) {
+            FwksCompare5 = /** @class */function (_super) {
                 __extends(FwksCompare5, _super);
                 function FwksCompare5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                FwksCompare5 = __decorate([core_1.Component({
+                    selector: 'FwksCompare5',
+                    templateUrl: 'src/components/slides/preamble/fwksCompare5/fwksCompare5.html',
+                    styleUrls: ['src/components/slides/preamble/fwksCompare5/fwksCompare5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare5);
                 return FwksCompare5;
             }(slideCommon_1.SlideCommon);
-            FwksCompare5 = __decorate([core_1.Component({
-                selector: 'FwksCompare5',
-                templateUrl: 'src/components/slides/preamble/fwksCompare5/fwksCompare5.html',
-                styleUrls: ['src/components/slides/preamble/fwksCompare5/fwksCompare5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], FwksCompare5);
             exports_1("FwksCompare5", FwksCompare5);
         }
     };
@@ -44958,13 +46679,23 @@ System.register("src/components/slides/preamble/fwksCompare5/fwksCompare5.js", [
 System.register("src/components/slides/preamble/ngCompare/ngCompare.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -44980,8 +46711,8 @@ System.register("src/components/slides/preamble/ngCompare/ngCompare.js", ["npm:@
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, NgCompare;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -44991,18 +46722,18 @@ System.register("src/components/slides/preamble/ngCompare/ngCompare.js", ["npm:@
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            NgCompare = function (_super) {
+            NgCompare = /** @class */function (_super) {
                 __extends(NgCompare, _super);
                 function NgCompare(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                NgCompare = __decorate([core_1.Component({
+                    selector: 'NgCompare',
+                    templateUrl: 'src/components/slides/preamble/ngCompare/ngCompare.html',
+                    styleUrls: ['src/components/slides/preamble/ngCompare/ngCompare.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], NgCompare);
                 return NgCompare;
             }(slideCommon_1.SlideCommon);
-            NgCompare = __decorate([core_1.Component({
-                selector: 'NgCompare',
-                templateUrl: 'src/components/slides/preamble/ngCompare/ngCompare.html',
-                styleUrls: ['src/components/slides/preamble/ngCompare/ngCompare.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], NgCompare);
             exports_1("NgCompare", NgCompare);
         }
     };
@@ -45010,13 +46741,23 @@ System.register("src/components/slides/preamble/ngCompare/ngCompare.js", ["npm:@
 System.register("src/components/slides/preamble/ngCompare2/ngCompare2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45032,8 +46773,8 @@ System.register("src/components/slides/preamble/ngCompare2/ngCompare2.js", ["npm
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, NgCompare2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45047,19 +46788,19 @@ System.register("src/components/slides/preamble/ngCompare2/ngCompare2.js", ["npm
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            NgCompare2 = function (_super) {
+            NgCompare2 = /** @class */function (_super) {
                 __extends(NgCompare2, _super);
                 function NgCompare2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                NgCompare2 = __decorate([core_1.Component({
+                    selector: 'NgCompare2',
+                    templateUrl: 'src/components/slides/preamble/ngCompare2/ngCompare2.html',
+                    styleUrls: ['src/components/slides/preamble/ngCompare2/ngCompare2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], NgCompare2);
                 return NgCompare2;
             }(slideCommon_1.SlideCommon);
-            NgCompare2 = __decorate([core_1.Component({
-                selector: 'NgCompare2',
-                templateUrl: 'src/components/slides/preamble/ngCompare2/ngCompare2.html',
-                styleUrls: ['src/components/slides/preamble/ngCompare2/ngCompare2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], NgCompare2);
             exports_1("NgCompare2", NgCompare2);
         }
     };
@@ -45067,13 +46808,23 @@ System.register("src/components/slides/preamble/ngCompare2/ngCompare2.js", ["npm
 System.register("src/components/slides/preamble/ngCompare3/ngCompare3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45089,8 +46840,8 @@ System.register("src/components/slides/preamble/ngCompare3/ngCompare3.js", ["npm
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, NgCompare3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45104,19 +46855,19 @@ System.register("src/components/slides/preamble/ngCompare3/ngCompare3.js", ["npm
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            NgCompare3 = function (_super) {
+            NgCompare3 = /** @class */function (_super) {
                 __extends(NgCompare3, _super);
                 function NgCompare3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                NgCompare3 = __decorate([core_1.Component({
+                    selector: 'NgCompare3',
+                    templateUrl: 'src/components/slides/preamble/ngCompare3/ngCompare3.html',
+                    styleUrls: ['src/components/slides/preamble/ngCompare3/ngCompare3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], NgCompare3);
                 return NgCompare3;
             }(slideCommon_1.SlideCommon);
-            NgCompare3 = __decorate([core_1.Component({
-                selector: 'NgCompare3',
-                templateUrl: 'src/components/slides/preamble/ngCompare3/ngCompare3.html',
-                styleUrls: ['src/components/slides/preamble/ngCompare3/ngCompare3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], NgCompare3);
             exports_1("NgCompare3", NgCompare3);
         }
     };
@@ -45124,13 +46875,23 @@ System.register("src/components/slides/preamble/ngCompare3/ngCompare3.js", ["npm
 System.register("src/components/slides/preamble/ngCompare4/ngCompare4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45146,8 +46907,8 @@ System.register("src/components/slides/preamble/ngCompare4/ngCompare4.js", ["npm
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, NgCompare4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45161,19 +46922,19 @@ System.register("src/components/slides/preamble/ngCompare4/ngCompare4.js", ["npm
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            NgCompare4 = function (_super) {
+            NgCompare4 = /** @class */function (_super) {
                 __extends(NgCompare4, _super);
                 function NgCompare4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                NgCompare4 = __decorate([core_1.Component({
+                    selector: 'NgCompare4',
+                    templateUrl: 'src/components/slides/preamble/ngCompare4/ngCompare4.html',
+                    styleUrls: ['src/components/slides/preamble/ngCompare4/ngCompare4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], NgCompare4);
                 return NgCompare4;
             }(slideCommon_1.SlideCommon);
-            NgCompare4 = __decorate([core_1.Component({
-                selector: 'NgCompare4',
-                templateUrl: 'src/components/slides/preamble/ngCompare4/ngCompare4.html',
-                styleUrls: ['src/components/slides/preamble/ngCompare4/ngCompare4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], NgCompare4);
             exports_1("NgCompare4", NgCompare4);
         }
     };
@@ -45181,13 +46942,23 @@ System.register("src/components/slides/preamble/ngCompare4/ngCompare4.js", ["npm
 System.register("src/components/slides/preamble/pW1/pW1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45203,8 +46974,8 @@ System.register("src/components/slides/preamble/pW1/pW1.js", ["npm:@angular/core
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, PW1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45218,19 +46989,19 @@ System.register("src/components/slides/preamble/pW1/pW1.js", ["npm:@angular/core
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            PW1 = function (_super) {
+            PW1 = /** @class */function (_super) {
                 __extends(PW1, _super);
                 function PW1(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                PW1 = __decorate([core_1.Component({
+                    selector: 'PW1',
+                    templateUrl: 'src/components/slides/preamble/pW1/pW1.html',
+                    styleUrls: ['src/components/slides/preamble/pW1/pW1.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PW1);
                 return PW1;
             }(slideCommon_1.SlideCommon);
-            PW1 = __decorate([core_1.Component({
-                selector: 'PW1',
-                templateUrl: 'src/components/slides/preamble/pW1/pW1.html',
-                styleUrls: ['src/components/slides/preamble/pW1/pW1.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], PW1);
             exports_1("PW1", PW1);
         }
     };
@@ -45238,13 +47009,23 @@ System.register("src/components/slides/preamble/pW1/pW1.js", ["npm:@angular/core
 System.register("src/components/slides/preamble/spa1/spa1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45260,8 +47041,8 @@ System.register("src/components/slides/preamble/spa1/spa1.js", ["npm:@angular/co
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, Spa1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45271,18 +47052,18 @@ System.register("src/components/slides/preamble/spa1/spa1.js", ["npm:@angular/co
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Spa1 = function (_super) {
+            Spa1 = /** @class */function (_super) {
                 __extends(Spa1, _super);
                 function Spa1(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Spa1 = __decorate([core_1.Component({
+                    selector: 'Spa1',
+                    templateUrl: 'src/components/slides/preamble/spa1/spa1.html',
+                    styleUrls: ['src/components/slides/preamble/spa1/spa1.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Spa1);
                 return Spa1;
             }(slideCommon_1.SlideCommon);
-            Spa1 = __decorate([core_1.Component({
-                selector: 'Spa1',
-                templateUrl: 'src/components/slides/preamble/spa1/spa1.html',
-                styleUrls: ['src/components/slides/preamble/spa1/spa1.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Spa1);
             exports_1("Spa1", Spa1);
         }
     };
@@ -45290,13 +47071,23 @@ System.register("src/components/slides/preamble/spa1/spa1.js", ["npm:@angular/co
 System.register("src/components/slides/preamble/spa2/spa2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45312,8 +47103,8 @@ System.register("src/components/slides/preamble/spa2/spa2.js", ["npm:@angular/co
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, Spa2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45323,18 +47114,18 @@ System.register("src/components/slides/preamble/spa2/spa2.js", ["npm:@angular/co
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Spa2 = function (_super) {
+            Spa2 = /** @class */function (_super) {
                 __extends(Spa2, _super);
                 function Spa2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Spa2 = __decorate([core_1.Component({
+                    selector: 'Spa2',
+                    templateUrl: 'src/components/slides/preamble/spa2/spa2.html',
+                    styleUrls: ['src/components/slides/preamble/spa2/spa2.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Spa2);
                 return Spa2;
             }(slideCommon_1.SlideCommon);
-            Spa2 = __decorate([core_1.Component({
-                selector: 'Spa2',
-                templateUrl: 'src/components/slides/preamble/spa2/spa2.html',
-                styleUrls: ['src/components/slides/preamble/spa2/spa2.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Spa2);
             exports_1("Spa2", Spa2);
         }
     };
@@ -45342,13 +47133,23 @@ System.register("src/components/slides/preamble/spa2/spa2.js", ["npm:@angular/co
 System.register("src/components/slides/preamble/webComponents/webComponents.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45364,8 +47165,8 @@ System.register("src/components/slides/preamble/webComponents/webComponents.js",
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, WebComponents;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45375,18 +47176,18 @@ System.register("src/components/slides/preamble/webComponents/webComponents.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            WebComponents = function (_super) {
+            WebComponents = /** @class */function (_super) {
                 __extends(WebComponents, _super);
                 function WebComponents(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                WebComponents = __decorate([core_1.Component({
+                    selector: 'WebComponents',
+                    templateUrl: 'src/components/slides/preamble/webComponents/webComponents.html',
+                    styleUrls: ['src/components/slides/preamble/webComponents/webComponents.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents);
                 return WebComponents;
             }(slideCommon_1.SlideCommon);
-            WebComponents = __decorate([core_1.Component({
-                selector: 'WebComponents',
-                templateUrl: 'src/components/slides/preamble/webComponents/webComponents.html',
-                styleUrls: ['src/components/slides/preamble/webComponents/webComponents.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents);
             exports_1("WebComponents", WebComponents);
         }
     };
@@ -45394,13 +47195,23 @@ System.register("src/components/slides/preamble/webComponents/webComponents.js",
 System.register("src/components/slides/preamble/webComponents2/webComponents2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45416,8 +47227,8 @@ System.register("src/components/slides/preamble/webComponents2/webComponents2.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, WebComponents2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45431,19 +47242,19 @@ System.register("src/components/slides/preamble/webComponents2/webComponents2.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            WebComponents2 = function (_super) {
+            WebComponents2 = /** @class */function (_super) {
                 __extends(WebComponents2, _super);
                 function WebComponents2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                WebComponents2 = __decorate([core_1.Component({
+                    selector: 'WebComponents2',
+                    templateUrl: 'src/components/slides/preamble/webComponents2/webComponents2.html',
+                    styleUrls: ['src/components/slides/preamble/webComponents2/webComponents2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents2);
                 return WebComponents2;
             }(slideCommon_1.SlideCommon);
-            WebComponents2 = __decorate([core_1.Component({
-                selector: 'WebComponents2',
-                templateUrl: 'src/components/slides/preamble/webComponents2/webComponents2.html',
-                styleUrls: ['src/components/slides/preamble/webComponents2/webComponents2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents2);
             exports_1("WebComponents2", WebComponents2);
         }
     };
@@ -45451,13 +47262,23 @@ System.register("src/components/slides/preamble/webComponents2/webComponents2.js
 System.register("src/components/slides/preamble/webComponents3/webComponents3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45473,8 +47294,8 @@ System.register("src/components/slides/preamble/webComponents3/webComponents3.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, WebComponents3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45488,19 +47309,19 @@ System.register("src/components/slides/preamble/webComponents3/webComponents3.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            WebComponents3 = function (_super) {
+            WebComponents3 = /** @class */function (_super) {
                 __extends(WebComponents3, _super);
                 function WebComponents3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                WebComponents3 = __decorate([core_1.Component({
+                    selector: 'webComponents3',
+                    templateUrl: 'src/components/slides/preamble/webComponents3/webComponents3.html',
+                    styleUrls: ['src/components/slides/preamble/webComponents3/webComponents3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents3);
                 return WebComponents3;
             }(slideCommon_1.SlideCommon);
-            WebComponents3 = __decorate([core_1.Component({
-                selector: 'webComponents3',
-                templateUrl: 'src/components/slides/preamble/webComponents3/webComponents3.html',
-                styleUrls: ['src/components/slides/preamble/webComponents3/webComponents3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents3);
             exports_1("WebComponents3", WebComponents3);
         }
     };
@@ -45508,13 +47329,23 @@ System.register("src/components/slides/preamble/webComponents3/webComponents3.js
 System.register("src/components/slides/preamble/webComponents4/webComponents4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45530,8 +47361,8 @@ System.register("src/components/slides/preamble/webComponents4/webComponents4.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, WebComponents4;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45545,19 +47376,19 @@ System.register("src/components/slides/preamble/webComponents4/webComponents4.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            WebComponents4 = function (_super) {
+            WebComponents4 = /** @class */function (_super) {
                 __extends(WebComponents4, _super);
                 function WebComponents4(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                WebComponents4 = __decorate([core_1.Component({
+                    selector: 'webComponents4',
+                    templateUrl: 'src/components/slides/preamble/webComponents4/webComponents4.html',
+                    styleUrls: ['src/components/slides/preamble/webComponents4/webComponents4.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents4);
                 return WebComponents4;
             }(slideCommon_1.SlideCommon);
-            WebComponents4 = __decorate([core_1.Component({
-                selector: 'webComponents4',
-                templateUrl: 'src/components/slides/preamble/webComponents4/webComponents4.html',
-                styleUrls: ['src/components/slides/preamble/webComponents4/webComponents4.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents4);
             exports_1("WebComponents4", WebComponents4);
         }
     };
@@ -45565,13 +47396,23 @@ System.register("src/components/slides/preamble/webComponents4/webComponents4.js
 System.register("src/components/slides/preamble/webComponents4_2/webComponents4_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45587,8 +47428,8 @@ System.register("src/components/slides/preamble/webComponents4_2/webComponents4_
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, WebComponents4_2;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45602,19 +47443,19 @@ System.register("src/components/slides/preamble/webComponents4_2/webComponents4_
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            WebComponents4_2 = function (_super) {
+            WebComponents4_2 = /** @class */function (_super) {
                 __extends(WebComponents4_2, _super);
                 function WebComponents4_2(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                WebComponents4_2 = __decorate([core_1.Component({
+                    selector: 'WebComponents4_2',
+                    templateUrl: 'src/components/slides/preamble/webComponents4_2/webComponents4_2.html',
+                    styleUrls: ['src/components/slides/preamble/webComponents4_2/webComponents4_2.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents4_2);
                 return WebComponents4_2;
             }(slideCommon_1.SlideCommon);
-            WebComponents4_2 = __decorate([core_1.Component({
-                selector: 'WebComponents4_2',
-                templateUrl: 'src/components/slides/preamble/webComponents4_2/webComponents4_2.html',
-                styleUrls: ['src/components/slides/preamble/webComponents4_2/webComponents4_2.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents4_2);
             exports_1("WebComponents4_2", WebComponents4_2);
         }
     };
@@ -45622,13 +47463,23 @@ System.register("src/components/slides/preamble/webComponents4_2/webComponents4_
 System.register("src/components/slides/preamble/webComponents4_3/webComponents4_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -45644,8 +47495,8 @@ System.register("src/components/slides/preamble/webComponents4_3/webComponents4_
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, WebComponents4_3;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -45659,19 +47510,19 @@ System.register("src/components/slides/preamble/webComponents4_3/webComponents4_
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            WebComponents4_3 = function (_super) {
+            WebComponents4_3 = /** @class */function (_super) {
                 __extends(WebComponents4_3, _super);
                 function WebComponents4_3(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                WebComponents4_3 = __decorate([core_1.Component({
+                    selector: 'WebComponents4_3',
+                    templateUrl: 'src/components/slides/preamble/webComponents4_3/webComponents4_3.html',
+                    styleUrls: ['src/components/slides/preamble/webComponents4_3/webComponents4_3.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents4_3);
                 return WebComponents4_3;
             }(slideCommon_1.SlideCommon);
-            WebComponents4_3 = __decorate([core_1.Component({
-                selector: 'WebComponents4_3',
-                templateUrl: 'src/components/slides/preamble/webComponents4_3/webComponents4_3.html',
-                styleUrls: ['src/components/slides/preamble/webComponents4_3/webComponents4_3.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents4_3);
             exports_1("WebComponents4_3", WebComponents4_3);
         }
     };
@@ -51485,8 +53336,8 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, common_1, editorTab_1, constants_1, Editor;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -51498,11 +53349,7 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            // The editor allows to manage a set of editortabs
-            // Either to display one specific tab, either to 
-            // retrieve the code of several tabs and submit it
-            // to different services (plunker for example, or fiddle)
-            Editor = function () {
+            Editor = /** @class */function () {
                 function Editor(prettyPrint, jquery, eltRef, cdr) {
                     var _this = this;
                     this.prettyPrint = prettyPrint;
@@ -51574,6 +53421,7 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
                     this.elt = eltRef.nativeElement;
                     this.cdr = cdr;
                 }
+                Editor_1 = Editor;
                 //Get all EditorTabs components
                 Editor.prototype.getTabs = function () {
                     var _this = this;
@@ -51606,25 +53454,32 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
                     });
                 };
                 ;
+                var Editor_1;
+                __decorate([core_1.Input(), __metadata("design:type", Boolean)], Editor.prototype, "fiddle", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", Boolean)], Editor.prototype, "plunker", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", Boolean)], Editor.prototype, "ng2", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", Boolean)], Editor.prototype, "localExec", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "title", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "description", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "framework", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "version", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "wrap", void 0);
+                __decorate([core_1.ViewChildren(editorTab_1.EditorTab), __metadata("design:type", core_1.QueryList)], Editor.prototype, "viewTabs", void 0);
+                __decorate([core_1.ContentChildren(editorTab_1.EditorTab), __metadata("design:type", core_1.QueryList)], Editor.prototype, "contentTabs", void 0);
+                Editor = Editor_1 = __decorate([core_1.Component({
+                    selector: 'editor', inputs: ['localexec'],
+                    templateUrl: 'src/components/editor/editor.html',
+                    directives: [Editor_1, editorTab_1.EditorTab, common_1.NgIf],
+                    styleUrls: ['src/components/editor/editor.css']
+                })
+                // The editor allows to manage a set of editortabs
+                // Either to display one specific tab, either to 
+                // retrieve the code of several tabs and submit it
+                // to different services (plunker for example, or fiddle)
+
+                , __param(0, core_1.Inject(constants_1.GPRETTIFYER)), __param(1, core_1.Inject(constants_1.JQUERY)), __metadata("design:paramtypes", [Object, Object, core_1.ElementRef, core_1.ChangeDetectorRef])], Editor);
                 return Editor;
             }();
-            __decorate([core_1.Input(), __metadata("design:type", Boolean)], Editor.prototype, "fiddle", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", Boolean)], Editor.prototype, "plunker", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", Boolean)], Editor.prototype, "ng2", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", Boolean)], Editor.prototype, "localExec", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "title", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "description", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "framework", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "version", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", String)], Editor.prototype, "wrap", void 0);
-            __decorate([core_1.ViewChildren(editorTab_1.EditorTab), __metadata("design:type", core_1.QueryList)], Editor.prototype, "viewTabs", void 0);
-            __decorate([core_1.ContentChildren(editorTab_1.EditorTab), __metadata("design:type", core_1.QueryList)], Editor.prototype, "contentTabs", void 0);
-            Editor = __decorate([core_1.Component({
-                selector: 'editor', inputs: ['localexec'],
-                templateUrl: 'src/components/editor/editor.html',
-                directives: [Editor, editorTab_1.EditorTab, common_1.NgIf],
-                styleUrls: ['src/components/editor/editor.css']
-            }), __param(0, core_1.Inject(constants_1.GPRETTIFYER)), __param(1, core_1.Inject(constants_1.JQUERY)), __metadata("design:paramtypes", [Object, Object, core_1.ElementRef, core_1.ChangeDetectorRef])], Editor);
             exports_1("Editor", Editor);
         }
     };
@@ -51647,8 +53502,8 @@ System.register("src/components/editorTab/editorTab.js", ["npm:@angular/core@2.0
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, constants_1, EditorTab;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -51656,9 +53511,7 @@ System.register("src/components/editorTab/editorTab.js", ["npm:@angular/core@2.0
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            // An editortab can be used alone (to display some code whith highlighted syntax)
-            // or as child of the editor component, then it's a tab of the editor
-            EditorTab = function () {
+            EditorTab = /** @class */function () {
                 // TODO: Mieux comprendre la nécessité de forwardRef et comment s'en affranchir:
                 //  https://github.com/angular/angular/issues/2660
                 function EditorTab(eltRef, cdr, jquery, prettyPrint) {
@@ -51704,17 +53557,21 @@ System.register("src/components/editorTab/editorTab.js", ["npm:@angular/core@2.0
                     }
                 };
                 ;
+                __decorate([core_1.Input(), __metadata("design:type", String)], EditorTab.prototype, "title", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", String)], EditorTab.prototype, "fileType", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", Boolean)], EditorTab.prototype, "_alone", void 0);
+                __decorate([core_1.Input(), __metadata("design:type", Boolean), __metadata("design:paramtypes", [Boolean])], EditorTab.prototype, "alone", null);
+                EditorTab = __decorate([core_1.Component({
+                    selector: 'editortab',
+                    templateUrl: 'src/components/editorTab/editorTab.html',
+                    styleUrls: ['src/components/editorTab/editorTab.css']
+                })
+                // An editortab can be used alone (to display some code whith highlighted syntax)
+                // or as child of the editor component, then it's a tab of the editor
+
+                , __param(2, core_1.Inject(constants_1.JQUERY)), __param(3, core_1.Inject(constants_1.GPRETTIFYER)), __metadata("design:paramtypes", [core_1.ElementRef, core_1.ChangeDetectorRef, Object, Object])], EditorTab);
                 return EditorTab;
             }();
-            __decorate([core_1.Input(), __metadata("design:type", String)], EditorTab.prototype, "title", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", String)], EditorTab.prototype, "fileType", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", Boolean)], EditorTab.prototype, "_alone", void 0);
-            __decorate([core_1.Input(), __metadata("design:type", Boolean), __metadata("design:paramtypes", [Boolean])], EditorTab.prototype, "alone", null);
-            EditorTab = __decorate([core_1.Component({
-                selector: 'editortab',
-                templateUrl: 'src/components/editorTab/editorTab.html',
-                styleUrls: ['src/components/editorTab/editorTab.css']
-            }), __param(2, core_1.Inject(constants_1.JQUERY)), __param(3, core_1.Inject(constants_1.GPRETTIFYER)), __metadata("design:paramtypes", [core_1.ElementRef, core_1.ChangeDetectorRef, Object, Object])], EditorTab);
             exports_1("EditorTab", EditorTab);
         }
     };
@@ -51722,13 +53579,23 @@ System.register("src/components/editorTab/editorTab.js", ["npm:@angular/core@2.0
 System.register("src/components/slides/preamble/webComponents5/webComponents5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -51744,8 +53611,8 @@ System.register("src/components/slides/preamble/webComponents5/webComponents5.js
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, WebComponents5;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -51759,19 +53626,19 @@ System.register("src/components/slides/preamble/webComponents5/webComponents5.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            WebComponents5 = function (_super) {
+            WebComponents5 = /** @class */function (_super) {
                 __extends(WebComponents5, _super);
                 function WebComponents5(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                WebComponents5 = __decorate([core_1.Component({
+                    selector: 'WebComponents5',
+                    templateUrl: 'src/components/slides/preamble/webComponents5/webComponents5.html',
+                    styleUrls: ['src/components/slides/preamble/webComponents5/webComponents5.css'],
+                    directives: [editor_1.Editor, editorTab_1.EditorTab]
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents5);
                 return WebComponents5;
             }(slideCommon_1.SlideCommon);
-            WebComponents5 = __decorate([core_1.Component({
-                selector: 'WebComponents5',
-                templateUrl: 'src/components/slides/preamble/webComponents5/webComponents5.html',
-                styleUrls: ['src/components/slides/preamble/webComponents5/webComponents5.css'],
-                directives: [editor_1.Editor, editorTab_1.EditorTab]
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], WebComponents5);
             exports_1("WebComponents5", WebComponents5);
         }
     };
@@ -51779,13 +53646,23 @@ System.register("src/components/slides/preamble/webComponents5/webComponents5.js
 System.register("src/components/slides/toc/toc.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -51801,8 +53678,8 @@ System.register("src/components/slides/toc/toc.js", ["npm:@angular/core@2.0.0-rc
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, Toc;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -51812,18 +53689,18 @@ System.register("src/components/slides/toc/toc.js", ["npm:@angular/core@2.0.0-rc
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Toc = function (_super) {
+            Toc = /** @class */function (_super) {
                 __extends(Toc, _super);
                 function Toc(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Toc = __decorate([core_1.Component({
+                    selector: 'toc',
+                    templateUrl: 'src/components/slides/toc/toc.html',
+                    styleUrls: ['src/components/slides/toc/toc.css']
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Toc);
                 return Toc;
             }(slideCommon_1.SlideCommon);
-            Toc = __decorate([core_1.Component({
-                selector: 'toc',
-                templateUrl: 'src/components/slides/toc/toc.html',
-                styleUrls: ['src/components/slides/toc/toc.css']
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Toc);
             exports_1("Toc", Toc);
         }
     };
@@ -61299,12 +63176,12 @@ System.registerDynamic("npm:@angular/core@2.0.0-rc.1.js", ["npm:@angular/core@2.
 System.register("src/components/slides/slideCommon/slideCommon.js", [], function (exports_1, context_1) {
     "use strict";
 
-    var __moduleName = context_1 && context_1.id;
     var SlideCommon;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
         execute: function () {
-            SlideCommon = function () {
+            SlideCommon = /** @class */function () {
                 function SlideCommon(elt, hostClass) {
                     console.log('there');
                     var classes = elt.nativeElement.classList;
@@ -61321,8 +63198,8 @@ System.register("src/components/slides/slideCommon/slideCommon.js", [], function
 System.register("src/services/constants.js", [], function (exports_1, context_1) {
     "use strict";
 
-    var __moduleName = context_1 && context_1.id;
     var HOST_SLIDE_CONTAINER_CLASS, GPRETTIFYER, JQUERY;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
         execute: function () {
@@ -61335,13 +63212,23 @@ System.register("src/services/constants.js", [], function (exports_1, context_1)
 System.register("src/components/slides/todo/todo.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
     "use strict";
 
-    var __extends = this && this.__extends || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() {
-            this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = this && this.__extends || function () {
+        var extendStatics = function (d, b) {
+            extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+                d.__proto__ = b;
+            } || function (d, b) {
+                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+            };
+            return extendStatics(d, b);
+        };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    }();
     var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
         var c = arguments.length,
             r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -61357,8 +63244,8 @@ System.register("src/components/slides/todo/todo.js", ["npm:@angular/core@2.0.0-
             decorator(target, key, paramIndex);
         };
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, slideCommon_1, constants_1, Todo;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -61368,17 +63255,17 @@ System.register("src/components/slides/todo/todo.js", ["npm:@angular/core@2.0.0-
             constants_1 = constants_1_1;
         }],
         execute: function () {
-            Todo = function (_super) {
+            Todo = /** @class */function (_super) {
                 __extends(Todo, _super);
                 function Todo(elt, hostClass) {
-                    _super.call(this, elt, hostClass);
+                    return _super.call(this, elt, hostClass) || this;
                 }
+                Todo = __decorate([core_1.Component({
+                    selector: 'todo',
+                    templateUrl: 'src/components/slides/todo/todo.html'
+                }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Todo);
                 return Todo;
             }(slideCommon_1.SlideCommon);
-            Todo = __decorate([core_1.Component({
-                selector: 'todo',
-                templateUrl: 'src/components/slides/todo/todo.html'
-            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Todo);
             exports_1("Todo", Todo);
         }
     };
