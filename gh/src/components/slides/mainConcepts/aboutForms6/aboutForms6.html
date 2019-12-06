@@ -33,8 +33,8 @@
 		<editortab [alone]="true">
 constructor(fb: FormBuilder){
 		this.myFormGroup = fb.group({
-			'categoryControl': fb.control('', [Validators.required, Validators.minLength(3)]),
-			'detailsControl': fb.control('', Validators.required)
+			'categoryControl': fb.control('', Validators.required ),
+			'detailsControl': fb.control('', [Validators.required, Validators.minLength(150)])
 		});
 	}
 		</editortab>
@@ -42,7 +42,7 @@ constructor(fb: FormBuilder){
 	<li>In a <em>template-driven</em> form, adding a required field in a template-driven form is also really straightforward. you just have to add the  required attribute to the  inputs. required is a provided directive, and will automatically add the validator to this field. Same thing with minlength and maxlength.
 		
 		<editortab [alone]="true" fileType="html" >
-	&lt; input name="details" [(ngModel)]="model.details" required minlength="3" &gt;
+	&lt; input name="details" [(ngModel)]="model.details" required minlength="150" &gt;
 		</editortab>
 	</li>
 </ul>

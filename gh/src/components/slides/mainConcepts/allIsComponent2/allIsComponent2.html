@@ -22,6 +22,11 @@ enum LogLevel {
     INFO, WARN, ERROR
 }        
 
+
+// providedIn: 'root' specifies that Angular should provide the service in the root injector.
+@Injectable({ 
+    providedIn:'root'
+})
 class LoggerService {
 
     info(msg: String): void{
