@@ -53432,7 +53432,7 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
                     (this.viewTabs === undefined ? [] : this.viewTabs.toArray()).concat(this.contentTabs.toArray()).forEach(function (value, index) {
                         if (!_this.ng2 && index === 0) {
                             value.visible = true;
-                        } else if (_this.ng2 && index === 2) {
+                        } else if (_this.ng2 && index === 5) {
                             value.visible = true;
                         } else {
                             value.visible = false;

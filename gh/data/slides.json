@@ -13,10 +13,7 @@
 		{"path": "preamble/webComponents4_2/webComponents4_2"},
 		{"path": "preamble/webComponents4_3/webComponents4_3"},
 		{"path": "preamble/webComponents5/webComponents5"},
-		{"path": "preamble/pW1/pW1"},
-		{"path": "preamble/ngCompare2/ngCompare2"},
-		{"path": "preamble/ngCompare3/ngCompare3"},
-		{"path": "preamble/ngCompare4/ngCompare4"},		
+		{"path": "preamble/pW1/pW1"},	
 		{"path": "ecosystem/esSix1/esSix1"},
 		{"path": "ecosystem/esSix2/esSix2"},
 		{"path": "ecosystem/esSix3/esSix3"},
@@ -163,6 +160,11 @@
 		{"path": "advancedConcepts/e2e/e2e"},
 		{"path": "advancedConcepts/e2e2/e2e2"},
 		{"path": "advancedConcepts/e2e3/e2e3"},
-		{"path": "advancedConcepts/pWE2E/pWE2E"}
+		{"path": "advancedConcepts/pWE2E/pWE2E"},
+		{"path": "preamble/ngCompare/ngCompare"},
+		{"path": "preamble/ngCompare2/ngCompare2"},
+		{"path": "preamble/ngCompare3/ngCompare3"},
+		{"path": "preamble/ngCompare4/ngCompare4"},
+		{"path": "preamble/ngCompare4/ngCompare4"}
 	]
 }
