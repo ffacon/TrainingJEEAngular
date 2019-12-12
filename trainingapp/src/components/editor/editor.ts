@@ -89,7 +89,7 @@ export class Editor implements AfterViewInit {
             if (!this.ng2 && index === 0){
                 value.visible= true;
             }
-			else if (this.ng2 && index === 2) {
+			else if (this.ng2 && index === 5) {
                 value.visible = true;
             }
             else{
