@@ -5,24 +5,78 @@
 
 <ul>
   <li>
-    The protractor install also provides you the <em>webdriver-manager</em> executable
+    Thanks to Angular-cli, protractor can now be run to execute your tests files with the following command
+    <code>ng e2e</code>
   </li>
   <li>
-    <em>webdriver-manager</em> allows you to get and manage the selenium server
-    <ul>
-      <li>
-        <code>webdriver-manager update</code>
-      </li>
-      <li>
-        <code>webdriver-manager start</code>
-      </li>      
-    </ul>
+      To do so <em>ng</em> will first read the file called angular.json to locate the <em>e2e</em> task.
   </li>
   <li>
-    Then protractor can be run to execute your tests files
-    <code>protractor path/to/protractor.conf.js</code>
-  </li>
-  <li>
-    These commands will generally be automatised with your project industrialization tasks
+      By default, This task will use the protractor config file located in <em>/e2e/protractor.conf.js</em>.
   </li>
 </ul>
+
+<editor>
+    <editortab title="angular.json" fileType="js" >
+        ...   
+        "serve": {
+              "builder": "@angular-devkit/build-angular:dev-server",
+              "options": {
+                "browserTarget": "ng2ecom:build",
+                "proxyConfig": "proxy.conf.json" // set a proxyConfig if your use one
+              },
+              "configurations": {
+                "production": { "browserTarget": "ng2ecom:build:production" }
+              }
+        }
+        ...
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "ng2ecom:serve"
+          },
+          "configurations": {
+            "production": { "devServerTarget": "ng2ecom:serve:production"  }
+          }
+        }           
+    </editortab>
+     
+    <editortab title="/e2e/protractor.conf.js" fileType="js" >
+  
+      // @ts-check
+      // Protractor configuration file, see link for more information
+      // https://github.com/angular/protractor/blob/master/lib/config.ts
+      
+      const { SpecReporter } = require('jasmine-spec-reporter');
+      
+      /**
+       * @type { import("protractor").Config }
+       */
+      exports.config = {
+        allScriptsTimeout: 11000,
+        specs: [
+          './src/**/*.e2e-spec.ts'
+        ],
+        capabilities: {
+          browserName: 'chrome'
+        },
+        directConnect: true,
+        baseUrl: 'http://localhost:4200/',
+        framework: 'jasmine',
+        jasmineNodeOpts: {
+          showColors: true,
+          defaultTimeoutInterval: 30000,
+          print: function() {}
+        },
+        onPrepare() {
+          require('ts-node').register({
+            project: require('path').join(__dirname, './tsconfig.json')
+          });
+          jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+        }
+      };
+  
+    </editortab>
+  </editor>
+  
