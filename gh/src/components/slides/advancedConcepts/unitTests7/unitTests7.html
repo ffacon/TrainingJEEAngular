@@ -1,108 +1,63 @@
 <h2 class="standard-title">
-	<span class="title-category">Advanced Concepts</span>
-	Unit Tests - Testing services
-</h2>
-
-<ul>
-  <li>
-    Services are simple classes
-  </li>
-  <li>
-    They eventually benefit of Dependency Injection
-    (through the <em>Injector</em> API)
-  </li>
-  <li>
-    We can then have to <em>provide</em> mocked service, such as
-    <em>Http</em> for instance
-  </li>
-  <li>
-    Pay also attention to the <em>done</em> callback for
-    asynchronous testing
-  </li>
-</ul>
-
-<editor>
-  <editortab title="dataService.ts" fileType="js" >
-import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular2/http';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-
-import {Book, Comment} from '../beans/book';
-
-export interface Data{
-  content: string;
-}
-
-@Injectable()
-export class DataService{
-
-  constructor(private http: Http){}
-
-  getData= (): Observable&lt;Data&gt; => {
-
-    return this.http.get('/data.json')
-      .map((response: Response) => {
-        let data: Data = &lt;Data&gt; response.json();
-        return data;
-      });
-  }
-
-}
-  </editortab>
-  <editortab title="dataService.spec.ts" fileType="js">
-import {Injector} from '@angular/core';
-
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-
-import {Http, Response, ResponseOptions} from 'angular2/http';
-
-import {Data, DataService} from './dataService';
-
-
-export function main(){
-
-  describe('DataService', () => {
-
-    let parentInjector: Injector;
-    let dataService: DataService;
-    let data: Data;
-    let response: Response;
-
+    <span class="title-category">Advanced Concepts</span>
+    Unit Tests - Testing Components
+  </h2>
+  
+  <p>
+    To test a component, you will need the <em>TestBed</em> utility
+  </p>
+  
+  <ul>
+    <li>
+      First import needed libs:
+      <editortab [alone]="true">
+  import { ComponentFixture, TestBed } from '@angular/core/testing';
+  import { By }              from '@angular/platform-browser';
+  import { DebugElement }    from '@angular/core';
+  
+  import { PersonComponent } from './custom.component';      
+      </editortab>
+    </li>
+    <li>
+      Then, before each of your tests, create a mocked module
+      <editortab [alone]="true">
+  describe('PersonComponent', () => {
+    
+    let cmp: BannerComponent;
+    let fixture: ComponentFixture&lt;PersonComponent&gt;;
+    let de: DebugElement;
+    let el: HTMLElement;
+  
     beforeEach(() => {
-
-      data = { content:'some content' };
-      response = new Response(new ResponseOptions({ body: JSON.stringify(data) }));
-
-      parentInjector = Injector.resolveAndCreate([
-        DataService,
-        {
-          provide: Http,
-          useValue: {
-            get: function() {
-              return Observable.of(response);
-            }
-          }
-        }
-      ]);
-
-      dataService = parentInjector.get(DataService);
-    });
-
-
-    it('getData', (done:any) => {
-
-      dataService.getData()
-      .subscribe((currentData: Data) => {
-        expect(currentData).toEqual(data);
-        done();
+      TestBed.configureTestingModule({
+        declarations: [ PersonComponent ] // declare the test component
       });
-
+  
+      fixture = TestBed.createComponent(CustomComponent);
+      cmp = fixture.componentInstance; // BannerComponent test instance
+  
+      // query for the name id by CSS element selector
+      de = fixture.debugElement.query(By.css('#name'));
+      el = de.nativeElement;
+  
     });
-
+    ...
+      </editortab>
+    </li>
+    <li>
+      Finally, write your tests content
+      <editortab [alone]="true">
+  it('Should display the needed name', () => {
+    const name= 'John';
+    cmp.name = name;
+    fixture.detectChanges();
+    expect(el.textContent).toContain(name);
   });
-
-}
-  </editortab>
-</editor>
+      </editortab>
+    </li>
+    <li>
+      And you're done. You can use <em>providers</em> as well into your <em>configureTestingModule</em>
+      if your component depends on services, and sure you can then provide a mocked service easily
+    </li>
+  </ul>
+  

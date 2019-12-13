@@ -1,133 +1,104 @@
 <h2 class="standard-title">
-	<span class="title-category">Advanced Concepts</span>
-	Unit Tests - Jasmine and typescript
-</h2>
-
-<p>
-	Once we have something working in pure js, 
-  how to make it work with <em>typescript</em>?
-</p>
-<ul>
-  <li>
-    What the point? Isn't typescript compiled in js?
-	</li>
-	<li>
-		Yes, but modules are imported asynchronously, we just
-    have to call the <em>window.onload</em> after modules
-    are loaded to tell jasmine to work
-	</li>
-  <li class="warning">
-    Don't work on plunker for now (but works locally)
-  </li>
-</ul>
-
-
-<editor [plunker]="true">
-	<editortab title="index.html" fileType="html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-
-  &lt;head&gt;
-  &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
-  &lt;title&gt;Ng App Unit Tests&lt;/title&gt;
-  &lt;link rel="stylesheet" href="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine.css"&gt;
-  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine.js"&gt;&lt;/script&gt;
-  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine-html.js"&gt;&lt;/script&gt;
-  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/boot.js"&gt;&lt;/script&gt;
-  &lt;script src="https://code.angularjs.org/tools/system.js"&gt;&lt;/script&gt;
-
-    &lt;!-- 2. Configure SystemJS --&gt;
-    &lt;script&gt;
-      System.config({
-        defaultJSExtensions: true
-      });
-
-      System.import('tests/test')
-            .then(window.onload);
-    &lt;/script&gt;
-
-  &lt;/head&gt;
-
-  &lt;body&gt; &lt;/body&gt;
-
-&lt;/html&gt;    
-	</editortab>
-	<editortab title="tests/lib.ts" fileType="js">
-interface OutputItf {
-  log: { (val: string): void }
-}
-
-export class LogService {
-
-  constructor(private output: OutputItf){}
-
-
-  private logDebug(msg:string) {
-    this.output.log('[DEBUG] ' + msg);
-  }
-
-  private logInfo(msg: string) {
-    this.output.log('[INFO] ' + msg);
-  }
-
-  private logWarn(msg: string) {
-    this.output.log('[WARN] ' + msg);
-  }
-
-  private logError(msg: string) {
-    this.output.log('[ERROR] ' + msg);
-  }
-
-
-  log(logLevel: string, msg: string) {
-
-    switch (logLevel) {
-      case 'DEBUG':
-        this.logDebug(msg);
-        break;
-      case 'INFO':
-        this.logInfo(msg);
-        break;
-      case 'WARN':
-        this.logWarn(msg);
-        break;
-      case 'ERROR':
-        this.logError(msg);
-        break;
-      default:
-        this.logInfo(msg);
-        break;
-    }
-
-  }
-
-}
-	</editortab>
-	<editortab title="tests/test.ts" fileType="js">
-
-import {LogService} from './lib';
-
-describe('logService', function() {
-
-  var service: LogService;
-
-  beforeEach(function() {
-
-        spyOn(window.console, 'log').and.callThrough();
-        service = new LogService(window.console);
-
-  });
-
-
-  it('Check log service -> ERROR ', function() {
-
-        var expected = '[ERROR] An error occured';
-        service.log('ERROR', 'An error occured');
-
-        expect(console.log).toHaveBeenCalledWith(expected);
-  });
-
-});
-
-	</editortab>	
-</editor>
+    <span class="title-category">Advanced Concepts</span>
+    Unit Tests - Jasmine and typescript... and karma... and Angular!
+  </h2>
+  
+  
+  <ul>
+    <li>
+      <em>Karma</em> is a javascript test runner
+    </li>
+    <li>
+      Basically, it is in charge to run specified files 
+      on specified browsers
+    </li>
+    <li>
+      In order to use karma and jasmine in our project, we have already install a few libraries through npm install:
+      <ul>
+        <li>jasmine-core</li>
+        <li>karma</li>
+        <li>karma-jasmine</li>
+        <li>karma-chrome-launcher (to make your tests with chrome)</li>
+      </ul>
+    </li>
+    <li>
+      Angular-Cli ease the use of <em>Karma</em> by adding some configuration files.
+    </li>
+    <li>
+        To run unit tests and to generate code coverage report use
+        <code>ng test --codeCoverage=true</code>
+    </li>
+    <li>
+        If you want to debug yout unit tests try
+        <code>ng test --browsers Chrome_with_debugging</code>
+    </li>
+  </ul>
+  
+  
+  <editor>
+    <editortab title="angular.json" fileType="js" >
+  ...
+  "test": {
+      "builder": "@angular-devkit/build-angular:karma",
+      "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+  },
+  ...
+  
+    </editortab>
+    <editortab title="Karma.conf.js" fileType="js">
+        // Karma configuration file, see link for more information
+        // https://karma-runner.github.io/1.0/config/configuration-file.html
+        
+        module.exports = function (config) {
+          config.set({
+            basePath: '',
+            frameworks: ['jasmine', '@angular-devkit/build-angular'],
+            plugins: [
+              require('karma-jasmine'),
+              require('karma-chrome-launcher'),
+              require('karma-jasmine-html-reporter'),
+              require('karma-coverage-istanbul-reporter'),
+              require('@angular-devkit/build-angular/plugins/karma')
+            ],
+            client: {
+              clearContext: false // leave Jasmine Spec Runner output visible in browser
+            },
+            coverageIstanbulReporter: {
+              dir: require('path').join(__dirname, './coverage/ng2ecom'),
+              reports: ['html', 'lcovonly', 'text-summary'],
+              fixWebpackSourcePaths: true
+            },
+            reporters: ['progress', 'kjhtml'],
+            port: 9876,
+            colors: true,
+            logLevel: config.LOG_INFO,
+            autoWatch: true,
+            browsers: ['Chrome','Chrome_with_debugging'],
+            singleRun: false,
+            restartOnFileChange: true,
+            customLaunchers: {
+              Chrome_with_debugging: {
+                base: 'Chrome',
+                flags: ['--remote-debugging-port=9222'],
+                debug: true
+           }}
+            
+          });
+        };
+    </editortab>
+  
+  </editor>
+  
