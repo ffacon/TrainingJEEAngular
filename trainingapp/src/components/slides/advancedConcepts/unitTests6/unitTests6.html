@@ -1,60 +1,101 @@
 <h2 class="standard-title">
-	<span class="title-category">Advanced Concepts</span>
-	Unit Tests - Testing pipes
-</h2>
+    <span class="title-category">Advanced Concepts</span>
+    Unit Tests - Testing services
+  </h2>
+  
+  <ul>
+    <li>
+      Let's test our BooksService
+    </li>
+  </ul>
+  
+  <editor>
+    <editortab title="books.service.spec.ts part1" fileType="js" >
+        /* tslint:disable:no-unused-variable */
 
-<p>
-  Finally, we have to write our tests
-</p>
-
-<ul>
-  <li>
-    First question, Where? 
-    Basically where you want, but put the unit tests files
-    just next to the files to test makes sense ( easier to find, 
-    remember to update, move them together... )
-  </li>
-  <li>
-    Below is a first example to test a pipe
-  </li>
-  <li>
-    The <em>main</em> method is not a <em>jasmine</em>/<em>karma</em>
-    constraint, it's our own convention
-  </li>
-</ul>
-
-<editor>
-  <editortab title="identityPipe.ts" fileType="js" >
-import {Pipe, PipeTransform} from '@angular/core';
-
-@Pipe({name:'identity'})
-export class IdentityPipe implements PipeTransform{
-
-  constructor(){}
-
-  transform(input: any, args: any){
-    return input;
-  }
-
-}
-  </editortab>
-  <editortab title="identityPipe.spec.ts" fileType="js">
-import {IdentityPipe} from './identityPipe';
-
-export function main() {
-
-  describe('UpdateDataPipe', function() {
-
-    it('Update data', function() {
-      let pipe = new IdentityPipe();
-      let data: string = 'data content';
-      let result: string= pipe.transform(data, []);
-
-      expect(result).toEqual(data);
-    });
-
-  });
-
-}
-  </editortab>
-</editor>
+        import { TestBed, async, inject } from '@angular/core/testing';
+        import { BooksService } from './books.service';
+        import { HttpClientModule, HttpClient } from '@angular/common/http';
+        import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+        import { Book } from '../beans/book';
+        import { RouterTestingModule } from '@angular/router/testing';
+        
+        describe('BooksService', () => {
+          let bookService: BooksService;
+          let httpClient: HttpClient;
+          let httpTestingController: HttpTestingController;
+        
+          beforeEach(() => {
+            TestBed.configureTestingModule({
+              imports: [RouterTestingModule, HttpClientTestingModule, HttpClientModule ],
+               providers: [
+                {provide: BooksService, useClass: BooksService},
+              ]
+            });
+            httpClient = TestBed.get(HttpClient);
+            httpTestingController = TestBed.get(HttpTestingController);
+            bookService = TestBed.get(BooksService);
+          });
+        
+          afterEach(() => {
+            httpTestingController.verify();
+          });
+        
+          it('should be created', inject([BooksService], (service: BooksService) => {
+            expect(service).toBeTruthy();
+          }));
+                        
+    </editortab>
+    <editortab title="books.service.spec.ts part2" fileType="js">
+        describe('# getRatingClass ', () => {
+          let expectedBook: Book[];
+          beforeEach(() => {
+            bookService = TestBed.get(BooksService);
+            expectedBook = [
+              {id: 0, name: 'angular', author: 'lui', price: 30, description: ' qqch ..', category: 'info', isNew: false,
+              comments: [{rate: 4, user: 'titi', comment: 'no comment'}], rating: 3
+              },
+              {
+                id: 1, name: 'node Js', author: 'phillipe', price: 43, description: ' good book', category: 'info', isNew: true,
+                comments: [{rate: 2, user: 'yassine', comment: ' magnifique livre'},
+                          {rate: 5, user: 'sylvain', comment: 'very good'},
+                          {rate: 5, user: 'françois', comment: 'très bon livre'}]
+              }
+            ] as Book[];
+          });
+          it('sould return \'rating 3\', with convertFromRating ', () => {
+            const expectedRating = bookService.getRatingClass(expectedBook[0]);
+            expect(expectedRating).toEqual('rating three');
+          });
+          it('sould return \'rating 4\', with getRatingAverage ', () => {
+            const expectedRating = bookService.getRatingClass(expectedBook[1]);
+            expect(expectedRating).toEqual('rating four');
+          });
+        });
+    </editortab>
+    <editortab title="books.service.spec.ts part3" fileType="js">
+        describe('# getBook ', () => {
+          let expectedBook: Book[];
+          const url = '/data/books.json';
+          beforeEach(() => {
+            bookService = TestBed.get(BooksService);
+            expectedBook = [
+                          {id: 0, name: 'angular', author: 'joe', price: 30, description: ' qqch ..', category: 'info', isNew: false,
+                          comments: [{rate: 3, user: 'alfred', comment: 'no comment'}], rating: 3}
+                        ] as Book[];
+          });
+          it('should return expectd book by id', () => {
+            bookService.getBook(expectedBook[0].id).subscribe(
+              book => expect(book).toEqual(expectedBook[0]),
+              fail
+            );
+            const req = httpTestingController.expectOne(url);
+            expect(req.request.method).toEqual('GET');
+      
+            req.flush(expectedBook);
+          });
+      
+        });
+    </editortab>
+  </editor>
+  

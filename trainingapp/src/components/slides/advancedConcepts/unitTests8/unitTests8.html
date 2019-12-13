@@ -1,62 +1,176 @@
 <h2 class="standard-title">
-	<span class="title-category">Advanced Concepts</span>
-	Unit Tests - Testing Components
+  <span class="title-category">Advanced Concepts</span>
+  Unit Tests - Testing services
 </h2>
-
-<p>
-  To test a component, you will need the <em>TestBed</em> utility
-</p>
 
 <ul>
   <li>
-    First import needed libs:
-    <editortab [alone]="true">
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By }              from '@angular/platform-browser';
-import { DebugElement }    from '@angular/core';
-
-import { PersonComponent } from './custom.component';      
-    </editortab>
-  </li>
-  <li>
-    Then, before each of your tests, create a mocked module
-    <editortab [alone]="true">
-describe('PersonComponent', () => {
-  
-  let cmp: BannerComponent;
-  let fixture: ComponentFixture&lt;PersonComponent&gt;;
-  let de: DebugElement;
-  let el: HTMLElement;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PersonComponent ] // declare the test component
-    });
-
-    fixture = TestBed.createComponent(CustomComponent);
-    cmp = fixture.componentInstance; // BannerComponent test instance
-
-    // query for the name id by CSS element selector
-    de = fixture.debugElement.query(By.css('#name'));
-    el = de.nativeElement;
-
-  });
-  ...
-    </editortab>
-  </li>
-  <li>
-    Finally, write your tests content
-    <editortab [alone]="true">
-it('Should display the needed name', () => {
-  const name= 'John';
-  cmp.name = name;
-  fixture.detectChanges();
-  expect(el.textContent).toContain(name);
-});
-    </editortab>
-  </li>
-  <li>
-    And you're done. You can use <em>providers</em> as well into your <em>configureTestingModule</em>
-    if your component depends on services, and sure you can then provide a mocked service easily
+    Let's test our BooksDetail component
   </li>
 </ul>
+
+<editor>
+  <editortab title="src/app/test/mocks/books.service.ts" fileType="js" >
+import { BooksService } from '../../services/books.service';
+import { asyncData } from './async-observable-helper';
+import { Book } from '../../beans/book';
+import { SpyObject } from './spy.obj';
+
+
+export class MockBooksService {
+getBooksSpy: any;
+getBookSpy: any;
+getRatingAverageSpy: any;
+convertFromRatingSpy: any;
+getRatingClassSpy: any;
+fakeResponse: any;
+public mockService: any;
+
+fakeBook = { id : 12, name: 'Devenez un ninja avec Angular', author: 'Ninja-Squad',
+             price: 1, description: 'Devenir un Ninja avec Angular',
+             category: 'book', isNew: false,
+             comments: [ { rate: 5, user: 'François', comment: 'Must Read' } ]
+  };
+
+fakeBook3 = { id: 3, name: 'Instant AngularJS Starter', author: 'Dan Menard',
+              price: 16.26, description: 'Description...',
+              category: 'book', isNew: false,
+              comments: null
+  };
+
+fakeBooks: Book[];
+
+constructor() {
+  this.fakeResponse = null;
+  this.fakeBooks = new Array[2];
+  this.fakeBooks.push(this.fakeBook);
+  this.fakeBooks.push(this.fakeBook3);
+
+  this.mockService = this.createSpyObj();
+  }
+
+  private createSpyObj(): any {
+     return jasmine.createSpyObj('bookService', ['getBooks',
+                                                 'getBook',
+                                                 'getRatingAverage',
+                                                 'convertFromRating',
+                                                 'getRatingClass']);
+  }
+
+  public createAsyncDataSet200() {
+    this.getBooksSpy = this.mockService.getBooks.and.returnValue(asyncData(this.fakeBooks));
+    this.getBookSpy = this.mockService.getBook.and.returnValue(asyncData(this.fakeBook));
+    this.getRatingAverageSpy = this.mockService.getRatingAverage.and.returnValue(this);
+    this.convertFromRatingSpy = this.mockService.convertFromRating.and.returnValue(this);
+    this.getRatingClassSpy = this.mockService.getRatingClass.and.returnValue(this);
+  }
+
+
+  subscribe(callback: any) {
+    callback(this.fakeResponse);
+  }
+
+  setResponse(json: any): void {
+    this.fakeResponse = json;
+  }
+
+  getProviders()  {
+   return [{ provide: BooksService, useValue: this }];
+  }
+}
+        
+  </editortab>
+  <editortab title="book-details.component.spec.ts part1" fileType="js">
+    import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+    import { By } from '@angular/platform-browser';
+    import { DebugElement } from '@angular/core';
+    import { ActivatedRoute, Router } from '@angular/router';
+    import { BookDetailsComponent } from './book-details.component';
+    
+    import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+    import { RouterTestingModule } from '@angular/router/testing';
+    
+    import { MockRouter, MockActivatedRoute } from '../test/mocks/route';
+    import { ActivatedRouteStub } from '../test/mocks/activated-route-stub';
+    
+    import { NewsService } from '../services/news.service';
+    import { UserService } from '../services/user.service';
+    import { BooksService } from '../services/books.service';
+    import { LocalStorageService } from '../services/local-Storage.service';
+    import { Book } from '../beans/book';
+    
+    import { HttpClientModule } from '@angular/common/http';
+    import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+    import { MockBooksService } from '../test/mocks/books.service';
+    import { asyncData } from '../test/mocks/async-observable-helper';
+    import { BuyZoneComponent } from '../buy-zone/buy-zone.component';
+    
+    describe('BookDetailsComponent', () => {
+      let component: BookDetailsComponent;
+      let de: DebugElement;
+      let el: HTMLElement;
+      let expectedbook: Book;
+    
+      let mockUserService: UserService;
+      let mockBooksService: MockBooksService;
+      let activatedRoute: ActivatedRouteStub;
+    
+      function createRouterSpy() {
+        return jasmine.createSpyObj('Router', ['navigate']);
+      }
+      function createUserServiceSpy() {
+        return jasmine.createSpyObj('UserService', ['login']);
+      }
+    
+    
+      beforeEach(async(() => {
+    
+        mockUserService = createUserServiceSpy();
+        mockBooksService = new MockBooksService();
+        mockBooksService.createAsyncDataSet200();
+        activatedRoute = new ActivatedRouteStub({id: 12});
+        const routerSpy = createRouterSpy();
+    
+        TestBed.configureTestingModule({
+          declarations: [ BookDetailsComponent,
+                          BuyZoneComponent ],
+          imports: [ FormsModule, ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule, HttpClientModule ],
+          providers: [
+            {provide: UserService, useValue: mockUserService},
+            {provide: BooksService, useValue: mockBooksService.mockService},
+            {provide: ActivatedRoute, useValue: activatedRoute},
+            {provide: Router, useValue: routerSpy}
+          ]
+        })
+        .compileComponents();
+      }));
+    
+    });
+    
+  </editortab>
+  <editortab title="books.service.spec.ts part2" fileType="js">
+      
+    beforeEach(fakeAsync(() => {
+      mockBooksService.createAsyncDataSet200();
+      fixture = TestBed.createComponent(BookDetailsComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    }));
+  
+    it('should create', fakeAsync(() => {
+      fixture.detectChanges();
+      expect(component).toBeTruthy();
+    }));
+  
+    it('should display the proprety of book ', fakeAsync(() => {
+      console.log(component.book);
+      mockBooksService.createAsyncDataSet200();
+      fixture.detectChanges();
+      de = fixture.debugElement.query(By.css('.hproduct'));
+      el = de.nativeElement;
+      const expectedText = el.querySelector('h3').textContent;
+      expect(expectedText).toContain('Devenez un ninja avec Angular');
+      expect(component.book.price).toEqual(1);
+    }));
+  </editortab>
+</editor>
