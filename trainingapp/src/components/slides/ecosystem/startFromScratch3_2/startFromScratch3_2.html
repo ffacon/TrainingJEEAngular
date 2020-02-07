@@ -1,29 +1,34 @@
 <h2 class="standard-title">
     <span class="title-category">Ecosystem</span>
-    Start From Scratch - transpilation
+    Start From Scratch - Install NVM
 </h2>
 
 <p>
-    If you use <em>ES6</em>, you still need to transpile it to <em>ES5</em>.
-    Again, you have the possibility to transpile it at runtime (then slower at runtime)
-    or before. Two solutions:
+    If you need to switch between different applications and projects on a regular basis, you may need to install <em>NVM</em> in order to run different versions of Node. 
 </p>
+<br>
 <ul>
     <li> 
-        <a href="https://github.com/babel/babel" target="_blank"><em>Babel</em></a> :
-        The most used and most complete actually 
+        Installation is as simple as downloading the NVM for Windows installer from the latest release on GitHub. 
+        At the time of writing, <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank"><em>1.1.7</em></a> is the latest release. 
     </li>
+    <br>
     <li> 
-        <a href="https://github.com/google/traceur-compiler" target="_blank">
-        <em>Google Traceur</em></a>: Which works also fine 
+        Extact the Windows Installer from the nvm-setup.zip and launch it. (This may require a restart in order to use the nvm form commandline)
     </li>
+    <br>
+    <li> Use <code>nvm list available</code> to list the Node versions available to be installed
+    </li>
+    <br>
+    <li> Use <code>nvm install 12.13.1</code> to install the required Node version.
+    </li>
+    <br>
+    <li> Use <code>nvm use 12.13.1</code> to activate the version that was just installed
+    </li>
+    <br>
+    <li> Use <code>nvm List</code> to confirme that the correct version of Node was installed and activated 
+    
 </ul>
-
-<p>
-    If you use <em>typescript</em> and transpile to <em>ES6</em>, then:
+<br>
+<p>  See more details about usage of  <a href="https://blog.logrocket.com/switching-between-node-versions-during-development/"> NVM tools</a>.
 </p>
-<ul>
-    <li>Be sure to have a good reason to do that</li>
-    <li>Refer to the previous point to transpile from <em>ES6</em> to <em>ES5</em></li>
-</ul>
-
