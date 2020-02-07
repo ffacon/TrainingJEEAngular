@@ -19,7 +19,7 @@
     </li>
 </ul>
 <editor>
-    <editortab   fileType="js" title="book.services.ts" >
+  <editortab   fileType="js" title="book.services.ts" >
 import {Injectable, Inject} from '@angular/core';
 
 import {Http, Response} from '@angular/http';
@@ -63,43 +63,25 @@ export class BooksService{
 }
 
     </editortab>
-    <editortab [alone]="true" fileType="js" title="book-details">
-
+    <editortab [alone]="true" fileType="js" title="books">
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../services/user.service';
-import {BooksService} from '../services/books.service';
-import {Book} from '../beans/book';
-import { ActivatedRoute  }  from '@angular/router';
-            
+import { BooksService } from '../services/books.service';
+import { Book } from '../beans/book';
+
 @Component({
-           selector: 'app-book-details',
-           templateUrl: './book-details.component.html',
-           styleUrls: ['./book-details.component.css']
+           selector: 'app-books',
+           templateUrl: './books.component.html',
+           styleUrls: ['./books.component.css']
 })
-export class BookDetailsComponent implements OnInit {
+export class BooksComponent implements OnInit {
             
-    public book: Book;
-    private sub: any;
-    private bookId :number;
-            
-    constructor(
-                    private route: ActivatedRoute,
-                    public bookService: BooksService,
-                    public userService: UserService){}
+    public books: Book[];
+    constructor(public bookService: BooksService){}
             
     ngOnInit(): void {
-                    this.sub = this.route.params.subscribe( params => {
-                    this.bookId = +params['id']; 
-                   
-                    this.bookService.getBook(this.bookId)
-                    // An HttpClient method does not begin its HTTP request 
-                    // until you call subscribe() on the observable returned by that method.
-                    .subscribe((book: Book) => {
-                        this.book = book;
-                    });
-                });
-    }
-                     
-}
-    </editortab>    
+        // An xhr call  does not begin its HTTP request until you call subscribe().
+        this.bookService.getBooks().subscribe((books: Book[]) => { this.books = books; });
+    });
+}                     
+  </editortab>    
 </editor>

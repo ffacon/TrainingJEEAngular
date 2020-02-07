@@ -40,9 +40,8 @@ private user: User;
     
     private storeKey = 'ecItems';
 
-constructor(
-        @Inject(HttpClient) private http: HttpClient,
-        @Inject(LocalStorageService) private localStorage: LocalStorageService
+constructor( private http: HttpClient,
+             private localStorage: LocalStorageService
     ){}
 
     ...        

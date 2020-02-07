@@ -6,3 +6,4 @@ trainingapp/**/*.js
 trainingapp/**/*.js.map
 trainingapp/jspm_packages
 dist
+package-lock.json
